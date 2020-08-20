@@ -13,44 +13,43 @@
         <scene sceneID="2Hd-QG-zDe">
             <objects>
                 <collectionViewController id="aXR-ki-Y1T" customClass="PokedexController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="o8X-Ks-bGt">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="qrh-vw-Ln5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Dny-hF-EeR">
-                            <size key="itemSize" width="144" height="139"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xdQ-ro-WaR">
+                            <size key="itemSize" width="68" height="63"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeCell" id="FQF-Qo-Jov">
-                                <rect key="frame" x="0.0" y="0.0" width="144" height="139"/>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PokeCell" id="oE2-h0-krM" customClass="PokeCell" customModule="PokenDex" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="68" height="63"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="144" height="139"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="68" height="63"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Phl-6t-QW9">
-                                            <rect key="frame" x="51" y="59" width="42" height="21"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uBR-8O-wyg">
+                                            <rect key="frame" x="13" y="21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </view>
-                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Phl-6t-QW9" secondAttribute="trailing" constant="51" id="JTY-rC-0WP"/>
-                                    <constraint firstItem="Phl-6t-QW9" firstAttribute="leading" secondItem="FQF-Qo-Jov" secondAttribute="leading" constant="51" id="rIy-0W-7XY"/>
-                                    <constraint firstAttribute="bottom" secondItem="Phl-6t-QW9" secondAttribute="bottom" constant="59" id="sxK-Re-WX3"/>
-                                    <constraint firstItem="Phl-6t-QW9" firstAttribute="top" secondItem="FQF-Qo-Jov" secondAttribute="top" constant="59" id="vX8-YE-viT"/>
+                                    <constraint firstAttribute="bottom" secondItem="uBR-8O-wyg" secondAttribute="bottom" constant="21" id="2us-oN-66L"/>
+                                    <constraint firstItem="uBR-8O-wyg" firstAttribute="top" secondItem="oE2-h0-krM" secondAttribute="top" constant="21" id="I5p-dn-kzV"/>
+                                    <constraint firstItem="uBR-8O-wyg" firstAttribute="leading" secondItem="oE2-h0-krM" secondAttribute="leading" constant="13" id="dLB-tc-ZVw"/>
+                                    <constraint firstAttribute="trailing" secondItem="uBR-8O-wyg" secondAttribute="trailing" constant="13" id="y7e-S5-X2V"/>
                                 </constraints>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="aXR-ki-Y1T" id="UKl-Fn-R2O"/>
-                            <outlet property="delegate" destination="aXR-ki-Y1T" id="l9k-T5-zVg"/>
+                            <outlet property="dataSource" destination="aXR-ki-Y1T" id="gPW-hb-TbS"/>
+                            <outlet property="delegate" destination="aXR-ki-Y1T" id="G5V-tR-ZVf"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" title="PokenDex" id="gBY-Hz-lqM">
