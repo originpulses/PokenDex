@@ -40,7 +40,7 @@ enum Pokemon: String {
         case .Butterfree:
             return "12"
         }
-}
+    }
         
     var description: String {
         
@@ -252,4 +252,63 @@ enum Pokemon: String {
         }
     }
     
+    var evolutionOneImage: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "2"
+        case .Ivysaur:
+            return "1"
+        case .Venusaur:
+            return "1"
+        case .Charmandar:
+            return "5"
+        case .Charmeleon:
+            return "4"
+        case .Charizard:
+            return "4"
+        case .Squirtle:
+            return "8"
+        case .Wartortle:
+            return "7"
+        case .Blastoise:
+            return "7"
+        case .Caterpie :
+            return "11"
+        case .Metapod:
+            return "10"
+        case .Butterfree:
+            return "10"
+        }
+    }
+    
+    var evolutionTwoImage: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "3"
+        case .Ivysaur:
+            return "3"
+        case .Venusaur:
+            return "2"
+        case .Charmandar:
+            return "6"
+        case .Charmeleon:
+            return "6"
+        case .Charizard:
+            return "5"
+        case .Squirtle:
+            return "9"
+        case .Wartortle:
+            return "9"
+        case .Blastoise:
+            return "8"
+        case .Caterpie :
+            return "12"
+        case .Metapod:
+            return "12"
+        case .Butterfree:
+            return "11"
+        }
+    }
 }

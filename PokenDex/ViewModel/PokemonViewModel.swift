@@ -32,7 +32,7 @@ struct PokemonViewModel {
         pokemons.append(Pokemon.Butterfree)
     }
     
-    func getPokemon(byIndex index: Int) -> (title: String, description: String, image: UIImage?, id: String, type: String, attack: String, defense: String, height: String, weight: String) {
+    func getPokemon(byIndex index: Int) -> (title: String, description: String, image: UIImage?, id: String, type: String, attack: String, defense: String, height: String, weight: String, evolutionOne: UIImage?, evolutionTwo: UIImage?) {
         
         let title = pokemons[index].rawValue
         let description = pokemons[index].description
@@ -43,7 +43,9 @@ struct PokemonViewModel {
         let defense = pokemons[index].defense
         let height = pokemons[index].height
         let weight = pokemons[index].weight
+        let evolutionOne = UIImage(named: pokemons[index].evolutionOneImage)
+        let evolutionTwo = UIImage(named: pokemons[index].evolutionTwoImage)
         
-        return (title, description, image, id, type, attack, defense, height, weight)
+        return (title, description, image, id, type, attack, defense, height, weight, evolutionOne, evolutionTwo)
     }
 }

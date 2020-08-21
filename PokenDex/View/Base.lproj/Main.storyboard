@@ -58,6 +58,9 @@
                                         <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="j8L-5l-bM7" kind="show" id="fqW-jI-Cmq"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -77,16 +80,16 @@
             </objects>
             <point key="canvasLocation" x="3538.125" y="29.577464788732396"/>
         </scene>
-        <!--View Controller-->
+        <!--Pokemon-->
         <scene sceneID="QmD-sb-j31">
             <objects>
-                <viewController id="j8L-5l-bM7" sceneMemberID="viewController">
+                <viewController id="j8L-5l-bM7" customClass="PokemonViewController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hmg-9d-VQf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleAspectFit" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fnE-49-I4i">
-                                <rect key="frame" x="10" y="50" width="300" height="100"/>
+                                <rect key="frame" x="10" y="94" width="300" height="100"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NHd-C7-zmD">
                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
@@ -107,7 +110,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Evolution" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="crv-2M-1BC">
-                                <rect key="frame" x="10" y="330.5" width="300" height="29.5"/>
+                                <rect key="frame" x="10" y="374.5" width="300" height="0.0"/>
                                 <color key="backgroundColor" red="0.90980392160000001" green="0.29803921570000003" blue="0.23529411759999999" alpha="0.84999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -119,18 +122,18 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="YCm-PE-Q7u">
-                                <rect key="frame" x="10" y="410" width="300" height="120"/>
+                                <rect key="frame" x="10" y="424.5" width="300" height="12.5"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K1k-pl-4en">
-                                        <rect key="frame" x="0.0" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="120" height="12.5"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vba-iQ-fir">
-                                        <rect key="frame" x="180" y="0.0" width="120" height="120"/>
+                                        <rect key="frame" x="180" y="0.0" width="120" height="12.5"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="hVb-am-WSC">
-                                <rect key="frame" x="10" y="185" width="300" height="95.5"/>
+                                <rect key="frame" x="10" y="229" width="300" height="95.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="iY7-RJ-sHe">
                                         <rect key="frame" x="0.0" y="0.0" width="300" height="20.5"/>
@@ -204,6 +207,19 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="tb0-92-xhU"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Pokemon" id="BNq-Br-fCJ"/>
+                    <connections>
+                        <outlet property="evolutionOne" destination="K1k-pl-4en" id="dyg-M4-VLi"/>
+                        <outlet property="evolutionTwo" destination="Vba-iQ-fir" id="Lxj-PS-3FB"/>
+                        <outlet property="pokemonAttack" destination="2W9-fY-knt" id="e1p-zd-9cL"/>
+                        <outlet property="pokemonDefense" destination="You-QS-f8L" id="xjW-fb-dgj"/>
+                        <outlet property="pokemonDescription" destination="Xk0-iC-LPs" id="o2f-iW-G8g"/>
+                        <outlet property="pokemonHeight" destination="2hB-aa-UrR" id="2po-nK-fe4"/>
+                        <outlet property="pokemonID" destination="5EG-cz-5rb" id="BDn-LK-jN4"/>
+                        <outlet property="pokemonImage" destination="NHd-C7-zmD" id="I6M-LT-PT8"/>
+                        <outlet property="pokemonType" destination="Y5S-jC-KX3" id="nbE-ed-yjb"/>
+                        <outlet property="pokemonWeight" destination="TMO-aG-60V" id="nUI-w8-FlZ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i0B-pw-Pa0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,6 +251,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" id="whe-Ym-9MT">
                         <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" red="0.90980392160000001" green="0.29803921570000003" blue="0.23529411759999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>

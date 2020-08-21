@@ -17,6 +17,7 @@
 		6269AEBA24CBD26C00D76DCD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6269AEB824CBD26C00D76DCD /* LaunchScreen.storyboard */; };
 		6269AEC524CBD26C00D76DCD /* PokenDexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269AEC424CBD26C00D76DCD /* PokenDexTests.swift */; };
 		6269AED024CBD26C00D76DCD /* PokenDexUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6269AECF24CBD26C00D76DCD /* PokenDexUITests.swift */; };
+		62F4C93D24EF7F2A00000406 /* PokemonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		6269AECB24CBD26C00D76DCD /* PokenDexUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokenDexUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6269AECF24CBD26C00D76DCD /* PokenDexUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokenDexUITests.swift; sourceTree = "<group>"; };
 		6269AED124CBD26C00D76DCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				623E506224EE0691004678DD /* PokedexController.swift */,
 				6266324024EEAB2F00DBD30A /* PokemonViewModel.swift */,
+				62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 			files = (
 				6269AEAD24CBD26A00D76DCD /* AppDelegate.swift in Sources */,
 				6266324124EEAB2F00DBD30A /* PokemonViewModel.swift in Sources */,
+				62F4C93D24EF7F2A00000406 /* PokemonViewController.swift in Sources */,
 				6266323E24EE946F00DBD30A /* Pokemon.swift in Sources */,
 				623E506324EE0691004678DD /* PokedexController.swift in Sources */,
 				6269AEB524CBD26A00D76DCD /* PokenDex.xcdatamodeld in Sources */,

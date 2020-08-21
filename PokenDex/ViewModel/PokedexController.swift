@@ -38,4 +38,5 @@ class PokedexController: UICollectionViewController {
         let imageView = cell.viewWithTag(1000) as? UIImageView
         let pokemonTitle = cell.viewWithTag(1001) as? UILabel
     }
+    
 }
