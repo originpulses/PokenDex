@@ -17,6 +17,10 @@ struct PokemonViewModel {
         return pokemons.count
     }
     
+    init() {
+        loadPokemon()
+    }
+    
     private mutating func loadPokemon() {
         pokemons.append(Pokemon.Bulbasaur)
         pokemons.append(Pokemon.Ivysaur)
@@ -32,7 +36,7 @@ struct PokemonViewModel {
         pokemons.append(Pokemon.Butterfree)
     }
     
-    func getPokemon(byIndex index: Int) -> (title: String, description: String, image: UIImage?, id: String, type: String, attack: String, defense: String, height: String, weight: String, evolutionOne: UIImage?, evolutionTwo: UIImage?) {
+    func getPokemon(byIndex index: Int) -> (title: String, description: String, image: UIImage?, id: String, type: String, attack: String, defense: String) {
         
         let title = pokemons[index].rawValue
         let description = pokemons[index].description
@@ -41,11 +45,7 @@ struct PokemonViewModel {
         let type = pokemons[index].type
         let attack = pokemons[index].attack
         let defense = pokemons[index].defense
-        let height = pokemons[index].height
-        let weight = pokemons[index].weight
-        let evolutionOne = UIImage(named: pokemons[index].evolutionOneImage)
-        let evolutionTwo = UIImage(named: pokemons[index].evolutionTwoImage)
         
-        return (title, description, image, id, type, attack, defense, height, weight, evolutionOne, evolutionTwo)
+        return (title, description, image, id, type, attack, defense)
     }
 }

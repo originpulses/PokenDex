@@ -18,16 +18,7 @@ class PokedexController: UICollectionViewController {
         super.viewDidLoad()
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let cell = sender as? UICollectionViewCell, let indexPath = self.collectionView?.indexPath(for: cell) else {return}
-        if let destination = segue.destination as? PokedexController {
-            let selectedPokemon = viewModel.getPokemon(byIndex: indexPath.row)
-            destination.selectedPokemon = selectedPokemon
-        }
-    }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
         return viewModel.count
     }
     
@@ -37,6 +28,22 @@ class PokedexController: UICollectionViewController {
         
         let imageView = cell.viewWithTag(1000) as? UIImageView
         let pokemonTitle = cell.viewWithTag(1001) as? UILabel
+        
+        if let imageView = imageView, let pokemonTitle = pokemonTitle {
+            let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
+            imageView.image = currentPokemon.image
+            pokemonTitle.text = currentPokemon.title
+        }
+        return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? UICollectionViewCell,
+            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
+        if let destination = segue.destination as? PokemonViewController {
+            let selectedPokemon = viewModel.getPokemon(byIndex: indexPath.row)
+            destination.selectedPokemon = selectedPokemon
+        }
     }
     
 }
