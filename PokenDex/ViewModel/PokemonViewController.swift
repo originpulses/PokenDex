@@ -19,6 +19,7 @@ class PokemonViewController: UIViewController {
     @IBOutlet weak var pokemonAttack: UILabel!
     @IBOutlet weak var pokemonDefense: UILabel!
     @IBOutlet weak var pokemonDescription: UILabel!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,4 +34,8 @@ class PokemonViewController: UIViewController {
             pokemonDefense.text = selectedPokemon.defense
         }
     }
+}
+
+extension UIView {
+    
 }

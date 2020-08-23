@@ -76,29 +76,29 @@ enum Pokemon: String {
         
         switch self {
         case .Bulbasaur:
-            return "001"
+            return "#001"
         case .Ivysaur:
-            return "002"
+            return "#002"
         case .Venusaur:
-            return "003"
+            return "#003"
         case .Charmandar:
-            return "004"
+            return "#004"
         case .Charmeleon:
-            return "005"
+            return "#005"
         case .Charizard:
-            return "006"
+            return "#006"
         case .Squirtle:
-            return "007"
+            return "#007"
         case .Wartortle:
-            return "008"
+            return "#008"
         case .Blastoise:
-            return "009"
+            return "#009"
         case .Caterpie :
-            return "010"
+            return "#010"
         case .Metapod:
-            return "011"
+            return "#011"
         case .Butterfree:
-            return "012"
+            return "#012"
         }
     }
     
