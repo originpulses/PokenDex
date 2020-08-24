@@ -14,11 +14,14 @@ class PokemonViewController: UIViewController {
     
     @IBOutlet weak var pokemonTitle: UILabel!
     @IBOutlet weak var pokemonID: UILabel!
-    @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var pokemonType: UILabel!
-    @IBOutlet weak var pokemonAttack: UILabel!
-    @IBOutlet weak var pokemonDefense: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var pokemonAttack: UIProgressView!
+    @IBOutlet weak var pokemonDefense: UIProgressView!
     @IBOutlet weak var pokemonDescription: UILabel!
+    @IBOutlet weak var attackValue: UILabel!
+    @IBOutlet weak var defenseValue: UILabel!
+    
     
 
     override func viewDidLoad() {
@@ -30,12 +33,10 @@ class PokemonViewController: UIViewController {
             pokemonDescription.text = selectedPokemon.description
             pokemonType.text = selectedPokemon.type
             pokemonID.text = selectedPokemon.id
-            pokemonAttack.text = selectedPokemon.attack
-            pokemonDefense.text = selectedPokemon.defense
+            pokemonAttack.setProgress((Float(selectedPokemon.attack)!/500), animated: false)
+            pokemonDefense.setProgress((Float(selectedPokemon.defense)!/500), animated: false)
+            attackValue.text = selectedPokemon.attack
+            defenseValue.text = selectedPokemon.defense
         }
     }
-}
-
-extension UIView {
-    
 }
