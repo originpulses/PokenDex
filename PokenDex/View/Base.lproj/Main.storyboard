@@ -678,6 +678,7 @@
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="backgroundView" destination="7Hg-dG-pIu" id="3LK-Zq-jX0"/>
                         <outlet property="descriptionView" destination="XfB-Ev-kfX" id="4qB-Tx-fvP"/>
                         <outlet property="pokemonID" destination="Skc-hl-aaU" id="Duo-cn-Rcw"/>
                         <outlet property="pokemonImage" destination="9CU-ml-LtN" id="KJp-nY-g8G"/>

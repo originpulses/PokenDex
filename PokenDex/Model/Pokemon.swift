@@ -311,4 +311,34 @@ enum Pokemon: String {
             return "70"
         }
     }
+    
+    var color: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "#20bf6bff"
+        case .Ivysaur:
+            return "#20bf6bff"
+        case .Venusaur:
+            return "#20bf6bff"
+        case .Charmandar:
+            return "#fd9644ff"
+        case .Charmeleon:
+            return "#fd9644ff"
+        case .Charizard:
+            return "#fd9644ff"
+        case .Squirtle:
+            return "#54a0ffff"
+        case .Wartortle:
+            return "#54a0ffff"
+        case .Blastoise:
+            return "#54a0ffff"
+        case .Caterpie :
+            return "#a8b820ff"
+        case .Metapod:
+            return "#a8b820ff"
+        case .Butterfree:
+            return "#a8b820ff"
+        }
+    }
 }

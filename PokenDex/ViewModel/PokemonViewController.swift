@@ -10,7 +10,7 @@ import UIKit
 
 class PokemonViewController: UIViewController {
 
-    var selectedPokemon: (title: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String)?
+    var selectedPokemon: (title: String, description: String, image: UIImage?, color: UIColor?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String)?
     
     var desVC: DescriptionViewController?
     var statsVC: StatsViewController?
@@ -21,6 +21,7 @@ class PokemonViewController: UIViewController {
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var statsView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
     
     
     override func viewDidLoad() {
@@ -41,17 +42,18 @@ class PokemonViewController: UIViewController {
             sVC.pokemonSpecialDefense.text = selectedPokemon.specialDefense
             sVC.pokemonSpeed.text = selectedPokemon.speed
             sVC.HPProgress.setProgress((Float(selectedPokemon.HP)!/500), animated: false)
-            //sVC.HPProgress.tintColor = selectedPokemon.color
+            sVC.HPProgress.tintColor = selectedPokemon.color
             sVC.attackProgress.setProgress((Float(selectedPokemon.attack)!/500), animated: false)
-            //sVC.attackProgress.tintColor = selectedPokemon.color
+            sVC.attackProgress.tintColor = selectedPokemon.color
             sVC.defenseProgress.setProgress((Float(selectedPokemon.defense)!/500), animated: false)
-            //sVC.defenseProgress.tintColor = selectedPokemon.color
+            sVC.defenseProgress.tintColor = selectedPokemon.color
             sVC.specialAttackProgress.setProgress((Float(selectedPokemon.specialAttack)!/500), animated: false)
-            //sVC.specialAttackProgress.tintColor = selectedPokemon.color
+            sVC.specialAttackProgress.tintColor = selectedPokemon.color
             sVC.specialDefenseProgress.setProgress((Float(selectedPokemon.specialDefense)!/500), animated: false)
-            //sVC.specialDefenseProgress.tintColor = selectedPokemon.color
+            sVC.specialDefenseProgress.tintColor = selectedPokemon.color
             sVC.speedProgress.setProgress((Float(selectedPokemon.speed)!/500), animated: false)
-            //sVC.speedProgress.tintColor = selectedPokemon.color
+            sVC.speedProgress.tintColor = selectedPokemon.color
+            backgroundView.backgroundColor = selectedPokemon.color
         }
     }
     
