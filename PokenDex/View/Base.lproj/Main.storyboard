@@ -172,7 +172,7 @@
                                                 </connections>
                                             </containerView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Np0-pQ-Agh">
-                                                <rect key="frame" x="80" y="14" width="160" height="29"/>
+                                                <rect key="frame" x="75.5" y="14" width="169" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Np0-pQ-Agh" secondAttribute="height" multiplier="300" id="2cv-KR-Cfe"/>
                                                 </constraints>
@@ -219,11 +219,13 @@
                                             <constraint firstItem="Np0-pQ-Agh" firstAttribute="centerX" secondItem="rEK-L8-Mba" secondAttribute="centerX" id="MV8-bj-qq7"/>
                                             <constraint firstItem="k0t-ci-cdN" firstAttribute="top" secondItem="Np0-pQ-Agh" secondAttribute="bottom" constant="8" id="Mf4-pe-xqJ"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Np0-pQ-Agh" secondAttribute="trailing" constant="204" id="O7n-k3-Oqy"/>
+                                            <constraint firstItem="Np0-pQ-Agh" firstAttribute="centerX" secondItem="rEK-L8-Mba" secondAttribute="centerX" id="OeX-R7-PZY"/>
                                             <constraint firstAttribute="bottom" secondItem="k0t-ci-cdN" secondAttribute="bottom" constant="64" id="PZa-38-2Hg"/>
                                             <constraint firstAttribute="bottom" secondItem="k0t-ci-cdN" secondAttribute="bottom" constant="40" id="RLR-Ex-QZH"/>
                                             <constraint firstItem="XfB-Ev-kfX" firstAttribute="leading" secondItem="rEK-L8-Mba" secondAttribute="leading" constant="8" id="RdQ-rc-PW4"/>
                                             <constraint firstAttribute="trailing" secondItem="k0t-ci-cdN" secondAttribute="trailing" constant="8" id="SB7-Hv-1Tb"/>
                                             <constraint firstItem="k0t-ci-cdN" firstAttribute="top" secondItem="Np0-pQ-Agh" secondAttribute="bottom" constant="8" id="TL6-Uk-Qxo"/>
+                                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Np0-pQ-Agh" secondAttribute="trailing" constant="75.5" id="XqX-kA-nUD"/>
                                             <constraint firstItem="Np0-pQ-Agh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEK-L8-Mba" secondAttribute="leading" constant="204" id="ZL6-nc-uxR"/>
                                             <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Np0-pQ-Agh" secondAttribute="trailing" constant="322" id="aQM-F3-R1z"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Np0-pQ-Agh" secondAttribute="trailing" constant="204" id="b20-Wi-VkK"/>
@@ -251,6 +253,7 @@
                                             <constraint firstAttribute="trailing" secondItem="XfB-Ev-kfX" secondAttribute="trailing" constant="132" id="s5d-F6-EJN"/>
                                             <constraint firstItem="XfB-Ev-kfX" firstAttribute="leading" secondItem="rEK-L8-Mba" secondAttribute="leading" constant="136" id="uTu-bS-y0H"/>
                                             <constraint firstAttribute="bottom" secondItem="XfB-Ev-kfX" secondAttribute="bottom" constant="40" id="vqp-gy-VSM"/>
+                                            <constraint firstItem="Np0-pQ-Agh" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="rEK-L8-Mba" secondAttribute="leading" constant="75.5" id="xud-Ul-xKk"/>
                                             <constraint firstAttribute="bottom" secondItem="XfB-Ev-kfX" secondAttribute="bottom" constant="64" id="yRX-k9-kI6"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="Np0-pQ-Agh" secondAttribute="trailing" constant="283.32999999999998" id="ydH-pS-UNm"/>
                                             <constraint firstItem="XfB-Ev-kfX" firstAttribute="centerY" secondItem="rEK-L8-Mba" secondAttribute="centerY" id="z6W-eW-ohv"/>
@@ -299,6 +302,8 @@
                                                 <exclude reference="Lh1-hk-eVa"/>
                                                 <exclude reference="MV8-bj-qq7"/>
                                                 <exclude reference="O7n-k3-Oqy"/>
+                                                <exclude reference="OeX-R7-PZY"/>
+                                                <exclude reference="XqX-kA-nUD"/>
                                                 <exclude reference="ZL6-nc-uxR"/>
                                                 <exclude reference="aQM-F3-R1z"/>
                                                 <exclude reference="b20-Wi-VkK"/>
@@ -310,6 +315,7 @@
                                                 <exclude reference="okC-zI-7ho"/>
                                                 <exclude reference="qCB-Pv-tI0"/>
                                                 <exclude reference="re1-4f-7sh"/>
+                                                <exclude reference="xud-Ul-xKk"/>
                                                 <exclude reference="ydH-pS-UNm"/>
                                             </mask>
                                         </variation>
@@ -375,8 +381,11 @@
                                                 <include reference="fhb-7W-D9r"/>
                                                 <include reference="hVK-eL-ggv"/>
                                                 <include reference="0AI-Gy-jkC"/>
-                                                <include reference="hsD-sL-7YE"/>
-                                                <include reference="lbY-Qi-RHV"/>
+                                                <include reference="OeX-R7-PZY"/>
+                                                <include reference="XqX-kA-nUD"/>
+                                                <exclude reference="hsD-sL-7YE"/>
+                                                <exclude reference="lbY-Qi-RHV"/>
+                                                <include reference="xud-Ul-xKk"/>
                                             </mask>
                                         </variation>
                                     </view>
