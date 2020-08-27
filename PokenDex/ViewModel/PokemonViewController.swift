@@ -41,11 +41,17 @@ class PokemonViewController: UIViewController {
             sVC.pokemonSpecialDefense.text = selectedPokemon.specialDefense
             sVC.pokemonSpeed.text = selectedPokemon.speed
             sVC.HPProgress.setProgress((Float(selectedPokemon.HP)!/500), animated: false)
+            //sVC.HPProgress.tintColor = selectedPokemon.color
             sVC.attackProgress.setProgress((Float(selectedPokemon.attack)!/500), animated: false)
+            //sVC.attackProgress.tintColor = selectedPokemon.color
             sVC.defenseProgress.setProgress((Float(selectedPokemon.defense)!/500), animated: false)
+            //sVC.defenseProgress.tintColor = selectedPokemon.color
             sVC.specialAttackProgress.setProgress((Float(selectedPokemon.specialAttack)!/500), animated: false)
+            //sVC.specialAttackProgress.tintColor = selectedPokemon.color
             sVC.specialDefenseProgress.setProgress((Float(selectedPokemon.specialDefense)!/500), animated: false)
+            //sVC.specialDefenseProgress.tintColor = selectedPokemon.color
             sVC.speedProgress.setProgress((Float(selectedPokemon.speed)!/500), animated: false)
+            //sVC.speedProgress.tintColor = selectedPokemon.color
         }
     }
     
