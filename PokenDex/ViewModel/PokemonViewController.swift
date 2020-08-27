@@ -16,11 +16,12 @@ class PokemonViewController: UIViewController {
     var statsVC: StatsViewController?
     
     @IBOutlet weak var pokemonTitle: UILabel!
-    @IBOutlet weak var pokemonType: UILabel!
     @IBOutlet weak var pokemonID: UILabel!
+    @IBOutlet weak var pokemonType: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var statsView: UIView!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,18 +34,18 @@ class PokemonViewController: UIViewController {
             pokemonType.text = selectedPokemon.type
             pokemonID.text = selectedPokemon.id
             dVC.pokemonDescription.text = selectedPokemon.description
-            //sVC.pokemonHP.text = selectedPokemon.HP
+            sVC.pokemonHP.text = selectedPokemon.HP
             sVC.pokemonAttack.text = selectedPokemon.attack
             sVC.pokemonDefense.text = selectedPokemon.defense
-            //sVC.pokemonSpecialAttack.text = selectedPokemon.specialAttack
-            //sVC.pokemonSpecialDefense.text = selectedPokemon.specialDefense
-            //sVC.pokemonSpeed.text = selectedPokemon.speed
-            
-            
-//            pokemonAttack.setProgress((Float(selectedPokemon.attack)!/500), animated: false)
-//            pokemonDefense.setProgress((Float(selectedPokemon.defense)!/500), animated: false)
-//            attackValue.text = selectedPokemon.attack
-//            defenseValue.text = selectedPokemon.defense
+            sVC.pokemonSpecialAttack.text = selectedPokemon.specialAttack
+            sVC.pokemonSpecialDefense.text = selectedPokemon.specialDefense
+            sVC.pokemonSpeed.text = selectedPokemon.speed
+            sVC.HPProgress.setProgress((Float(selectedPokemon.HP)!/500), animated: false)
+            sVC.attackProgress.setProgress((Float(selectedPokemon.attack)!/500), animated: false)
+            sVC.defenseProgress.setProgress((Float(selectedPokemon.defense)!/500), animated: false)
+            sVC.specialAttackProgress.setProgress((Float(selectedPokemon.specialAttack)!/500), animated: false)
+            sVC.specialDefenseProgress.setProgress((Float(selectedPokemon.specialDefense)!/500), animated: false)
+            sVC.speedProgress.setProgress((Float(selectedPokemon.speed)!/500), animated: false)
         }
     }
     

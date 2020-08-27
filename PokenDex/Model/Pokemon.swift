@@ -136,29 +136,29 @@ enum Pokemon: String {
         
         switch self {
         case .Bulbasaur:
-            return "49"
-        case .Ivysaur:
-            return "62"
-        case .Venusaur:
-            return "82"
-        case .Charmandar:
-            return "52"
-        case .Charmeleon:
-            return "64"
-        case .Charizard:
-            return "84"
-        case .Squirtle:
-            return "48"
-        case .Wartortle:
-            return "63"
-        case .Blastoise:
-            return "83"
-        case .Caterpie :
-            return "30"
-        case .Metapod:
-            return "20"
-        case .Butterfree:
             return "45"
+        case .Ivysaur:
+            return "60"
+        case .Venusaur:
+            return "80"
+        case .Charmandar:
+            return "39"
+        case .Charmeleon:
+            return "58"
+        case .Charizard:
+            return "78"
+        case .Squirtle:
+            return "44"
+        case .Wartortle:
+            return "59"
+        case .Blastoise:
+            return "79"
+        case .Caterpie :
+            return "45"
+        case .Metapod:
+            return "50"
+        case .Butterfree:
+            return "60"
         }
     }
     
@@ -226,29 +226,29 @@ enum Pokemon: String {
         
         switch self {
         case .Bulbasaur:
-            return "49"
+            return "65"
         case .Ivysaur:
-            return "62"
+            return "80"
         case .Venusaur:
-            return "82"
+            return "100"
         case .Charmandar:
-            return "52"
+            return "60"
         case .Charmeleon:
-            return "64"
+            return "80"
         case .Charizard:
-            return "84"
+            return "109"
         case .Squirtle:
-            return "48"
+            return "50"
         case .Wartortle:
-            return "63"
+            return "65"
         case .Blastoise:
-            return "83"
+            return "85"
         case .Caterpie :
-            return "30"
-        case .Metapod:
             return "20"
+        case .Metapod:
+            return "25"
         case .Butterfree:
-            return "45"
+            return "80"
         }
     }
     
@@ -256,29 +256,29 @@ enum Pokemon: String {
         
         switch self {
         case .Bulbasaur:
-            return "49"
+            return "65"
         case .Ivysaur:
-            return "62"
+            return "80"
         case .Venusaur:
-            return "82"
+            return "100"
         case .Charmandar:
-            return "52"
+            return "50"
         case .Charmeleon:
-            return "64"
+            return "65"
         case .Charizard:
-            return "84"
+            return "85"
         case .Squirtle:
-            return "48"
+            return "64"
         case .Wartortle:
-            return "63"
+            return "80"
         case .Blastoise:
-            return "83"
+            return "105"
         case .Caterpie :
-            return "30"
-        case .Metapod:
             return "20"
+        case .Metapod:
+            return "25"
         case .Butterfree:
-            return "45"
+            return "80"
         }
     }
     
@@ -286,29 +286,29 @@ enum Pokemon: String {
         
         switch self {
         case .Bulbasaur:
-            return "49"
-        case .Ivysaur:
-            return "62"
-        case .Venusaur:
-            return "82"
-        case .Charmandar:
-            return "52"
-        case .Charmeleon:
-            return "64"
-        case .Charizard:
-            return "84"
-        case .Squirtle:
-            return "48"
-        case .Wartortle:
-            return "63"
-        case .Blastoise:
-            return "83"
-        case .Caterpie :
-            return "30"
-        case .Metapod:
-            return "20"
-        case .Butterfree:
             return "45"
+        case .Ivysaur:
+            return "60"
+        case .Venusaur:
+            return "80"
+        case .Charmandar:
+            return "65"
+        case .Charmeleon:
+            return "80"
+        case .Charizard:
+            return "100"
+        case .Squirtle:
+            return "43"
+        case .Wartortle:
+            return "58"
+        case .Blastoise:
+            return "78"
+        case .Caterpie :
+            return "45"
+        case .Metapod:
+            return "30"
+        case .Butterfree:
+            return "70"
         }
     }
 }

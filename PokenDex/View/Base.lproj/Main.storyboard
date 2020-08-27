@@ -190,6 +190,9 @@
                                                         <exclude reference="2cv-KR-Cfe"/>
                                                     </mask>
                                                 </variation>
+                                                <connections>
+                                                    <action selector="segmentChanged:" destination="JCZ-zo-IBB" eventType="valueChanged" id="OMS-tk-Q5f"/>
+                                                </connections>
                                             </segmentedControl>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XfB-Ev-kfX" userLabel="Description Container">
                                                 <rect key="frame" x="8" y="64" width="304" height="156"/>
@@ -674,6 +677,14 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="descriptionView" destination="XfB-Ev-kfX" id="4qB-Tx-fvP"/>
+                        <outlet property="pokemonID" destination="Skc-hl-aaU" id="Duo-cn-Rcw"/>
+                        <outlet property="pokemonImage" destination="9CU-ml-LtN" id="KJp-nY-g8G"/>
+                        <outlet property="pokemonTitle" destination="iW1-32-iw0" id="HrV-v1-wBL"/>
+                        <outlet property="pokemonType" destination="58T-MP-umz" id="f3H-jS-f3b"/>
+                        <outlet property="statsView" destination="k0t-ci-cdN" id="u5J-jn-Zz4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xah-nd-Cza" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -867,6 +878,9 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="pokemonDescription" destination="Rwa-ed-4yR" id="GcF-ES-eAX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rB9-SP-mk5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -940,7 +954,7 @@
                                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="10"/>
                                 </variation>
                             </label>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-HT-iVk">
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-HT-iVk" userLabel="HP Progress">
                                 <rect key="frame" x="138.5" y="35" width="150.5" height="2"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mb4-KR-yPD">
@@ -958,7 +972,7 @@
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T21-JM-hDl">
                                 <rect key="frame" x="138.5" y="120" width="150.5" height="2"/>
                             </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpS-Fz-ev6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpS-Fz-ev6" userLabel="Pokemon HP">
                                 <rect key="frame" x="117.5" y="30" width="17" height="11"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="9"/>
                                 <nil key="textColor"/>
@@ -1469,6 +1483,20 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="HPProgress" destination="HWF-HT-iVk" id="3E6-cR-PQb"/>
+                        <outlet property="attackProgress" destination="Mb4-KR-yPD" id="D7R-sj-xV7"/>
+                        <outlet property="defenseProgress" destination="YBy-Fr-vbi" id="1Yg-sc-IZS"/>
+                        <outlet property="pokemonAttack" destination="gVQ-bd-dk2" id="RIj-Ar-2EF"/>
+                        <outlet property="pokemonDefense" destination="C6k-yv-Nhc" id="Kg9-Lg-XxC"/>
+                        <outlet property="pokemonHP" destination="FpS-Fz-ev6" id="5gh-nw-Die"/>
+                        <outlet property="pokemonSpecialAttack" destination="lBF-ts-si0" id="AgQ-6N-giJ"/>
+                        <outlet property="pokemonSpecialDefense" destination="frr-AN-ghp" id="5NX-WO-yWI"/>
+                        <outlet property="pokemonSpeed" destination="CPf-vz-fPQ" id="bO4-nN-fOu"/>
+                        <outlet property="specialAttackProgress" destination="6Jg-mH-UmG" id="jxF-qf-iV2"/>
+                        <outlet property="specialDefenseProgress" destination="eK1-rg-bX6" id="Ftz-7d-qwJ"/>
+                        <outlet property="speedProgress" destination="T21-JM-hDl" id="xv3-aL-0sg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GbF-rb-GtH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
