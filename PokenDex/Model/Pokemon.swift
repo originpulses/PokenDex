@@ -132,6 +132,36 @@ enum Pokemon: String {
         }
     }
     
+    var HP: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "49"
+        case .Ivysaur:
+            return "62"
+        case .Venusaur:
+            return "82"
+        case .Charmandar:
+            return "52"
+        case .Charmeleon:
+            return "64"
+        case .Charizard:
+            return "84"
+        case .Squirtle:
+            return "48"
+        case .Wartortle:
+            return "63"
+        case .Blastoise:
+            return "83"
+        case .Caterpie :
+            return "30"
+        case .Metapod:
+            return "20"
+        case .Butterfree:
+            return "45"
+        }
+    }
+    
     var attack: String {
         
         switch self {
@@ -189,6 +219,96 @@ enum Pokemon: String {
             return "55"
         case .Butterfree:
             return "50"
+        }
+    }
+    
+    var specialAttack: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "49"
+        case .Ivysaur:
+            return "62"
+        case .Venusaur:
+            return "82"
+        case .Charmandar:
+            return "52"
+        case .Charmeleon:
+            return "64"
+        case .Charizard:
+            return "84"
+        case .Squirtle:
+            return "48"
+        case .Wartortle:
+            return "63"
+        case .Blastoise:
+            return "83"
+        case .Caterpie :
+            return "30"
+        case .Metapod:
+            return "20"
+        case .Butterfree:
+            return "45"
+        }
+    }
+    
+    var specialDefense: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "49"
+        case .Ivysaur:
+            return "62"
+        case .Venusaur:
+            return "82"
+        case .Charmandar:
+            return "52"
+        case .Charmeleon:
+            return "64"
+        case .Charizard:
+            return "84"
+        case .Squirtle:
+            return "48"
+        case .Wartortle:
+            return "63"
+        case .Blastoise:
+            return "83"
+        case .Caterpie :
+            return "30"
+        case .Metapod:
+            return "20"
+        case .Butterfree:
+            return "45"
+        }
+    }
+    
+    var speed: String {
+        
+        switch self {
+        case .Bulbasaur:
+            return "49"
+        case .Ivysaur:
+            return "62"
+        case .Venusaur:
+            return "82"
+        case .Charmandar:
+            return "52"
+        case .Charmeleon:
+            return "64"
+        case .Charizard:
+            return "84"
+        case .Squirtle:
+            return "48"
+        case .Wartortle:
+            return "63"
+        case .Blastoise:
+            return "83"
+        case .Caterpie :
+            return "30"
+        case .Metapod:
+            return "20"
+        case .Butterfree:
+            return "45"
         }
     }
 }
