@@ -10,7 +10,7 @@ import UIKit
 
 class PokemonViewController: UIViewController {
 
-    var selectedPokemon: (title: String, description: String, image: UIImage?, color: UIColor?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String)?
+    var selectedPokemon: (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, color: UIColor?)?
     
     var desVC: DescriptionViewController?
     var statsVC: StatsViewController?
@@ -30,7 +30,7 @@ class PokemonViewController: UIViewController {
         if let selectedPokemon = selectedPokemon,
             let dVC = desVC,
             let sVC = statsVC {
-            pokemonTitle.text = selectedPokemon.title
+            pokemonTitle.text = selectedPokemon.name
             pokemonImage.image = selectedPokemon.image
             pokemonType.text = selectedPokemon.type
             pokemonID.text = selectedPokemon.id

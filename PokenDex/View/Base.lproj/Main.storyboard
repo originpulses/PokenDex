@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Udu-Zb-9kM">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,7 +15,7 @@
             <objects>
                 <collectionViewController id="Twl-11-IIx" customClass="PokedexController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="3Zb-oB-F6k">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wQ1-3b-61y">
@@ -145,9 +145,24 @@
                     </collectionView>
                     <tabBarItem key="tabBarItem" title="Item" id="ofl-uP-AAb"/>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" title="PokenDex" id="Ljo-Kp-PDX"/>
+                    <navigationItem key="navigationItem" title="PokenDex" id="Ljo-Kp-PDX">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="m5t-86-VGd">
+                            <connections>
+                                <action selector="searchButtonPressed:" destination="Twl-11-IIx" id="fvJ-uJ-PeF"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="searchBar" destination="8Si-J7-AqN" id="bNJ-aS-W1v"/>
+                        <outlet property="searchButton" destination="m5t-86-VGd" id="Sc4-Ts-LNf"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kc5-E9-7Gj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchBar contentMode="redraw" id="8Si-J7-AqN">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <textInputTraits key="textInputTraits"/>
+                </searchBar>
             </objects>
             <point key="canvasLocation" x="8581.875" y="906.33802816901414"/>
         </scene>
@@ -156,23 +171,23 @@
             <objects>
                 <viewController id="JCZ-zo-IBB" customClass="PokemonViewController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ed0-vO-9iv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Hg-dG-pIu" userLabel="Background View">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rEK-L8-Mba" userLabel="Detail View">
-                                        <rect key="frame" x="0.0" y="448" width="414" height="448"/>
+                                        <rect key="frame" x="0.0" y="284" width="320" height="284"/>
                                         <subviews>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k0t-ci-cdN" userLabel="Stats Container">
-                                                <rect key="frame" x="8" y="64" width="398" height="320"/>
+                                                <rect key="frame" x="8" y="64" width="304" height="156"/>
                                                 <connections>
                                                     <segue destination="t7q-X2-Roo" kind="embed" identifier="statsSegue" id="zhC-UD-PCq"/>
                                                 </connections>
                                             </containerView>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Np0-pQ-Agh">
-                                                <rect key="frame" x="122.5" y="14" width="169" height="29"/>
+                                                <rect key="frame" x="75.5" y="14" width="169" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Np0-pQ-Agh" secondAttribute="height" multiplier="300" id="2cv-KR-Cfe"/>
                                                 </constraints>
@@ -195,7 +210,7 @@
                                                 </connections>
                                             </segmentedControl>
                                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XfB-Ev-kfX" userLabel="Description Container">
-                                                <rect key="frame" x="8" y="64" width="398" height="320"/>
+                                                <rect key="frame" x="8" y="64" width="304" height="156"/>
                                                 <connections>
                                                     <segue destination="w11-O4-dcJ" kind="embed" identifier="descriptionSegue" id="h8M-Uq-HQQ"/>
                                                 </connections>
@@ -405,7 +420,7 @@
                                         </variation>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#001" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Skc-hl-aaU">
-                                        <rect key="frame" x="342" y="90" width="64" height="36"/>
+                                        <rect key="frame" x="248" y="90" width="64" height="36"/>
                                         <fontDescription key="fontDescription" type="system" weight="black" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -417,10 +432,10 @@
                                         </variation>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giJ-fa-gOK" userLabel="Image Container">
-                                        <rect key="frame" x="72.5" y="225" width="269" height="215"/>
+                                        <rect key="frame" x="75" y="139.5" width="170" height="136.5"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-ml-LtN" userLabel="Pokemon View Image">
-                                                <rect key="frame" x="-15" y="-12" width="299" height="239"/>
+                                                <rect key="frame" x="-9.5" y="-7.5" width="189" height="151.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -482,7 +497,7 @@
                                         </variation>
                                     </view>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Grass" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="58T-MP-umz">
-                                        <rect key="frame" x="8" y="131" width="398" height="24"/>
+                                        <rect key="frame" x="8" y="131" width="304" height="24"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -682,7 +697,6 @@
                         <outlet property="descriptionView" destination="XfB-Ev-kfX" id="4qB-Tx-fvP"/>
                         <outlet property="pokemonID" destination="Skc-hl-aaU" id="Duo-cn-Rcw"/>
                         <outlet property="pokemonImage" destination="9CU-ml-LtN" id="KJp-nY-g8G"/>
-                        <outlet property="pokemonTitle" destination="iW1-32-iw0" id="HrV-v1-wBL"/>
                         <outlet property="pokemonType" destination="58T-MP-umz" id="f3H-jS-f3b"/>
                         <outlet property="statsView" destination="k0t-ci-cdN" id="u5J-jn-Zz4"/>
                     </connections>
@@ -696,26 +710,26 @@
             <objects>
                 <viewController id="yHU-Dd-7eY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u1e-kV-X02">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="bDr-8J-UYN">
-                                <rect key="frame" x="58" y="183" width="299.5" height="83.5"/>
+                                <rect key="frame" x="58" y="159" width="205.5" height="83.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Syed Sabih Ali - s3528350" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AGk-fy-EH4">
-                                        <rect key="frame" x="0.0" y="0.0" width="299.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="205.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Omar Adnan" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mcI-dh-9gN">
-                                        <rect key="frame" x="0.0" y="31.5" width="299.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="31.5" width="205.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ty Ty Chau" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VgE-eC-IwD">
-                                        <rect key="frame" x="0.0" y="63" width="299.5" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="63" width="205.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -723,7 +737,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Developement Team" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8SC-01-dFy">
-                                <rect key="frame" x="75" y="90" width="265.5" height="20.5"/>
+                                <rect key="frame" x="75" y="66" width="171.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -753,7 +767,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="bjM-uI-Pvp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LtL-we-x5H">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -770,7 +784,7 @@
             <objects>
                 <viewController id="uMp-Cu-YZC" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0Vo-XP-bcp">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="3lk-vg-4TQ"/>
@@ -806,11 +820,11 @@
             <objects>
                 <viewController id="w11-O4-dcJ" customClass="DescriptionViewController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tps-E5-0PC">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="304" height="156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rwa-ed-4yR">
-                                <rect key="frame" x="16" y="60" width="366" height="210"/>
+                                <rect key="frame" x="16" y="16" width="272" height="124"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -892,11 +906,11 @@
             <objects>
                 <viewController id="t7q-X2-Roo" customClass="StatsViewController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Vwv-xF-MuI">
-                        <rect key="frame" x="0.0" y="0.0" width="398" height="320"/>
+                        <rect key="frame" x="0.0" y="0.0" width="304" height="156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="HP" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lFu-Ek-Qjd">
-                                <rect key="frame" x="15" y="72" width="17.5" height="14.5"/>
+                                <rect key="frame" x="15" y="28" width="17.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -908,7 +922,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wl7-Fn-rfW">
-                                <rect key="frame" x="15" y="88.5" width="38.5" height="14.5"/>
+                                <rect key="frame" x="15" y="44.5" width="38.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -920,7 +934,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Defense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cDN-cr-8vU">
-                                <rect key="frame" x="15" y="105" width="49" height="14.5"/>
+                                <rect key="frame" x="15" y="61" width="49" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -932,7 +946,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special Attack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NuB-jt-ccy">
-                                <rect key="frame" x="15" y="121.5" width="85" height="14.5"/>
+                                <rect key="frame" x="15" y="77.5" width="85" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -944,7 +958,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Special Defense" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjN-uS-zwc">
-                                <rect key="frame" x="15" y="138" width="95" height="14.5"/>
+                                <rect key="frame" x="15" y="94" width="95" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -956,25 +970,25 @@
                                 </variation>
                             </label>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="HWF-HT-iVk" userLabel="HP Progress">
-                                <rect key="frame" x="138.5" y="79" width="244.5" height="2"/>
+                                <rect key="frame" x="138.5" y="35" width="150.5" height="2"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Mb4-KR-yPD">
-                                <rect key="frame" x="138.5" y="96" width="244.5" height="2"/>
+                                <rect key="frame" x="138.5" y="52" width="150.5" height="2"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="YBy-Fr-vbi">
-                                <rect key="frame" x="139" y="113" width="244" height="2"/>
+                                <rect key="frame" x="139" y="69" width="150" height="2"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="6Jg-mH-UmG">
-                                <rect key="frame" x="139" y="130" width="244" height="2"/>
+                                <rect key="frame" x="139" y="86" width="150" height="2"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eK1-rg-bX6">
-                                <rect key="frame" x="139" y="147" width="244" height="2"/>
+                                <rect key="frame" x="139" y="103" width="150" height="2"/>
                             </progressView>
                             <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="T21-JM-hDl">
-                                <rect key="frame" x="138.5" y="164" width="244.5" height="2"/>
+                                <rect key="frame" x="138.5" y="120" width="150.5" height="2"/>
                             </progressView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FpS-Fz-ev6" userLabel="Pokemon HP">
-                                <rect key="frame" x="117.5" y="74" width="17" height="11"/>
+                                <rect key="frame" x="117.5" y="30" width="17" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="FpS-Fz-ev6" secondAttribute="height" multiplier="3:2" id="IZ0-Gf-3gP"/>
                                     <constraint firstAttribute="width" secondItem="FpS-Fz-ev6" secondAttribute="height" multiplier="17:11" id="Pjp-st-bWa"/>
@@ -1008,7 +1022,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gVQ-bd-dk2">
-                                <rect key="frame" x="117.5" y="91" width="17" height="11"/>
+                                <rect key="frame" x="117.5" y="47" width="17" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="gVQ-bd-dk2" secondAttribute="height" multiplier="17:11" id="MIk-00-QNG"/>
                                     <constraint firstAttribute="width" secondItem="gVQ-bd-dk2" secondAttribute="height" multiplier="17:11" id="QM6-SI-05W"/>
@@ -1042,7 +1056,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6k-yv-Nhc">
-                                <rect key="frame" x="118" y="108" width="17" height="11"/>
+                                <rect key="frame" x="118" y="64" width="17" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="C6k-yv-Nhc" secondAttribute="height" multiplier="17:11" id="9DV-I2-CaC"/>
                                     <constraint firstAttribute="width" secondItem="C6k-yv-Nhc" secondAttribute="height" multiplier="17:11" id="JP4-jg-OF5"/>
@@ -1076,7 +1090,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lBF-ts-si0">
-                                <rect key="frame" x="118" y="125" width="17" height="11"/>
+                                <rect key="frame" x="118" y="81" width="17" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="lBF-ts-si0" secondAttribute="height" multiplier="17:11" id="V2J-rt-Yhz"/>
                                     <constraint firstAttribute="width" secondItem="lBF-ts-si0" secondAttribute="height" multiplier="17:11" id="Yza-mZ-rDw"/>
@@ -1110,7 +1124,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="frr-AN-ghp">
-                                <rect key="frame" x="118" y="142" width="17" height="11"/>
+                                <rect key="frame" x="118" y="98" width="17" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="frr-AN-ghp" secondAttribute="height" multiplier="17:11" id="4yU-HU-2Ft"/>
                                     <constraint firstAttribute="width" secondItem="frr-AN-ghp" secondAttribute="height" multiplier="17:11" id="CiL-X4-fhw"/>
@@ -1144,7 +1158,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CPf-vz-fPQ">
-                                <rect key="frame" x="117.5" y="159" width="17" height="11"/>
+                                <rect key="frame" x="117.5" y="115" width="17" height="11"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="CPf-vz-fPQ" secondAttribute="height" multiplier="3:2" id="J16-jg-5Ce"/>
                                     <constraint firstAttribute="width" secondItem="CPf-vz-fPQ" secondAttribute="height" multiplier="17:11" id="pAk-Ki-dJT"/>
@@ -1178,7 +1192,7 @@
                                 </variation>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Speed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I8G-yu-VP9">
-                                <rect key="frame" x="15" y="154.5" width="37.5" height="14.5"/>
+                                <rect key="frame" x="15" y="110.5" width="37.5" height="14.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -1493,27 +1507,6 @@
                                 <exclude reference="e2F-27-BRH"/>
                                 <exclude reference="kbW-Rm-871"/>
                                 <exclude reference="sIA-h3-lUc"/>
-                                <exclude reference="2ju-3X-b4B"/>
-                                <exclude reference="CNw-7x-HuG"/>
-                                <exclude reference="Deh-z4-CWL"/>
-                                <exclude reference="HOb-1h-dqK"/>
-                                <exclude reference="PVj-he-oob"/>
-                                <exclude reference="XZM-ba-5Tc"/>
-                                <exclude reference="m3k-eh-mEG"/>
-                                <exclude reference="c8u-vf-73b"/>
-                                <exclude reference="enX-bs-r7m"/>
-                                <exclude reference="h7N-PH-svW"/>
-                                <exclude reference="n17-tc-kvT"/>
-                                <exclude reference="nqI-LH-os5"/>
-                                <exclude reference="nrZ-03-IfN"/>
-                                <exclude reference="wqK-kQ-5l5"/>
-                                <exclude reference="BNb-WG-dfr"/>
-                                <exclude reference="Dl4-dk-b2b"/>
-                                <exclude reference="FpN-eI-ujF"/>
-                                <exclude reference="fj2-s7-ezw"/>
-                                <exclude reference="gUH-BE-Yrm"/>
-                                <exclude reference="o1Z-Lb-fZv"/>
-                                <exclude reference="qYD-qX-ZZy"/>
                                 <exclude reference="ARD-y4-7j3"/>
                                 <exclude reference="BWf-CV-7Wz"/>
                                 <exclude reference="RxX-4D-rVW"/>
@@ -1522,6 +1515,13 @@
                                 <exclude reference="ewr-lE-p6H"/>
                                 <exclude reference="qbm-a1-mHn"/>
                                 <exclude reference="rje-ee-LwS"/>
+                                <exclude reference="2ju-3X-b4B"/>
+                                <exclude reference="CNw-7x-HuG"/>
+                                <exclude reference="Deh-z4-CWL"/>
+                                <exclude reference="HOb-1h-dqK"/>
+                                <exclude reference="PVj-he-oob"/>
+                                <exclude reference="XZM-ba-5Tc"/>
+                                <exclude reference="m3k-eh-mEG"/>
                                 <exclude reference="13D-nX-tgZ"/>
                                 <exclude reference="83A-xj-qY1"/>
                                 <exclude reference="A3w-wF-2Ih"/>
@@ -1530,6 +1530,13 @@
                                 <exclude reference="cMy-2A-8vn"/>
                                 <exclude reference="hO9-R0-AL2"/>
                                 <exclude reference="iBw-R8-LFk"/>
+                                <exclude reference="c8u-vf-73b"/>
+                                <exclude reference="enX-bs-r7m"/>
+                                <exclude reference="h7N-PH-svW"/>
+                                <exclude reference="n17-tc-kvT"/>
+                                <exclude reference="nqI-LH-os5"/>
+                                <exclude reference="nrZ-03-IfN"/>
+                                <exclude reference="wqK-kQ-5l5"/>
                                 <exclude reference="6iY-LH-wbm"/>
                                 <exclude reference="ByP-MR-6kT"/>
                                 <exclude reference="Ne3-JY-eQ2"/>
@@ -1546,6 +1553,13 @@
                                 <exclude reference="jt4-jF-EpJ"/>
                                 <exclude reference="m4L-he-oxG"/>
                                 <exclude reference="uFM-KS-r24"/>
+                                <exclude reference="BNb-WG-dfr"/>
+                                <exclude reference="Dl4-dk-b2b"/>
+                                <exclude reference="FpN-eI-ujF"/>
+                                <exclude reference="fj2-s7-ezw"/>
+                                <exclude reference="gUH-BE-Yrm"/>
+                                <exclude reference="o1Z-Lb-fZv"/>
+                                <exclude reference="qYD-qX-ZZy"/>
                                 <exclude reference="9mm-CX-cjM"/>
                                 <exclude reference="IYj-OU-DP4"/>
                                 <exclude reference="UO3-G8-wTy"/>
@@ -1622,23 +1636,20 @@
                                 <include reference="64z-GV-Q6R"/>
                                 <include reference="RDz-pU-CGf"/>
                                 <exclude reference="sIA-h3-lUc"/>
-                                <include reference="CNw-7x-HuG"/>
-                                <include reference="Deh-z4-CWL"/>
-                                <exclude reference="PVj-he-oob"/>
-                                <exclude reference="enX-bs-r7m"/>
-                                <include reference="n17-tc-kvT"/>
-                                <include reference="nrZ-03-IfN"/>
-                                <include reference="Dl4-dk-b2b"/>
-                                <include reference="gUH-BE-Yrm"/>
-                                <exclude reference="o1Z-Lb-fZv"/>
                                 <include reference="RxX-4D-rVW"/>
                                 <exclude reference="eAm-fU-iRF"/>
                                 <exclude reference="qbm-a1-mHn"/>
                                 <include reference="rje-ee-LwS"/>
+                                <include reference="CNw-7x-HuG"/>
+                                <include reference="Deh-z4-CWL"/>
+                                <exclude reference="PVj-he-oob"/>
                                 <exclude reference="13D-nX-tgZ"/>
                                 <include reference="83A-xj-qY1"/>
                                 <include reference="O17-wh-f6X"/>
                                 <exclude reference="baB-iP-5W2"/>
+                                <exclude reference="enX-bs-r7m"/>
+                                <include reference="n17-tc-kvT"/>
+                                <include reference="nrZ-03-IfN"/>
                                 <include reference="6iY-LH-wbm"/>
                                 <exclude reference="Ne3-JY-eQ2"/>
                                 <include reference="sWV-cS-tz1"/>
@@ -1647,6 +1658,9 @@
                                 <exclude reference="VJJ-Ah-y7q"/>
                                 <include reference="jlU-hZ-Q90"/>
                                 <exclude reference="jt4-jF-EpJ"/>
+                                <include reference="Dl4-dk-b2b"/>
+                                <include reference="gUH-BE-Yrm"/>
+                                <exclude reference="o1Z-Lb-fZv"/>
                                 <include reference="9mm-CX-cjM"/>
                                 <include reference="cKW-nu-SY7"/>
                                 <exclude reference="eC7-gu-uP3"/>
@@ -1690,20 +1704,20 @@
                                 <include reference="w1s-eL-kId"/>
                                 <include reference="UJH-fr-bFL"/>
                                 <include reference="e2F-27-BRH"/>
-                                <include reference="2ju-3X-b4B"/>
-                                <include reference="HOb-1h-dqK"/>
-                                <include reference="nqI-LH-os5"/>
-                                <include reference="wqK-kQ-5l5"/>
-                                <include reference="BNb-WG-dfr"/>
-                                <include reference="fj2-s7-ezw"/>
                                 <include reference="WUi-x2-tkA"/>
                                 <include reference="ewr-lE-p6H"/>
+                                <include reference="2ju-3X-b4B"/>
+                                <include reference="HOb-1h-dqK"/>
                                 <include reference="A3w-wF-2Ih"/>
                                 <include reference="cMy-2A-8vn"/>
+                                <include reference="nqI-LH-os5"/>
+                                <include reference="wqK-kQ-5l5"/>
                                 <include reference="pvY-aK-KVy"/>
                                 <include reference="wdL-hW-C52"/>
                                 <include reference="3Vq-vl-daT"/>
                                 <include reference="GXa-Lo-2nP"/>
+                                <include reference="BNb-WG-dfr"/>
+                                <include reference="fj2-s7-ezw"/>
                                 <include reference="IYj-OU-DP4"/>
                                 <include reference="UO3-G8-wTy"/>
                                 <include reference="crO-S8-2iN"/>
@@ -1739,20 +1753,20 @@
                                 <include reference="fii-Jq-KFy"/>
                                 <include reference="WxU-rf-Vij"/>
                                 <include reference="kbW-Rm-871"/>
-                                <include reference="XZM-ba-5Tc"/>
-                                <include reference="m3k-eh-mEG"/>
-                                <include reference="c8u-vf-73b"/>
-                                <include reference="h7N-PH-svW"/>
-                                <include reference="FpN-eI-ujF"/>
-                                <include reference="qYD-qX-ZZy"/>
                                 <include reference="ARD-y4-7j3"/>
                                 <include reference="BWf-CV-7Wz"/>
+                                <include reference="XZM-ba-5Tc"/>
+                                <include reference="m3k-eh-mEG"/>
                                 <include reference="hO9-R0-AL2"/>
                                 <include reference="iBw-R8-LFk"/>
+                                <include reference="c8u-vf-73b"/>
+                                <include reference="h7N-PH-svW"/>
                                 <include reference="ByP-MR-6kT"/>
                                 <include reference="nzu-ay-PVg"/>
                                 <include reference="m4L-he-oxG"/>
                                 <include reference="uFM-KS-r24"/>
+                                <include reference="FpN-eI-ujF"/>
+                                <include reference="qYD-qX-ZZy"/>
                                 <include reference="Y4j-x0-Ckc"/>
                                 <include reference="j82-mI-oIx"/>
                                 <include reference="FEX-eX-sqs"/>
