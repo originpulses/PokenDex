@@ -51,25 +51,15 @@
                                                 <constraint firstAttribute="width" constant="55" id="a8b-Mh-hVf"/>
                                             </constraints>
                                         </imageView>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ICn-BD-hgJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="130" height="80"/>
-                                            <connections>
-                                                <action selector="popOverButton:" destination="Twl-11-IIx" eventType="touchUpInside" id="nmn-21-WIX"/>
-                                            </connections>
-                                        </button>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="TW9-g7-ItO" secondAttribute="trailing" constant="3" id="93P-Ys-5Ak"/>
-                                    <constraint firstItem="ICn-BD-hgJ" firstAttribute="top" secondItem="zyf-Bk-id4" secondAttribute="top" id="H1g-Gf-e4j"/>
-                                    <constraint firstAttribute="bottom" secondItem="ICn-BD-hgJ" secondAttribute="bottom" id="HwN-J8-oha"/>
                                     <constraint firstItem="kEh-Rc-zC5" firstAttribute="top" secondItem="zyf-Bk-id4" secondAttribute="top" constant="6" id="PeR-T5-Lfr"/>
                                     <constraint firstItem="TW9-g7-ItO" firstAttribute="leading" secondItem="h7E-bo-ZAK" secondAttribute="trailing" constant="23" id="Q8O-0O-dEz"/>
-                                    <constraint firstAttribute="trailing" secondItem="ICn-BD-hgJ" secondAttribute="trailing" id="R2t-LD-AaC"/>
                                     <constraint firstItem="kEh-Rc-zC5" firstAttribute="leading" secondItem="zyf-Bk-id4" secondAttribute="leading" constant="5" id="Rmn-gv-2yC"/>
                                     <constraint firstItem="h7E-bo-ZAK" firstAttribute="top" secondItem="TW9-g7-ItO" secondAttribute="bottom" constant="-22" id="VYi-jP-lfA"/>
-                                    <constraint firstItem="ICn-BD-hgJ" firstAttribute="leading" secondItem="zyf-Bk-id4" secondAttribute="leading" id="Wi8-pQ-bk2"/>
                                     <constraint firstAttribute="bottom" secondItem="h7E-bo-ZAK" secondAttribute="bottom" constant="8" id="civ-Jk-UDp"/>
                                     <constraint firstAttribute="bottom" secondItem="TW9-g7-ItO" secondAttribute="bottom" constant="3" id="eFf-lf-tsW"/>
                                     <constraint firstItem="h7E-bo-ZAK" firstAttribute="top" secondItem="kEh-Rc-zC5" secondAttribute="bottom" constant="35.5" id="ebH-dW-euD"/>
@@ -101,7 +91,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="popOver" destination="NXe-at-UGb" id="aFG-vz-9JA"/>
                         <outlet property="searchBar" destination="8Si-J7-AqN" id="bNJ-aS-W1v"/>
                         <outlet property="searchButton" destination="m5t-86-VGd" id="Sc4-Ts-LNf"/>
                     </connections>
@@ -112,56 +101,8 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
-                <view contentMode="scaleToFill" id="NXe-at-UGb">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <viewLayoutGuide key="safeArea" id="EUb-xn-Rsn"/>
-                </view>
             </objects>
             <point key="canvasLocation" x="9577.5" y="905.28169014084506"/>
-        </scene>
-        <!--Table View Controller-->
-        <scene sceneID="MNp-9q-05u">
-            <objects>
-                <tableViewController id="4AU-XC-5dB" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ybA-of-hke">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="N58-AE-9OQ">
-                                <rect key="frame" x="0.0" y="28" width="320" height="60"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N58-AE-9OQ" id="TJl-Lo-KjZ">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mrb-Ok-Gpc">
-                                            <rect key="frame" x="16" y="-1" width="60" height="60"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fit-KD-x0w">
-                                            <rect key="frame" x="139" y="19" width="42" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="4AU-XC-5dB" id="iaG-Kg-Zya"/>
-                            <outlet property="delegate" destination="4AU-XC-5dB" id="cUp-7G-b5W"/>
-                        </connections>
-                    </tableView>
-                    <tabBarItem key="tabBarItem" systemItem="favorites" id="PS5-GO-N1p"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Xon-CP-TrL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="9577.5" y="1727.1126760563382"/>
         </scene>
         <!--Pokemon View Controller-->
         <scene sceneID="Hrx-vK-Qyy">
@@ -1872,7 +1813,6 @@
                     <connections>
                         <segue destination="QKJ-04-NOn" kind="relationship" relationship="viewControllers" id="zJ1-TP-aHF"/>
                         <segue destination="v7t-KW-I87" kind="relationship" relationship="viewControllers" id="80b-Ve-Bf0"/>
-                        <segue destination="4AU-XC-5dB" kind="relationship" relationship="viewControllers" id="uPE-et-kup"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kbK-qb-UTl" userLabel="First Responder" sceneMemberID="firstResponder"/>

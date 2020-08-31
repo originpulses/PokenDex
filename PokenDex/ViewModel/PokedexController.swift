@@ -15,7 +15,6 @@ class PokedexController: UICollectionViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
-    @IBOutlet var popOver: UIView!
     
     private let viewModel = PokemonViewModel()
     private var filteredPokemon: [Pokemon] = []
@@ -24,10 +23,7 @@ class PokedexController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButtonPressed(searchButton)
-        
     }
-    
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return inSearchMode ? filteredPokemon.count : viewModel.count
@@ -89,11 +85,6 @@ class PokedexController: UICollectionViewController {
     @IBAction func searchButtonPressed(_ sender: Any) {
         navigationItem.titleView = nil
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
-    }
-    
-    @IBAction func popOverButton(_ sender: UIButton) {
-        self.view.addSubview(popOver)
-        popOver.center = self.view.center
     }
     
 }
