@@ -15,6 +15,8 @@ class PokedexController: UICollectionViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
+    @IBOutlet var popOver: UIView!
+    
     private let viewModel = PokemonViewModel()
     private var filteredPokemon: [Pokemon] = []
     var inSearchMode = false
@@ -22,7 +24,10 @@ class PokedexController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButtonPressed(searchButton)
+        
     }
+    
+    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return inSearchMode ? filteredPokemon.count : viewModel.count
@@ -35,20 +40,24 @@ class PokedexController: UICollectionViewController {
         if inSearchMode {
             let viewImage = cell.viewWithTag(1000) as? UIImageView
             let viewLabel = cell.viewWithTag(1001) as? UILabel
+            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
 
-            if let viewImage = viewImage, let viewLabel = viewLabel {
+            if let viewImage = viewImage, let viewLabel = viewLabel, let viewLabelTwo = viewLabelTwo {
                 let currentPokemon = filteredPokemon[indexPath.item]
                 viewImage.image = currentPokemon.imageName
-                viewLabel.text = currentPokemon.title
+                viewLabel.text = currentPokemon.name
+                viewLabelTwo.text = currentPokemon.pokedexID
             }
         } else {
             let imageView = cell.viewWithTag(1000) as? UIImageView
             let pokemonTitle = cell.viewWithTag(1001) as? UILabel
+            let pokemonID = cell.viewWithTag(1002) as? UILabel
             
-            if let imageView = imageView, let pokemonTitle = pokemonTitle {
+            if let imageView = imageView, let pokemonTitle = pokemonTitle, let pokemonID = pokemonID {
                 let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
                 imageView.image = currentPokemon.image
-                pokemonTitle.text = currentPokemon.title
+                pokemonTitle.text = currentPokemon.name
+                pokemonID.text = currentPokemon.id
             }
         }
         return cell
@@ -82,6 +91,11 @@ class PokedexController: UICollectionViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
     }
     
+    @IBAction func popOverButton(_ sender: UIButton) {
+        self.view.addSubview(popOver)
+        popOver.center = self.view.center
+    }
+    
 }
 
 extension PokedexController: UISearchBarDelegate {
@@ -100,7 +114,7 @@ extension PokedexController: UISearchBarDelegate {
             view.endEditing(true)
         } else {
             inSearchMode = true
-            filteredPokemon = viewModel.pokemons.filter({ $0.title.range(of: searchText) != nil })
+            filteredPokemon = viewModel.pokemons.filter({ $0.name.range(of: searchText) != nil })
             collectionView?.reloadData()
         }
     }

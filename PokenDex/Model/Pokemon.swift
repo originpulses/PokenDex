@@ -46,6 +46,16 @@ struct Pokemon {
 
 let Bulbasaur = Pokemon.init(name: "Bulbasaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "1")!, pokedexID: "#001", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
+let Ivysaur = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+
+let Venusaur = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+
+let Charmandar = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+
+let Charmeleon = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+
+let Charizard = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+
 // Hex codes
 // Grass = #20bf6bff
 // Fire = #fd9644ff

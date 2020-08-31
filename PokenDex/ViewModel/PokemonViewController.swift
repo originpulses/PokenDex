@@ -15,22 +15,25 @@ class PokemonViewController: UIViewController {
     var desVC: DescriptionViewController?
     var statsVC: StatsViewController?
     
-    @IBOutlet weak var pokemonTitle: UILabel!
+    
+    @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonID: UILabel!
     @IBOutlet weak var pokemonType: UILabel!
     @IBOutlet weak var pokemonImage: UIImageView!
     @IBOutlet weak var descriptionView: UIView!
     @IBOutlet weak var statsView: UIView!
     @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var detailView: UIView!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setCornerRadius()
 
         if let selectedPokemon = selectedPokemon,
             let dVC = desVC,
             let sVC = statsVC {
-            pokemonTitle.text = selectedPokemon.name
+            pokemonName.text = selectedPokemon.name
             pokemonImage.image = selectedPokemon.image
             pokemonType.text = selectedPokemon.type
             pokemonID.text = selectedPokemon.id
@@ -55,6 +58,11 @@ class PokemonViewController: UIViewController {
             sVC.speedProgress.tintColor = selectedPokemon.color
             backgroundView.backgroundColor = selectedPokemon.color
         }
+    }
+    
+    func setCornerRadius() {
+        self.detailView.layer.cornerRadius = self.view.bounds.height*4/100
+        self.detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

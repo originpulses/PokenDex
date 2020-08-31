@@ -27,11 +27,11 @@ struct PokemonViewModel {
     // With the help of PokeAPI we will be able to get all 500+ Pokemons as PokeAPI owners have all the data and we just have to fetch it
     private mutating func loadPokemon() {
         pokemons.append(Bulbasaur)
-//        pokemons.append(Ivysaur)
-//        pokemons.append(Venusaur)
-//        pokemons.append(Charmandar)
-//        pokemons.append(Charmeleon)
-//        pokemons.append(Charizard)
+        pokemons.append(Ivysaur)
+        pokemons.append(Venusaur)
+        pokemons.append(Charmandar)
+        pokemons.append(Charmeleon)
+        pokemons.append(Charizard)
 //        pokemons.append(Squirtle)
 //        pokemons.append(Wartortle)
 //        pokemons.append(Blastoise)
