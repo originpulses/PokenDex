@@ -19,11 +19,14 @@ class PokedexController: UICollectionViewController {
     private let viewModel = PokemonViewModel()
     private var filteredPokemon: [Pokemon] = []
     var inSearchMode = false
+    var favVC: FavouritesTableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButtonPressed(searchButton)
+        longPressOnCell()
     }
+    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return inSearchMode ? filteredPokemon.count : viewModel.count
@@ -87,6 +90,57 @@ class PokedexController: UICollectionViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
     }
     
+    private func longPressOnCell() {
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self as? UIGestureRecognizerDelegate
+        longPressedGesture.delaysTouchesBegan = true
+        collectionView?.addGestureRecognizer(longPressedGesture)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        if (gestureRecognizer.state != .began) {
+            return
+        }
+        
+        let p = gestureRecognizer.location(in: collectionView)
+        
+        if let indexPath = collectionView?.indexPathForItem(at: p) {
+            
+            let blurEffect = UIBlurEffect(style: .light)
+            let visualEffectView = UIVisualEffectView(effect: blurEffect)
+            visualEffectView.frame = view.frame
+            let alert = UIAlertController(title: "Add \(viewModel.getPokemon(byIndex: indexPath.item).name) to Favourites?", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
+                
+                let name = self.viewModel.getPokemon(byIndex: indexPath.item).name
+                let description = self.viewModel.getPokemon(byIndex: indexPath.item).description
+                let image = self.viewModel.getPokemon(byIndex: indexPath.item).image
+                let id = self.viewModel.getPokemon(byIndex: indexPath.item).id
+                let type = self.viewModel.getPokemon(byIndex: indexPath.item).type
+                let hp = self.viewModel.getPokemon(byIndex: indexPath.item).HP
+                let attack = self.viewModel.getPokemon(byIndex: indexPath.item).attack
+                let defense = self.viewModel.getPokemon(byIndex: indexPath.item).defense
+                let sa = self.viewModel.getPokemon(byIndex: indexPath.item).specialAttack
+                let sd = self.viewModel.getPokemon(byIndex: indexPath.item).specialDefense
+                let speed = self.viewModel.getPokemon(byIndex: indexPath.item).speed
+                let color = self.viewModel.getPokemon(byIndex: indexPath.item).color
+                
+                self.favVC?.favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, color: color))
+                
+                visualEffectView.removeFromSuperview()
+            }
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+                print("Success!")
+                visualEffectView.removeFromSuperview()
+            }
+            view.addSubview(visualEffectView)
+            alert.addAction(action)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+        }
+    }
 }
 
 extension PokedexController: UISearchBarDelegate {
