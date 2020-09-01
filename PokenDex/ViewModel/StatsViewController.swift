@@ -10,7 +10,17 @@ import UIKit
 
 class StatsViewController: UIViewController {
     
+    @IBOutlet weak var pokemonHP: UILabel!
     @IBOutlet weak var pokemonAttack: UILabel!
     @IBOutlet weak var pokemonDefense: UILabel!
+    @IBOutlet weak var pokemonSpecialAttack: UILabel!
+    @IBOutlet weak var pokemonSpecialDefense: UILabel!
+    @IBOutlet weak var pokemonSpeed: UILabel!
+    @IBOutlet weak var HPProgress: UIProgressView!
+    @IBOutlet weak var attackProgress: UIProgressView!
+    @IBOutlet weak var defenseProgress: UIProgressView!
+    @IBOutlet weak var specialAttackProgress: UIProgressView!
+    @IBOutlet weak var specialDefenseProgress: UIProgressView!
+    @IBOutlet weak var speedProgress: UIProgressView!
     
 }
