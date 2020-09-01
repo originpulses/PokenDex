@@ -19,7 +19,6 @@ class PokedexController: UICollectionViewController {
     private let viewModel = PokemonViewModel()
     private var filteredPokemon: [Pokemon] = []
     var inSearchMode = false
-    var favVC: FavouritesTableViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -126,7 +125,8 @@ class PokedexController: UICollectionViewController {
                 let speed = self.viewModel.getPokemon(byIndex: indexPath.item).speed
                 let color = self.viewModel.getPokemon(byIndex: indexPath.item).color
                 
-                self.favVC?.favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, color: color))
+                favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, color: color))
+                print(favourites)
                 
                 visualEffectView.removeFromSuperview()
             }
