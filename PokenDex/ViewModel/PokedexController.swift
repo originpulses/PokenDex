@@ -164,3 +164,15 @@ extension PokedexController: UISearchBarDelegate {
         }
     }
 }
+
+extension PokedexController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let leftRightInset = (collectionView.bounds.width - 130*2 - 20)/2
+        return UIEdgeInsets(top: 32, left: leftRightInset, bottom: 20, right: leftRightInset)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout();
+    }
+}
