@@ -68,11 +68,11 @@ let Metapod = Pokemon.init(name: "Metapod", description: "The shell covering thi
 
 let Butterfree = Pokemon.init(name: "Butterfree", description: "BUTTERFREE has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest.", imageName: UIImage(named: "12")!, pokedexID: "#012", type: "Bug", HP: "60", attack: "45", defense: "50", specialAttack: "90", specialDefense: "80", speed: "70", color: UIColor(hex: "#20bf6bff"))
 
-let Pidgeot = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Pidgeot = Pokemon.init(name: "Pidgeot", description: "This POKéMON has a dazzling plumage of beautifully glossy feathers. Many TRAINERS are captivated by the striking beauty of the feathers on its head, compelling them to choose PIDGEOT as their POKéMON.", imageName: UIImage(named: "18")!, pokedexID: "#018", type: "Flying", HP: "83", attack: "80", defense: "75", specialAttack: "70", specialDefense: "70", speed: "101", color: UIColor(hex: "#20bf6bff"))
 
-let Pikachu = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Pikachu = Pokemon.init(name: "Pikachu", description: "Whenever PIKACHU comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this POKéMON mistook the intensity of its charge.", imageName: UIImage(named: "25")!, pokedexID: "#025", type: "Electric", HP: "35", attack: "55", defense: "40", specialAttack: "50", specialDefense: "50", speed: "90", color: UIColor(hex: "#20bf6bff"))
 
-let Raichu = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Raichu = Pokemon.init(name: "Raichu", description: "If the electrical sacks become excessively charged, RAICHU plants its tail in the ground and discharges. Scorched patches of ground will be found near this POKéMON’s nest.", imageName: UIImage(named: "26")!, pokedexID: "#026", type: "Electric", HP: "60", attack: "90", defense: "55", specialAttack: "90", specialDefense: "80", speed: "110", color: UIColor(hex: "#20bf6bff"))
 
 let Nidoking = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
