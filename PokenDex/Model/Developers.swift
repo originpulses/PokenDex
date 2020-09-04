@@ -24,8 +24,8 @@ struct Developers {
     }
 }
 
-let SyedSabihAli = Developers.init(name: "Syed Sabih Ali", imageName: UIImage(named: "1"), description: "Some description")
+let SyedSabihAli = Developers.init(name: "Syed Sabih Ali", imageName: UIImage(named: "SSA"), description: "I am currently a student in RMIT University doing Bachelors of IT. My hobbies include photography, games and coding")
 
-let OmarAdnan = Developers.init(name: "Omar Adnan", imageName: UIImage(named: "1"), description: "Some description")
+let OmarAdnan = Developers.init(name: "Omar Adnan", imageName: UIImage(named: "OA"), description: "Student in RMIT University. Enrolled in Bachelors of IT. Doing this course because it seems fun.")
 
-let TyTyChau = Developers.init(name: "Ty Ty Chau", imageName: UIImage(named: "1"), description: "Some description")
+let TyTyChau = Developers.init(name: "Ty Ty Chau", imageName: UIImage(named: "TTC"), description: "My name is Ty and I'm doing Bachelors of IT. My interests are watching movies and games.")

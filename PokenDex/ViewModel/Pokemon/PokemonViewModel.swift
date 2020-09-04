@@ -57,7 +57,7 @@ struct PokemonViewModel {
         pokemons.append(Xerneas)
     }
     
-    func getPokemon(byIndex index: Int) -> (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, color: UIColor?) {
+    func getPokemon(byIndex index: Int) -> (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, colour: UIColor?) {
     
             let name = pokemons[index].name
             let description = pokemons[index].description
@@ -70,70 +70,24 @@ struct PokemonViewModel {
             let specialAttack = pokemons[index].specialAttack
             let specialDefense = pokemons[index].specialDefense
             let speed = pokemons[index].specialDefense
-            let color = pokemons[index].color
+            let colour = pokemons[index].colour
     
-            return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, color)
+            return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, colour)
         }
 }
-//struct PokemonViewModel {
-//
-//    private (set) var pokemons: [Pokemon] = []
-//
-//    var count: Int {
-//        return pokemons.count
-//    }
-//
-//    init() {
-//        loadPokemon()
-//    }
-//
-//    private mutating func loadPokemon() {
-//        pokemons.append(Pokemon.Bulbasaur)
-//        pokemons.append(Pokemon.Ivysaur)
-//        pokemons.append(Pokemon.Venusaur)
-//        pokemons.append(Pokemon.Charmandar)
-//        pokemons.append(Pokemon.Charmeleon)
-//        pokemons.append(Pokemon.Charizard)
-//        pokemons.append(Pokemon.Squirtle)
-//        pokemons.append(Pokemon.Wartortle)
-//        pokemons.append(Pokemon.Blastoise)
-//        pokemons.append(Pokemon.Caterpie)
-//        pokemons.append(Pokemon.Metapod)
-//        pokemons.append(Pokemon.Butterfree)
-//    }
-//
-//    func getPokemon(byIndex index: Int) -> (title: String, description: String, image: UIImage?, color: UIColor?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String) {
-//
-//        let title = pokemons[index].rawValue
-//        let description = pokemons[index].description
-//        let image = UIImage(named: pokemons[index].imageName)
-//        let color = UIColor(hex: pokemons[index].color)
-//        let id = pokemons[index].pokedexID
-//        let type = pokemons[index].type
-//        let HP = pokemons[index].HP
-//        let attack = pokemons[index].attack
-//        let defense = pokemons[index].defense
-//        let specialAttack = pokemons[index].specialAttack
-//        let specialDefense = pokemons[index].specialDefense
-//        let speed = pokemons[index].specialDefense
-//
-//        return (title, description, image, color, id, type, HP, attack, defense, specialAttack, specialDefense, speed)
-//    }
-//}
-
 
 // An extension that lets you pass hex code to UIColor
-// Reference used: https://www.hackingwithswift.com/example-code/uicolor/how-to-convert-a-hex-color-to-a-uicolor
+// Reference used: https://www.hackingwithswift.com/example-code/UIColor/how-to-convert-a-hex-colour-to-a-UIColor
 extension UIColor {
     public convenience init?(hex: String) {
         let r, g, b, a: CGFloat
         
         if hex.hasPrefix("#") {
             let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexColor = String(hex[start...])
+            let hexcolour = String(hex[start...])
             
-            if hexColor.count == 8 {
-                let scanner = Scanner(string: hexColor)
+            if hexcolour.count == 8 {
+                let scanner = Scanner(string: hexcolour)
                 var hexNumber: UInt64 = 0
                 
                 if scanner.scanHexInt64(&hexNumber) {
