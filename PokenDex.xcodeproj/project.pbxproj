@@ -99,15 +99,10 @@
 		625C210A24ED10B7002D0792 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				623E506224EE0691004678DD /* PokedexController.swift */,
-				6266324024EEAB2F00DBD30A /* PokemonViewModel.swift */,
-				62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */,
-				623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */,
-				623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */,
-				6243089324FBE3AB0094812F /* DevelopersTableViewController.swift */,
-				6243089524FBE3D70094812F /* DevelopersViewModel.swift */,
-				6243089724FBE4010094812F /* DevelopersViewController.swift */,
-				6295817024FD280900A07A80 /* FavouritesTableViewController.swift */,
+				62BE11422500D5E100619DED /* Pokedex */,
+				62BE11432500D5F700619DED /* Pokemon */,
+				62BE11462500D64000619DED /* Favourites */,
+				62BE11442500D61200619DED /* Developers */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -180,6 +175,43 @@
 				6269AED124CBD26C00D76DCD /* Info.plist */,
 			);
 			path = PokenDexUITests;
+			sourceTree = "<group>";
+		};
+		62BE11422500D5E100619DED /* Pokedex */ = {
+			isa = PBXGroup;
+			children = (
+				623E506224EE0691004678DD /* PokedexController.swift */,
+			);
+			path = Pokedex;
+			sourceTree = "<group>";
+		};
+		62BE11432500D5F700619DED /* Pokemon */ = {
+			isa = PBXGroup;
+			children = (
+				6266324024EEAB2F00DBD30A /* PokemonViewModel.swift */,
+				62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */,
+				623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */,
+				623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */,
+			);
+			path = Pokemon;
+			sourceTree = "<group>";
+		};
+		62BE11442500D61200619DED /* Developers */ = {
+			isa = PBXGroup;
+			children = (
+				6243089324FBE3AB0094812F /* DevelopersTableViewController.swift */,
+				6243089524FBE3D70094812F /* DevelopersViewModel.swift */,
+				6243089724FBE4010094812F /* DevelopersViewController.swift */,
+			);
+			path = Developers;
+			sourceTree = "<group>";
+		};
+		62BE11462500D64000619DED /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				6295817024FD280900A07A80 /* FavouritesTableViewController.swift */,
+			);
+			path = Favourites;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

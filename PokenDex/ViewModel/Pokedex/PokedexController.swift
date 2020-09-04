@@ -39,23 +39,27 @@ class PokedexController: UICollectionViewController {
             let viewImage = cell.viewWithTag(1000) as? UIImageView
             let viewLabel = cell.viewWithTag(1001) as? UILabel
             let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
+            let viewColour = cell.viewWithTag(1003)
 
             if let viewImage = viewImage, let viewLabel = viewLabel, let viewLabelTwo = viewLabelTwo {
                 let currentPokemon = filteredPokemon[indexPath.item]
                 viewImage.image = currentPokemon.imageName
                 viewLabel.text = currentPokemon.name
                 viewLabelTwo.text = currentPokemon.pokedexID
+                viewColour?.backgroundColor = currentPokemon.colour
             }
         } else {
             let imageView = cell.viewWithTag(1000) as? UIImageView
             let pokemonTitle = cell.viewWithTag(1001) as? UILabel
             let pokemonID = cell.viewWithTag(1002) as? UILabel
+            let colourView = cell.viewWithTag(1003)
             
             if let imageView = imageView, let pokemonTitle = pokemonTitle, let pokemonID = pokemonID {
                 let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
                 imageView.image = currentPokemon.image
                 pokemonTitle.text = currentPokemon.name
                 pokemonID.text = currentPokemon.id
+                colourView?.backgroundColor = currentPokemon.colour
             }
         }
         return cell
@@ -123,9 +127,9 @@ class PokedexController: UICollectionViewController {
                 let sa = self.viewModel.getPokemon(byIndex: indexPath.item).specialAttack
                 let sd = self.viewModel.getPokemon(byIndex: indexPath.item).specialDefense
                 let speed = self.viewModel.getPokemon(byIndex: indexPath.item).speed
-                let color = self.viewModel.getPokemon(byIndex: indexPath.item).color
+                let colour = self.viewModel.getPokemon(byIndex: indexPath.item).colour
                 
-                favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, color: color))
+                favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, colour: colour))
                 print(favourites)
                 
                 visualEffectView.removeFromSuperview()
@@ -162,5 +166,17 @@ extension PokedexController: UISearchBarDelegate {
             filteredPokemon = viewModel.pokemons.filter({ $0.name.range(of: searchText) != nil })
             collectionView?.reloadData()
         }
+    }
+}
+
+extension PokedexController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        let leftRightInset = (collectionView.bounds.width - 130*2 - 20)/2
+        return UIEdgeInsets(top: 32, left: leftRightInset, bottom: 20, right: leftRightInset)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        collectionView?.collectionViewLayout.invalidateLayout();
     }
 }

@@ -12,7 +12,7 @@ var favourites: [Pokemon] = []
 private let reuseIdentifier = "FavCell"
 private var indexForCell: Int?
 
-func getFavourite(byIndex index: Int) -> (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, color: UIColor?) {
+func getFavourite(byIndex index: Int) -> (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, colour: UIColor?) {
     
     let name = favourites[index].name
     let description = favourites[index].description
@@ -25,9 +25,9 @@ func getFavourite(byIndex index: Int) -> (name: String, description: String, ima
     let specialAttack = favourites[index].specialAttack
     let specialDefense = favourites[index].specialDefense
     let speed = favourites[index].specialDefense
-    let color = favourites[index].color
+    let colour = favourites[index].colour
     
-    return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, color)
+    return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, colour)
 }
 
 
@@ -51,10 +51,16 @@ class FavouritesTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
         
         let pokName = cell.viewWithTag(3001) as? UILabel
-        pokName?.text = favourites[indexPath.row].name
+        let pokImage = cell.viewWithTag(3002) as? UIImageView
+        
+        if let pokName = pokName, let pokImage = pokImage {
+            
+            let currentPokemon = favourites[indexPath.item]
+            pokName.text = currentPokemon.name
+            pokImage.image = currentPokemon.imageName
+        }
         
         return cell
-        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
