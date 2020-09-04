@@ -62,11 +62,11 @@ let Wartortle = Pokemon.init(name: "Wartortle", description: "Its tail is large 
 
 let Blastoise = Pokemon.init(name: "Blastoise", description: "BLASTOISE has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet.", imageName: UIImage(named: "9")!, pokedexID: "#009", type: "Water", HP: "79", attack: "83", defense: "100", specialAttack: "85", specialDefense: "105", speed: "78", color: UIColor(hex: "#20bf6bff"))
 
-let Caterpie = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Caterpie = Pokemon.init(name: "Caterpie", description: "CATERPIE has a voracious appetite. It can devour leaves bigger than its body right before your eyes. From its antenna, this POKéMON releases a terrifically strong odor.", imageName: UIImage(named: "10")!, pokedexID: "#010", type: "Bug", HP: "45", attack: "30", defense: "35", specialAttack: "20", specialDefense: "20", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
-let Metapod = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Metapod = Pokemon.init(name: "Metapod", description: "The shell covering this POKéMON’s body is as hard as an iron slab. METAPOD does not move very much. It stays still because it is preparing its soft innards for evolution inside the hard shell.", imageName: UIImage(named: "11")!, pokedexID: "#011", type: "Bug", HP: "50", attack: "20", defense: "55", specialAttack: "25", specialDefense: "25", speed: "30", color: UIColor(hex: "#20bf6bff"))
 
-let Butterfree = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Butterfree = Pokemon.init(name: "Butterfree", description: "BUTTERFREE has a superior ability to search for delicious honey from flowers. It can even search out, extract, and carry honey from flowers that are blooming over six miles from its nest.", imageName: UIImage(named: "12")!, pokedexID: "#012", type: "Bug", HP: "60", attack: "45", defense: "50", specialAttack: "90", specialDefense: "80", speed: "70", color: UIColor(hex: "#20bf6bff"))
 
 let Pidgeot = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
