@@ -23,4 +23,16 @@ class StatsViewController: UIViewController {
     @IBOutlet weak var specialDefenseProgress: UIProgressView!
     @IBOutlet weak var speedProgress: UIProgressView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        // Setting Height of UIProgressView since there is no way to do it in storyboard.
+        HPProgress.transform = HPProgress.transform.scaledBy(x: 1, y: 3)
+        attackProgress.transform = attackProgress.transform.scaledBy(x: 1, y: 3)
+        defenseProgress.transform = defenseProgress.transform.scaledBy(x: 1, y: 3)
+        specialAttackProgress.transform = specialAttackProgress.transform.scaledBy(x: 1, y: 3)
+        specialDefenseProgress.transform = specialDefenseProgress.transform.scaledBy(x: 1, y: 3)
+        speedProgress.transform = speedProgress.transform.scaledBy(x: 1, y: 3)
+    }
+    
 }
