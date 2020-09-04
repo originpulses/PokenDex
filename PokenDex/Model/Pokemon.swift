@@ -92,15 +92,15 @@ let Dragonite = Pokemon.init(name: "Dragonite", description: "DRAGONITE is capab
 
 let Mewtwo = Pokemon.init(name: "Mewtwo", description: "MEWTWO is a POKéMON that was created by genetic manipulation. However, even though the scientific power of humans created this POKéMON’s body, they failed to endow MEWTWO with a compassionate heart.", imageName: UIImage(named: "150")!, pokedexID: "#150", type: "Psychic", HP: "106", attack: "110", defense: "90", specialAttack: "154", specialDefense: "90", speed: "130", color: UIColor(hex: "#20bf6bff"))
 
-let Tyranitar = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Tyranitar = Pokemon.init(name: "Tyranitar", description: "TYRANITAR is so overwhelmingly powerful, it can bring down a whole mountain to make its nest. This POKéMON wanders about in mountains seeking new opponents to fight.", imageName: UIImage(named: "248")!, pokedexID: "#248", type: "Rock", HP: "100", attack: "134", defense: "110", specialAttack: "95", specialDefense: "100", speed: "61", color: UIColor(hex: "#20bf6bff"))
 
-let Groudon = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Groudon = Pokemon.init(name: "Groudon", description: "GROUDON has long been described in mythology as the POKéMON that raised lands and expanded continents. This POKéMON took to sleep after a cataclysmic battle with KYOGRE.", imageName: UIImage(named: "383")!, pokedexID: "#383", type: "Ground", HP: "100", attack: "150", defense: "140", specialAttack: "100", specialDefense: "90", speed: "90", color: UIColor(hex: "#20bf6bff"))
 
-let Kyogre = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Kyogre = Pokemon.init(name: "Kyogre", description: "KYOGRE has the power to create massive rain clouds that cover the entire sky and bring about torrential downpours. This POKéMON saved people who were suffering from droughts.", imageName: UIImage(named: "382")!, pokedexID: "#382", type: "Water", HP: "100", attack: "100", defense: "90", specialAttack: "150", specialDefense: "140", speed: "90", color: UIColor(hex: "#20bf6bff"))
 
-let Lucario = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Lucario = Pokemon.init(name: "Lucario", description: "By catching the aura emanating from others, it can read their thoughts and movements.", imageName: UIImage(named: "448")!, pokedexID: "#448", type: "Fighting", HP: "70", attack: "110", defense: "70", specialAttack: "115", specialDefense: "70", speed: "90", color: UIColor(hex: "#20bf6bff"))
 
-let Xerneas = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Xerneas = Pokemon.init(name: "Xerneas", description: "Legends say it can share eternal life. It slept for a thousand years in the form of a tree before its revival.", imageName: UIImage(named: "716")!, pokedexID: "#716", type: "Fairy", HP: "126", attack: "131", defense: "95", specialAttack: "131", specialDefense: "98", speed: "99", color: UIColor(hex: "#20bf6bff"))
 
 
 
