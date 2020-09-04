@@ -54,7 +54,7 @@ let Charmandar = Pokemon.init(name: "Charmandar", description: "The flame that b
 
 let Charmeleon = Pokemon.init(name: "Charmeleon", description: "CHARMELEON mercilessly destroys its foes using its sharp claws. If it encounters a strong foe, it turns aggressive. In this excited state, the flame at the tip of its tail flares with a bluish white color.", imageName: UIImage(named: "5")!, pokedexID: "#005", type: "Fire", HP: "58", attack: "64", defense: "58", specialAttack: "80", specialDefense: "65", speed: "80", color: UIColor(hex: "#20bf6bff"))
 
-let Charizard = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Charizard = Pokemon.init(name: "Charizard", description: "CHARIZARD flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.", imageName: UIImage(named: "6")!, pokedexID: "#006", type: "Fire", HP: "78", attack: "84", defense: "78", specialAttack: "109", specialDefense: "85", speed: "100", color: UIColor(hex: "#20bf6bff"))
 
 let Squirtle = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
