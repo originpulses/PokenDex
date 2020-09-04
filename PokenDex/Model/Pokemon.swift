@@ -56,11 +56,11 @@ let Charmeleon = Pokemon.init(name: "Charmeleon", description: "CHARMELEON merci
 
 let Charizard = Pokemon.init(name: "Charizard", description: "CHARIZARD flies around the sky in search of powerful opponents. It breathes fire of such great heat that it melts anything. However, it never turns its fiery breath on any opponent weaker than itself.", imageName: UIImage(named: "6")!, pokedexID: "#006", type: "Fire", HP: "78", attack: "84", defense: "78", specialAttack: "109", specialDefense: "85", speed: "100", color: UIColor(hex: "#20bf6bff"))
 
-let Squirtle = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Squirtle = Pokemon.init(name: "Squirtle", description: "SQUIRTLE’s shell is not merely used for protection. The shell’s rounded shape and the grooves on its surface help minimize resistance in water, enabling this POKéMON to swim at high speeds.", imageName: UIImage(named: "7")!, pokedexID: "#007", type: "Water", HP: "44", attack: "48", defense: "65", specialAttack: "50", specialDefense: "64", speed: "43", color: UIColor(hex: "#20bf6bff"))
 
-let Wartortle = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Wartortle = Pokemon.init(name: "Wartortle", description: "Its tail is large and covered with a rich, thick fur. The tail becomes increasingly deeper in color as WARTORTLE ages. The scratches on its shell are evidence of this POKéMON’s toughness as a battler.", imageName: UIImage(named: "8")!, pokedexID: "#008", type: "Water", HP: "59", attack: "63", defense: "80", specialAttack: "65", specialDefense: "80", speed: "58", color: UIColor(hex: "#20bf6bff"))
 
-let Blastoise = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Blastoise = Pokemon.init(name: "Blastoise", description: "BLASTOISE has water spouts that protrude from its shell. The water spouts are very accurate. They can shoot bullets of water with enough accuracy to strike empty cans from a distance of over 160 feet.", imageName: UIImage(named: "9")!, pokedexID: "#009", type: "Water", HP: "79", attack: "83", defense: "100", specialAttack: "85", specialDefense: "105", speed: "78", color: UIColor(hex: "#20bf6bff"))
 
 let Caterpie = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
