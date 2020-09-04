@@ -46,7 +46,7 @@ struct Pokemon {
 
 let Bulbasaur = Pokemon.init(name: "Bulbasaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "1")!, pokedexID: "#001", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
-let Ivysaur = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Ivysaur = Pokemon.init(name: "Ivysaur", description: "There is a bud on this POKéMON’s back.To support its weight, IVYSAUR’s legs and trunk grow thick and strong.If it starts spending more time lying in the sunlight, it’s a sign that the bud will bloom into a large flower soon.", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "60", attack: "62", defense: "63", specialAttack: "80", specialDefense: "80", speed: "60", color: UIColor(hex: "#20bf6bff"))
 
 let Venusaur = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
