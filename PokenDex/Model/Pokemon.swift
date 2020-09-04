@@ -86,11 +86,11 @@ let Eevee = Pokemon.init(name: "Eevee", description: "EEVEE has an unstable gene
 
 let Umbreon = Pokemon.init(name: "Umbreon", description: "UMBREON evolved as a result of exposure to the moon’s waves. It hides silently in darkness and waits for its foes to make a move. The rings on its body glow when it leaps to attack.", imageName: UIImage(named: "197")!, pokedexID: "#197", type: "Dark", HP: "95", attack: "65", defense: "110", specialAttack: "60", specialDefense: "130", speed: "65", color: UIColor(hex: "#20bf6bff"))
 
-let Articuno = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Articuno = Pokemon.init(name: "Articuno", description: "ARTICUNO is a legendary bird POKéMON that can control ice. The flapping of its wings chills the air. As a result, it is said that when this POKéMON flies, snow will fall.", imageName: UIImage(named: "144")!, pokedexID: "#144", type: "Ice", HP: "90", attack: "85", defense: "100", specialAttack: "95", specialDefense: "125", speed: "85", color: UIColor(hex: "#20bf6bff"))
 
-let Dragonite = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Dragonite = Pokemon.init(name: "Dragonite", description: "DRAGONITE is capable of circling the globe in just sixteen hours. It is a kindhearted POKéMON that leads lost and foundering ships in a storm to the safety of land.", imageName: UIImage(named: "149")!, pokedexID: "#149", type: "Dragon", HP: "91", attack: "134", defense: "95", specialAttack: "100", specialDefense: "100", speed: "80", color: UIColor(hex: "#20bf6bff"))
 
-let Mewtwo = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Mewtwo = Pokemon.init(name: "Mewtwo", description: "MEWTWO is a POKéMON that was created by genetic manipulation. However, even though the scientific power of humans created this POKéMON’s body, they failed to endow MEWTWO with a compassionate heart.", imageName: UIImage(named: "150")!, pokedexID: "#150", type: "Psychic", HP: "106", attack: "110", defense: "90", specialAttack: "154", specialDefense: "90", speed: "130", color: UIColor(hex: "#20bf6bff"))
 
 let Tyranitar = Pokemon.init(name: "", description: "", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
