@@ -50,7 +50,7 @@ let Ivysaur = Pokemon.init(name: "Ivysaur", description: "There is a bud on this
 
 let Venusaur = Pokemon.init(name: "Venusaur", description: "There is a large flower on VENUSAUR’s back. The flower is said to take on vivid colors if it gets plenty of nutrition and sunlight. The flower’s aroma soothes the emotions of people.", imageName: UIImage(named: "3")!, pokedexID: "#003", type: "Grass", HP: "80", attack: "82", defense: "83", specialAttack: "100", specialDefense: "100", speed: "80", color: UIColor(hex: "#20bf6bff"))
 
-let Charmandar = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
+let Charmandar = Pokemon.init(name: "Charmandar", description: "The flame that burns at the tip of its tail is an indication of its emotions. The flame wavers when CHARMANDER is enjoying itself. If the POKéMON becomes enraged, the flame burns fiercely.", imageName: UIImage(named: "4")!, pokedexID: "#004", type: "Grass", HP: "39", attack: "52", defense: "43", specialAttack: "60", specialDefense: "50", speed: "65", color: UIColor(hex: "#20bf6bff"))
 
 let Charmeleon = Pokemon.init(name: "Ivysaur", description: "A young Bulbasaur uses the nutrients from it's seed for the energy it needs to grow", imageName: UIImage(named: "2")!, pokedexID: "#002", type: "Grass", HP: "45", attack: "49", defense: "49", specialAttack: "65", specialDefense: "65", speed: "45", color: UIColor(hex: "#20bf6bff"))
 
