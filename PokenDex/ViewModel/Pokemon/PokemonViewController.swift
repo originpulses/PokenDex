@@ -15,7 +15,6 @@ class PokemonViewController: UIViewController {
     var desVC: DescriptionViewController?
     var statsVC: StatsViewController?
     
-    
     @IBOutlet weak var pokemonName: UILabel!
     @IBOutlet weak var pokemonID: UILabel!
     @IBOutlet weak var pokemonType: UILabel!
@@ -30,7 +29,8 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCornerRadius()
-
+        
+        // Setup detail view and passing data to 2 container views
         if let selectedPokemon = selectedPokemon,
             let dVC = desVC,
             let sVC = statsVC {
@@ -62,11 +62,13 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    // Setting upper corner radius of the "white coloured detailed view"
     func setCornerRadius() {
         self.detailView.layer.cornerRadius = self.view.bounds.height*4/100
         self.detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    // To pass data to the container views by referencing them through segues
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let vc = segue.destination as? DescriptionViewController {
             desVC = vc
@@ -76,6 +78,7 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    // Segmented Control Setup
     @IBAction func segmentChanged(_ sender: UISegmentedControl) {
         if sender.selectedSegmentIndex == 0 {
             descriptionView.isHidden = false

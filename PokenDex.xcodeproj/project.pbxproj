@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		623E498D2503325000CAA156 /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E498C2503325000CAA156 /* UIColorExtension.swift */; };
 		623E506324EE0691004678DD /* PokedexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E506224EE0691004678DD /* PokedexController.swift */; };
 		623E5D1A24F6C2DF001C0894 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */; };
 		623E5D1C24F6C2ED001C0894 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */; };
@@ -45,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		623E498C2503325000CAA156 /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
 		623E506224EE0691004678DD /* PokedexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexController.swift; sourceTree = "<group>"; };
 		623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		623E498B250331E100CAA156 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				623E498C2503325000CAA156 /* UIColorExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		625C210A24ED10B7002D0792 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +161,7 @@
 				625C210C24ED10D8002D0792 /* Model */,
 				625C210B24ED10C5002D0792 /* View */,
 				625C210A24ED10B7002D0792 /* ViewModel */,
+				623E498B250331E100CAA156 /* Extensions */,
 				6269AEAC24CBD26A00D76DCD /* AppDelegate.swift */,
 				6269AEB624CBD26C00D76DCD /* Assets.xcassets */,
 				6269AEBB24CBD26C00D76DCD /* Info.plist */,
@@ -346,6 +357,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6269AEAD24CBD26A00D76DCD /* AppDelegate.swift in Sources */,
+				623E498D2503325000CAA156 /* UIColorExtension.swift in Sources */,
 				6243089824FBE4010094812F /* DevelopersViewController.swift in Sources */,
 				623E5D1A24F6C2DF001C0894 /* DescriptionViewController.swift in Sources */,
 				6243089424FBE3AB0094812F /* DevelopersTableViewController.swift in Sources */,
