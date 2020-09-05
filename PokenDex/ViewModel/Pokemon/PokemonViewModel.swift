@@ -24,7 +24,7 @@ struct PokemonViewModel {
     
     
     // There are over 500 Pokemons and we only hard coded some of them to populate our collectionview
-    // With the help of PokeAPI we will be able to get all 500+ Pokemons as PokeAPI owners have all the data and we just have to fetch it
+    // With the help of PokeAPI we will be able to get all 500+ Pokemons
     private mutating func loadPokemon() {
         pokemons.append(Bulbasaur)
         pokemons.append(Ivysaur)
@@ -74,33 +74,4 @@ struct PokemonViewModel {
     
             return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, colour)
         }
-}
-
-// An extension that lets you pass hex code to UIColor
-// Reference used: https://www.hackingwithswift.com/example-code/UIColor/how-to-convert-a-hex-colour-to-a-UIColor
-extension UIColor {
-    public convenience init?(hex: String) {
-        let r, g, b, a: CGFloat
-        
-        if hex.hasPrefix("#") {
-            let start = hex.index(hex.startIndex, offsetBy: 1)
-            let hexcolour = String(hex[start...])
-            
-            if hexcolour.count == 8 {
-                let scanner = Scanner(string: hexcolour)
-                var hexNumber: UInt64 = 0
-                
-                if scanner.scanHexInt64(&hexNumber) {
-                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
-                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
-                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
-                    a = CGFloat(hexNumber & 0x000000ff) / 255
-                    
-                    self.init(red: r, green: g, blue: b, alpha: a)
-                    return
-                }
-            }
-        }
-        return nil
-    }
 }

@@ -8,6 +8,8 @@
 
 import UIKit
 
+// MARK: - Collection View Setup
+
 private let reuseIdentifier = "PokeCell"
 
 class PokedexController: UICollectionViewController {
@@ -15,17 +17,34 @@ class PokedexController: UICollectionViewController {
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
-    
     private let viewModel = PokemonViewModel()
-    private var filteredPokemon: [Pokemon] = []
+    private var filteredPokemon: [Pokemon] = [] // Filtered Array that holds the searched Pokemons
     var inSearchMode = false
+    
+    // Returns data of filtered Pokemon
+    func getFilteredPokemon(byIndex index: Int) -> (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, colour: UIColor?) {
+        
+        let name = filteredPokemon[index].name
+        let description = filteredPokemon[index].description
+        let image = filteredPokemon[index].imageName
+        let id = filteredPokemon[index].pokedexID
+        let type = filteredPokemon[index].type
+        let HP = filteredPokemon[index].HP
+        let attack = filteredPokemon[index].attack
+        let defense = filteredPokemon[index].defense
+        let specialAttack = filteredPokemon[index].specialAttack
+        let specialDefense = filteredPokemon[index].specialDefense
+        let speed = filteredPokemon[index].specialDefense
+        let colour = filteredPokemon[index].colour
+        
+        return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, colour)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButtonPressed(searchButton)
         longPressOnCell()
     }
-    
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return inSearchMode ? filteredPokemon.count : viewModel.count
@@ -69,11 +88,18 @@ class PokedexController: UICollectionViewController {
         guard let cell = sender as? UICollectionViewCell,
             let indexPath = self.collectionView?.indexPath(for: cell) else {return}
         if let destination = segue.destination as? PokemonViewController {
-            let selectedPokemon = viewModel.getPokemon(byIndex: indexPath.row)
-            destination.selectedPokemon = selectedPokemon
+            if inSearchMode {
+                let selectedPokemon = getFilteredPokemon(byIndex: indexPath.row)
+                destination.selectedPokemon = selectedPokemon
+            } else {
+                let selectedPokemon = viewModel.getPokemon(byIndex: indexPath.row)
+                destination.selectedPokemon = selectedPokemon
+            }
         }
     }
     
+    
+    // MARK: - Search Functionality
     @objc func showSearchBar() {
         configureSearchBar()
     }
@@ -93,6 +119,8 @@ class PokedexController: UICollectionViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
     }
     
+    
+    // MARK: - Long Press Gesture Setup
     private func longPressOnCell() {
         let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
         longPressedGesture.minimumPressDuration = 0.5
@@ -147,6 +175,8 @@ class PokedexController: UICollectionViewController {
     }
 }
 
+
+// MARK: - SearchBar Delegate Methods
 extension PokedexController: UISearchBarDelegate {
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -169,13 +199,16 @@ extension PokedexController: UISearchBarDelegate {
     }
 }
 
+// MARK: - Collection View 2 Cells Per Row Setup
 extension PokedexController: UICollectionViewDelegateFlowLayout {
     
+    // Sets up 2 cells per row no matter what the screen size. It calculates the bounds width and sets up the right and left inset accordingly
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let leftRightInset = (collectionView.bounds.width - 130*2 - 20)/2
         return UIEdgeInsets(top: 32, left: leftRightInset, bottom: 20, right: leftRightInset)
     }
     
+    // This was done to fix a bug with the collection layout
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout();
     }

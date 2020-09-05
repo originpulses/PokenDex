@@ -70,8 +70,6 @@ let Butterfree = Pokemon.init(name: "Butterfree", description: "BUTTERFREE has a
 
 let Pidgeot = Pokemon.init(name: "Pidgeot", description: "This POKéMON has a dazzling plumage of beautifully glossy feathers. Many TRAINERS are captivated by the striking beauty of the feathers on its head, compelling them to choose PIDGEOT as their POKéMON.", imageName: UIImage(named: "18")!, pokedexID: "#018", type: "Flying", HP: "83", attack: "80", defense: "75", specialAttack: "70", specialDefense: "70", speed: "101", colour: UIColor(hex: "#baa9efff"))
 
-//a890f0ff
-
 let Pikachu = Pokemon.init(name: "Pikachu", description: "Whenever PIKACHU comes across something new, it blasts it with a jolt of electricity. If you come across a blackened berry, it’s evidence that this POKéMON mistook the intensity of its charge.", imageName: UIImage(named: "25")!, pokedexID: "#025", type: "Electric", HP: "35", attack: "55", defense: "40", specialAttack: "50", specialDefense: "50", speed: "90", colour: UIColor(hex: "#f3ca3eff"))
 
 let Raichu = Pokemon.init(name: "Raichu", description: "If the electrical sacks become excessively charged, RAICHU plants its tail in the ground and discharges. Scorched patches of ground will be found near this POKéMON’s nest.", imageName: UIImage(named: "26")!, pokedexID: "#026", type: "Electric", HP: "60", attack: "90", defense: "55", specialAttack: "90", specialDefense: "80", speed: "110", colour: UIColor(hex: "#f3ca3eff"))
@@ -87,9 +85,6 @@ let Steelix = Pokemon.init(name: "Steelix", description: "STEELIX lives even fur
 let Eevee = Pokemon.init(name: "Eevee", description: "EEVEE has an unstable genetic makeup that suddenly mutates due to the environment in which it lives. Radiation from various STONES causes this POKéMON to evolve.", imageName: UIImage(named: "133")!, pokedexID: "#133", type: "Normal", HP: "55", attack: "55", defense: "50", specialAttack: "45", specialDefense: "65", speed: "55", colour: UIColor(hex: "#a8a878ff"))
 
 let Umbreon = Pokemon.init(name: "Umbreon", description: "UMBREON evolved as a result of exposure to the moon’s waves. It hides silently in darkness and waits for its foes to make a move. The rings on its body glow when it leaps to attack.", imageName: UIImage(named: "197")!, pokedexID: "#197", type: "Dark", HP: "95", attack: "65", defense: "110", specialAttack: "60", specialDefense: "130", speed: "65", colour: UIColor(hex: "#30336bff"))
-
-//705848ff
-//130f40ff
 
 let Articuno = Pokemon.init(name: "Articuno", description: "ARTICUNO is a legendary bird POKéMON that can control ice. The flapping of its wings chills the air. As a result, it is said that when this POKéMON flies, snow will fall.", imageName: UIImage(named: "144")!, pokedexID: "#144", type: "Ice", HP: "90", attack: "85", defense: "100", specialAttack: "95", specialDefense: "125", speed: "85", colour: UIColor(hex: "#98d8d8ff"))
 
