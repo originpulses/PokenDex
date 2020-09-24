@@ -21,7 +21,7 @@ class PokemonsViewModel {
             case .success(let data):
                 if data != nil {
                     do {
-                        let results = try JSONDecoder().decode(Pokemons.self, from: data!)
+                        let results = try JSONDecoder().decode(Pokemon.self, from: data!)
                         if self.pokemons == nil {
                             self.pokemons = results
                             completion(.success(self.pokemons))
@@ -31,14 +31,14 @@ class PokemonsViewModel {
                             completion(.success(self.pokemons))
                         }
                         
-                    } catch(let error) {
+                    } catch( _) {
                         completion(.failure(.noConnectivity))
                     }
                     
                 } else {
                     completion(.failure(.noConnectivity))
                 }
-            case .failure(let error):
+            case .failure( _):
                 completion(.failure(.noConnectivity))
             }
         }
