@@ -9,9 +9,10 @@
 import Foundation
 import Alamofire
 
-public class PokedexService {
+public class PokendexService {
+    
     func get(url: String, completion: @escaping (Result<Data?, HttpError>) -> ()) {
-        AF.request(url, method: .get).responseJSON { response in
+        Alamofire.request(url, method: .get).responseJSON { response in
             if let status = response.response?.statusCode {
                 switch(status){
                 case 204:
