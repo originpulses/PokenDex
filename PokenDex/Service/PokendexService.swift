@@ -10,7 +10,7 @@ import Foundation
 import Alamofire
 
 public class PokendexService {
-    
+
     func get(url: String, completion: @escaping (Result<Data?, HttpError>) -> ()) {
         Alamofire.request(url, method: .get).responseJSON { response in
             if let status = response.response?.statusCode {
