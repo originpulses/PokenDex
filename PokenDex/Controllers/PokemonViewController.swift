@@ -32,12 +32,12 @@ class PokemonViewController: UIViewController {
     
     var pokemonDetailViewModel: PokemonDetailViewModel! {
         didSet {
-            self.setPokemonImage()
-            self.setPokemonData()
-            self.setPokemonStatus()
-            self.setPokemonTypes()
-            if let specieUrl = self.pokemonDetailViewModel.pokemonDetail.species?.url {
-                self.getSpecie(url: specieUrl)
+            setPokemonImage()
+            setPokemonData()
+            setPokemonStatus()
+            setPokemonTypes()
+            if let specieUrl = pokemonDetailViewModel.pokemonDetail.species?.url {
+                getSpecie(url: specieUrl)
             }
         }
     }
@@ -46,6 +46,7 @@ class PokemonViewController: UIViewController {
         didSet {
             if let dVC = desVC {
                 dVC.pokemonDescription.text = specieDetailViewModel.getDataDescription()
+                print(specieDetailViewModel.getDataDescription())
             }
         }
     }
@@ -54,13 +55,13 @@ class PokemonViewController: UIViewController {
         super.viewDidLoad()
         setCornerRadius()
         
-        getPokemon(url: "https://pokeapi.co/api/v2/pokemon/\(self.id)")
+        getPokemon(url: "https://pokeapi.co/api/v2/pokemon/\(id)")
     }
     
 //  Setting upper corner radius of the "white coloured detailed view"
     func setCornerRadius() {
-        self.detailView.layer.cornerRadius = self.view.bounds.height*4/100
-        self.detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        detailView.layer.cornerRadius = self.view.bounds.height*4/100
+        detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
     func getPokemon(url: String) {
@@ -96,17 +97,17 @@ class PokemonViewController: UIViewController {
     
     private func setPokemonImage() {
         if let url = URL(string: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(String(format: "%03d", id)).png") {
-            self.pokemonImage.kf.setImage(with: url)
+            pokemonImage.kf.setImage(with: url)
         }
     }
     
     private func setPokemonData() {
-        if let name = self.pokemonDetailViewModel.pokemonDetail.name {
-            self.pokemonName.text = name
+        if let name = pokemonDetailViewModel.pokemonDetail.name {
+            pokemonName.text = name
         }
         
-        if let id = self.pokemonDetailViewModel.pokemonDetail.id {
-            self.pokemonID.text = "# \(String(format: "%03d", id))"
+        if let id = pokemonDetailViewModel.pokemonDetail.id {
+            pokemonID.text = "#\(String(format: "%03d", id))"
             
         }
     }
@@ -147,7 +148,7 @@ class PokemonViewController: UIViewController {
                     sVC.speedProgress.setProgress(((sVC.pokemonSpeed.text?.floatValue())!/300), animated: false)
                 }
             } else {
-                self.showAlert(title: "Error", message: "Unknown Error")
+                showAlert(title: "Error", message: "Unknown Error")
             }
         }
     }

@@ -351,21 +351,55 @@ class PokedexController: UICollectionViewController {
         }
     }
 
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let cell = sender as? UICollectionViewCell,
-            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
-        if let destination = segue.destination as? PokemonViewController {
-            if searchActive {
-                let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
-                let id = Int(url.split(separator: "/").last!)!
-                destination.id = id
-            } else {
-                let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
-                let id = Int(url!.split(separator: "/").last!)!
-                destination.id = id
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let cell = sender as? UICollectionViewCell,
+//            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
+//        if let destination = segue.destination as? PokemonViewController {
+//            if searchActive {
+//                let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
+//                let id = Int(url.split(separator: "/").last!)!
+//                destination.id = id
+//            } else {
+//                let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
+//                let id = Int(url!.split(separator: "/").last!)!
+//                destination.id = id
+//            }
+//        }
+//    }
+    
+//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+//        let newViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
+//        
+//        if searchActive {
+//            let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
+//            let id = Int(url.split(separator: "/").last!)!
+//            newViewController.id = id
+//        } else {
+//            let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
+//            let id = Int(url!.split(separator: "/").last!)!
+//            newViewController.id = id
+//        }
+//        
+//        present(newViewController, animated: true, completion: nil)
+//    }
+    
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let cell = sender as? UICollectionViewCell,
+                let indexPath = self.collectionView?.indexPath(for: cell) else {return}
+            if let destination = segue.destination as? PokemonViewController {
+                if searchActive {
+                    let url = pokemonArrayFiltered[indexPath.item]?.url
+                    let id = Int(url!.split(separator: "/").last!)!
+                    destination.id = id
+                    print(id)
+                } else {
+                    let url = pokemonsViewModel.pokemons?.results?[indexPath.item].url
+                    let id = Int(url!.split(separator: "/").last!)!
+                    destination.id = id
+                    print(id)
+                }
             }
         }
-    }
 
 
     // MARK: - Search Functionality
