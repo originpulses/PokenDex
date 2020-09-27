@@ -1,5 +1,5 @@
 //
-//  Pokemon.swift
+//  Pokemons.swift
 //  PokenDex
 //
 //  Created by Sabih on 20/8/20.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct Pokemon : Model {
+public struct Pokemons : Model {
     var count : Int?
     var next : String?
     var previous : String?

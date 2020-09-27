@@ -12,4 +12,12 @@ public extension String {
     func floatValue() -> Float? {
         return Float(self)
     }
+    
+    func capitalizingFirstLetter() -> String {
+        return prefix(1).capitalized + dropFirst()
+    }
+    
+    mutating func capitalizeFirstLetter() {
+        self = self.capitalizingFirstLetter()
+    }
 }

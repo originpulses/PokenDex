@@ -48,7 +48,7 @@
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1000" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="TW9-g7-ItO" userLabel="Pokemon Image View">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="1000" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="TW9-g7-ItO" userLabel="Pokemon Image View">
                                             <rect key="frame" x="72" y="22" width="55" height="55"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="55" id="UCD-4p-mpE"/>
@@ -220,7 +220,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="giJ-fa-gOK" userLabel="Image Container">
                                         <rect key="frame" x="75" y="139.5" width="170" height="136.5"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-ml-LtN" userLabel="Pokemon Image View">
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9CU-ml-LtN" userLabel="Pokemon Image View">
                                                 <rect key="frame" x="-9.5" y="-7.5" width="189" height="151.5"/>
                                             </imageView>
                                         </subviews>
@@ -1061,7 +1061,7 @@
         <!--Description View Controller-->
         <scene sceneID="wzb-YV-lu3">
             <objects>
-                <viewController id="w11-O4-dcJ" customClass="DescriptionViewController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="dVC" id="w11-O4-dcJ" customClass="DescriptionViewController" customModule="PokenDex" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Tps-E5-0PC">
                         <rect key="frame" x="0.0" y="0.0" width="304" height="156"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -2162,7 +2162,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="1" width="375" height="375"/>
         <image name="background" width="354" height="698"/>
         <image name="camera" width="25" height="25"/>
         <image name="devteam" width="25" height="25"/>

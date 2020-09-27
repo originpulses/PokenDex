@@ -10,18 +10,18 @@ import UIKit
 
 class PokemonViewController: UIViewController {
     
-        var desVC: DescriptionViewController?
-        var statsVC: StatsViewController?
+    var desVC: DescriptionViewController?
+    var statsVC: StatsViewController?
     
-        @IBOutlet weak var pokemonName: UILabel!
-        @IBOutlet weak var pokemonID: UILabel!
-        @IBOutlet weak var pokemonType: UILabel!
-        @IBOutlet weak var pokemonImage: UIImageView!
-        @IBOutlet weak var descriptionView: UIView!
-        @IBOutlet weak var statsView: UIView!
-        @IBOutlet weak var backgroundView: UIView!
-        @IBOutlet weak var detailView: UIView!
-        @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var pokemonID: UILabel!
+    @IBOutlet weak var pokemonType: UILabel!
+    @IBOutlet weak var pokemonImage: UIImageView!
+    @IBOutlet weak var descriptionView: UIView!
+    @IBOutlet weak var statsView: UIView!
+    @IBOutlet weak var backgroundView: UIView!
+    @IBOutlet weak var detailView: UIView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var id: Int = 0
     var pokemonArray: [Int: String] = [:]
@@ -42,11 +42,18 @@ class PokemonViewController: UIViewController {
         }
     }
     
+//    var specieDetailViewModel: SpecieDetailViewModel! {
+//        didSet {
+//            if let dVC = desVC {
+//                dVC.pokemonDescription.text = specieDetailViewModel.getDataDescription()
+//            }
+//        }
+//    }
+    
     var specieDetailViewModel: SpecieDetailViewModel! {
         didSet {
-            if let dVC = desVC {
-                dVC.pokemonDescription.text = specieDetailViewModel.getDataDescription()
-                print(specieDetailViewModel.getDataDescription())
+            if let dVC = self.desVC {
+                dVC.pokemonDescription.text = specieDetailViewModel.getDataDescription().capitalizingFirstLetter()
             }
         }
     }
@@ -56,6 +63,7 @@ class PokemonViewController: UIViewController {
         setCornerRadius()
         
         getPokemon(url: "https://pokeapi.co/api/v2/pokemon/\(id)")
+        
     }
     
 //  Setting upper corner radius of the "white coloured detailed view"
@@ -103,7 +111,7 @@ class PokemonViewController: UIViewController {
     
     private func setPokemonData() {
         if let name = pokemonDetailViewModel.pokemonDetail.name {
-            pokemonName.text = name
+            pokemonName.text = name.capitalizingFirstLetter()
         }
         
         if let id = pokemonDetailViewModel.pokemonDetail.id {
@@ -118,32 +126,32 @@ class PokemonViewController: UIViewController {
             let name = stat.stat?.name!
             
             if (name?.elementsEqual("hp"))! {
-                if let base_stat = stat.base_stat, let sVC = statsVC {
+                if let base_stat = stat.base_stat, let sVC = self.statsVC {
                     sVC.pokemonHP.text = "\(base_stat)"
                     sVC.HPProgress.setProgress(((sVC.pokemonHP.text?.floatValue())!/300), animated: false)
                 }
             } else if (name?.elementsEqual("defense"))! {
-                if let base_stat = stat.base_stat, let sVC = statsVC {
+                if let base_stat = stat.base_stat, let sVC = self.statsVC {
                     sVC.pokemonDefense.text = "\(base_stat)"
                     sVC.defenseProgress.setProgress(((sVC.pokemonDefense.text?.floatValue())!/300), animated: false)
                 }
             } else if (name?.elementsEqual("attack"))! {
-                if let base_stat = stat.base_stat, let sVC = statsVC {
+                if let base_stat = stat.base_stat, let sVC = self.statsVC {
                     sVC.pokemonAttack.text = "\(base_stat)"
                     sVC.attackProgress.setProgress(((sVC.pokemonAttack.text?.floatValue())!/300), animated: false)
                 }
             } else if (name?.elementsEqual("special-attack"))! {
-                if let base_stat = stat.base_stat, let sVC = statsVC {
+                if let base_stat = stat.base_stat, let sVC = self.statsVC {
                     sVC.pokemonSpecialAttack.text = "\(base_stat)"
                     sVC.specialAttackProgress.setProgress(((sVC.pokemonSpecialAttack.text?.floatValue())!/300), animated: false)
                 }
             } else if (name?.elementsEqual("special-defense"))! {
-                if let base_stat = stat.base_stat, let sVC = statsVC {
+                if let base_stat = stat.base_stat, let sVC = self.statsVC {
                     sVC.pokemonSpecialDefense.text = "\(base_stat)"
                     sVC.specialDefenseProgress.setProgress(((sVC.pokemonSpecialDefense.text?.floatValue())!/300), animated: false)
                 }
             } else if (name?.elementsEqual("speed"))! {
-                if let base_stat = stat.base_stat, let sVC = statsVC {
+                if let base_stat = stat.base_stat, let sVC = self.statsVC {
                     sVC.pokemonSpeed.text = "\(base_stat)"
                     sVC.speedProgress.setProgress(((sVC.pokemonSpeed.text?.floatValue())!/300), animated: false)
                 }
@@ -154,11 +162,9 @@ class PokemonViewController: UIViewController {
     }
     
     private func setPokemonTypes() {
-        let types = pokemonDetailViewModel.pokemonDetail.types
-        for type in types! {
-            let type = type.type?.name
-            pokemonType.text = type
-            backgroundView.backgroundColor = UIColor(named: type!)
+        let type = pokemonDetailViewModel.pokemonDetail.types?.first
+        if let type = type?.type?.name {
+            pokemonType.text = type.capitalizingFirstLetter()
         }
     }
     
@@ -172,6 +178,17 @@ class PokemonViewController: UIViewController {
             statsView.isHidden = false
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let descriptionVC = segue.destination as? DescriptionViewController {
+            self.desVC = descriptionVC
+        }
+        if let statVC = segue.destination as? StatsViewController {
+            self.statsVC = statVC
+        }
+
+    }
+
 }
 
 //class PokemonViewController: UIViewController {

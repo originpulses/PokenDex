@@ -11,5 +11,5 @@ import UIKit
 class DescriptionViewController: UIViewController {
     
     @IBOutlet weak var pokemonDescription: UILabel!
-    
+
 }

@@ -323,7 +323,7 @@ class PokedexController: UICollectionViewController {
             //            let viewColour = cell.viewWithTag(1003)
             
             if let name = pokemonsViewModel.pokemons?.results?[indexPath.item].name {
-                viewLabel?.text = name
+                viewLabel?.text = name.capitalizingFirstLetter()
             }
             if let url = pokemonsViewModel.pokemons?.results?[indexPath.item].url {
                 let id = String(format: "%03d", Int(url.split(separator: "/").last!)!)
