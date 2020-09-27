@@ -25,8 +25,6 @@ class PokemonViewController: UIViewController {
     
     var id: Int = 0
     var pokemonArray: [Int: String] = [:]
-    var pokemonMainColor: UIColor?
-    var speciesEvolutionArray: [SpecieDetailViewModel] = []
     
     let service = PokendexService()
     
@@ -36,6 +34,7 @@ class PokemonViewController: UIViewController {
             setPokemonData()
             setPokemonStatus()
             setPokemonTypes()
+            setPokemonColor()
             if let specieUrl = pokemonDetailViewModel.pokemonDetail.species?.url {
                 getSpecie(url: specieUrl)
             }
@@ -165,6 +164,193 @@ class PokemonViewController: UIViewController {
         let type = pokemonDetailViewModel.pokemonDetail.types?.first
         if let type = type?.type?.name {
             pokemonType.text = type.capitalizingFirstLetter()
+        }
+    }
+    
+    private func setPokemonColor() {
+        let colorOfType = pokemonDetailViewModel.pokemonDetail.types?.first
+        if let colorOfType = colorOfType?.type?.name, let sVC = self.statsVC {
+            if colorOfType == "normal" {
+                let normal = UIColor(hex: "#a8a878ff")
+                backgroundView.backgroundColor = normal
+                sVC.HPProgress.tintColor = normal
+                sVC.attackProgress.tintColor = normal
+                sVC.defenseProgress.tintColor = normal
+                sVC.specialAttackProgress.tintColor = normal
+                sVC.specialDefenseProgress.tintColor = normal
+                sVC.speedProgress.tintColor = normal
+                segmentedControl.tintColor = normal
+            } else if colorOfType == "fire" {
+                let fire = UIColor(hex: "#fd9644ff")
+                backgroundView.backgroundColor = fire
+                sVC.HPProgress.tintColor = fire
+                sVC.attackProgress.tintColor = fire
+                sVC.defenseProgress.tintColor = fire
+                sVC.specialAttackProgress.tintColor = fire
+                sVC.specialDefenseProgress.tintColor = fire
+                sVC.speedProgress.tintColor = fire
+                segmentedControl.tintColor = fire
+            } else if colorOfType == "water" {
+                let water = UIColor(hex: "#54a0ffff")
+                backgroundView.backgroundColor = water
+                sVC.HPProgress.tintColor = water
+                sVC.attackProgress.tintColor = water
+                sVC.defenseProgress.tintColor = water
+                sVC.specialAttackProgress.tintColor = water
+                sVC.specialDefenseProgress.tintColor = water
+                sVC.speedProgress.tintColor = water
+                segmentedControl.tintColor = water
+            } else if colorOfType == "grass" {
+                let grass = UIColor(hex: "#20bf6bff")
+                backgroundView.backgroundColor = grass
+                sVC.HPProgress.tintColor = grass
+                sVC.attackProgress.tintColor = grass
+                sVC.defenseProgress.tintColor = grass
+                sVC.specialAttackProgress.tintColor = grass
+                sVC.specialDefenseProgress.tintColor = grass
+                sVC.speedProgress.tintColor = grass
+                segmentedControl.tintColor = grass
+            } else if colorOfType == "electric" {
+                let electric = UIColor(hex: "#f3ca3eff")
+                backgroundView.backgroundColor = electric
+                sVC.HPProgress.tintColor = electric
+                sVC.attackProgress.tintColor = electric
+                sVC.defenseProgress.tintColor = electric
+                sVC.specialAttackProgress.tintColor = electric
+                sVC.specialDefenseProgress.tintColor = electric
+                sVC.speedProgress.tintColor = electric
+                segmentedControl.tintColor = electric
+            } else if colorOfType == "ice" {
+                let ice = UIColor(hex: "#98d8d8ff")
+                backgroundView.backgroundColor = ice
+                sVC.HPProgress.tintColor = ice
+                sVC.attackProgress.tintColor = ice
+                sVC.defenseProgress.tintColor = ice
+                sVC.specialAttackProgress.tintColor = ice
+                sVC.specialDefenseProgress.tintColor = ice
+                sVC.speedProgress.tintColor = ice
+                segmentedControl.tintColor = ice
+            } else if colorOfType == "fighting" {
+                let fighting = UIColor(hex: "#c45246ff")
+                backgroundView.backgroundColor = fighting
+                sVC.HPProgress.tintColor = fighting
+                sVC.attackProgress.tintColor = fighting
+                sVC.defenseProgress.tintColor = fighting
+                sVC.specialAttackProgress.tintColor = fighting
+                sVC.specialDefenseProgress.tintColor = fighting
+                sVC.speedProgress.tintColor = fighting
+                segmentedControl.tintColor = fighting
+            } else if colorOfType == "poison" {
+                let poison = UIColor(hex: "#a040a0ff")
+                backgroundView.backgroundColor = poison
+                sVC.HPProgress.tintColor = poison
+                sVC.attackProgress.tintColor = poison
+                sVC.defenseProgress.tintColor = poison
+                sVC.specialAttackProgress.tintColor = poison
+                sVC.specialDefenseProgress.tintColor = poison
+                sVC.speedProgress.tintColor = poison
+                segmentedControl.tintColor = poison
+            } else if colorOfType == "ground" {
+                let ground = UIColor(hex: "#e0c068ff")
+                backgroundView.backgroundColor = ground
+                sVC.HPProgress.tintColor = ground
+                sVC.attackProgress.tintColor = ground
+                sVC.defenseProgress.tintColor = ground
+                sVC.specialAttackProgress.tintColor = ground
+                sVC.specialDefenseProgress.tintColor = ground
+                sVC.speedProgress.tintColor = ground
+                segmentedControl.tintColor = ground
+            } else if colorOfType == "flying" {
+                let flying = UIColor(hex: "#baa9efff")
+                backgroundView.backgroundColor = flying
+                sVC.HPProgress.tintColor = flying
+                sVC.attackProgress.tintColor = flying
+                sVC.defenseProgress.tintColor = flying
+                sVC.specialAttackProgress.tintColor = flying
+                sVC.specialDefenseProgress.tintColor = flying
+                sVC.speedProgress.tintColor = flying
+                segmentedControl.tintColor = flying
+            } else if colorOfType == "psychic" {
+                let psychic = UIColor(hex: "#ff7690ff")
+                backgroundView.backgroundColor = psychic
+                sVC.HPProgress.tintColor = psychic
+                sVC.attackProgress.tintColor = psychic
+                sVC.defenseProgress.tintColor = psychic
+                sVC.specialAttackProgress.tintColor = psychic
+                sVC.specialDefenseProgress.tintColor = psychic
+                sVC.speedProgress.tintColor = psychic
+                segmentedControl.tintColor = psychic
+            } else if colorOfType == "bug" {
+                let bug = UIColor(hex: "#a8b820ff")
+                backgroundView.backgroundColor = bug
+                sVC.HPProgress.tintColor = bug
+                sVC.attackProgress.tintColor = bug
+                sVC.defenseProgress.tintColor = bug
+                sVC.specialAttackProgress.tintColor = bug
+                sVC.specialDefenseProgress.tintColor = bug
+                sVC.speedProgress.tintColor = bug
+                segmentedControl.tintColor = bug
+            } else if colorOfType == "rock" {
+                let rock = UIColor(hex: "#b8a038ff")
+                backgroundView.backgroundColor = rock
+                sVC.HPProgress.tintColor = rock
+                sVC.attackProgress.tintColor = rock
+                sVC.defenseProgress.tintColor = rock
+                sVC.specialAttackProgress.tintColor = rock
+                sVC.specialDefenseProgress.tintColor = rock
+                sVC.speedProgress.tintColor = rock
+                segmentedControl.tintColor = rock
+            } else if colorOfType == "ghost" {
+                let ghost = UIColor(hex: "#705898ff")
+                backgroundView.backgroundColor = ghost
+                sVC.HPProgress.tintColor = ghost
+                sVC.attackProgress.tintColor = ghost
+                sVC.defenseProgress.tintColor = ghost
+                sVC.specialAttackProgress.tintColor = ghost
+                sVC.specialDefenseProgress.tintColor = ghost
+                sVC.speedProgress.tintColor = ghost
+                segmentedControl.tintColor = ghost
+            } else if colorOfType == "dark" {
+                let dark = UIColor(hex: "#30336bff")
+                backgroundView.backgroundColor = dark
+                sVC.HPProgress.tintColor = dark
+                sVC.attackProgress.tintColor = dark
+                sVC.defenseProgress.tintColor = dark
+                sVC.specialAttackProgress.tintColor = dark
+                sVC.specialDefenseProgress.tintColor = dark
+                sVC.speedProgress.tintColor = dark
+                segmentedControl.tintColor = dark
+            } else if colorOfType == "dragon" {
+                let dragon = UIColor(hex: "#7c46ffff")
+                backgroundView.backgroundColor = dragon
+                sVC.HPProgress.tintColor = dragon
+                sVC.attackProgress.tintColor = dragon
+                sVC.defenseProgress.tintColor = dragon
+                sVC.specialAttackProgress.tintColor = dragon
+                sVC.specialDefenseProgress.tintColor = dragon
+                sVC.speedProgress.tintColor = dragon
+                segmentedControl.tintColor = dragon
+            } else if colorOfType == "steel" {
+                let steel = UIColor(hex: "#a6a6d3ff")
+                backgroundView.backgroundColor = steel
+                sVC.HPProgress.tintColor = steel
+                sVC.attackProgress.tintColor = steel
+                sVC.defenseProgress.tintColor = steel
+                sVC.specialAttackProgress.tintColor = steel
+                sVC.specialDefenseProgress.tintColor = steel
+                sVC.speedProgress.tintColor = steel
+                segmentedControl.tintColor = steel
+            } else if colorOfType == "fairy" {
+                let fairy = UIColor(hex: "#ee99acff")
+                backgroundView.backgroundColor = fairy
+                sVC.HPProgress.tintColor = fairy
+                sVC.attackProgress.tintColor = fairy
+                sVC.defenseProgress.tintColor = fairy
+                sVC.specialAttackProgress.tintColor = fairy
+                sVC.specialDefenseProgress.tintColor = fairy
+                sVC.speedProgress.tintColor = fairy
+                segmentedControl.tintColor = fairy
+            }
         }
     }
     

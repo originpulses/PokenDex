@@ -244,6 +244,7 @@ class PokedexController: UICollectionViewController {
         getPokemons(url: url)
     }
     
+    
     func getPokemons(url: String) {
         pokemonsViewModel.getPokemons(url: url) { results in
             DispatchQueue.main.async {
@@ -319,8 +320,8 @@ class PokedexController: UICollectionViewController {
             
             let viewImage = cell.viewWithTag(1000) as? UIImageView
             let viewLabel = cell.viewWithTag(1001) as? UILabel
-            //            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
-            //            let viewColour = cell.viewWithTag(1003)
+//            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
+//            let viewColour = cell.viewWithTag(1003)
             
             if let name = pokemonsViewModel.pokemons?.results?[indexPath.item].name {
                 viewLabel?.text = name.capitalizingFirstLetter()

@@ -9,12 +9,10 @@
 import Foundation
 
 public struct SpeciesDetail : Model {
-    let color : Color?
     let flavor_text_entries : [FlavorTextEntries]?
     
     
-    public init(color : Color?, flavor_text_entries : [FlavorTextEntries]?) {
-        self.color = color
+    public init(flavor_text_entries : [FlavorTextEntries]?) {
         self.flavor_text_entries = flavor_text_entries
     }
 }
