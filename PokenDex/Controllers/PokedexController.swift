@@ -308,20 +308,99 @@ class PokedexController: UICollectionViewController {
         if searchActive {
             let viewImage = cell.viewWithTag(1000) as? UIImageView
             let viewLabel = cell.viewWithTag(1001) as? UILabel
-//            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
-//            let viewColour = cell.viewWithTag(1003)
+            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
+            let viewColour = cell.viewWithTag(1003)
             
             viewLabel?.text = pokemonArrayFiltered[indexPath.item]?.name
             let url = (pokemonArrayFiltered[indexPath.item]?.url)!
             let id = String(format: "%03d", Int(url.split(separator: "/").last!)!)
             let imageUrl = URL(string: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(id).png")!
             viewImage?.kf.setImage(with: imageUrl)
+            viewLabelTwo?.text = "#\(id)"
+            
+            var pokemonDetailViewModel: PokemonDetailViewModel! {
+                didSet {
+                    let colorOfType = pokemonDetailViewModel.pokemonDetail.types?.first
+                    if let colorOfType = colorOfType?.type?.name {
+                        if colorOfType == "normal" {
+                            let normal = UIColor(hex: "#a8a878ff")
+                            viewColour?.backgroundColor = normal
+                        } else if colorOfType == "fire" {
+                            let fire = UIColor(hex: "#fd9644ff")
+                            viewColour?.backgroundColor = fire
+                        } else if colorOfType == "water" {
+                            let water = UIColor(hex: "#54a0ffff")
+                            viewColour?.backgroundColor = water
+                        } else if colorOfType == "grass" {
+                            let grass = UIColor(hex: "#20bf6bff")
+                            viewColour?.backgroundColor = grass
+                        } else if colorOfType == "electric" {
+                            let electric = UIColor(hex: "#f3ca3eff")
+                            viewColour?.backgroundColor = electric
+                        } else if colorOfType == "ice" {
+                            let ice = UIColor(hex: "#98d8d8ff")
+                            viewColour?.backgroundColor = ice
+                        } else if colorOfType == "fighting" {
+                            let fighting = UIColor(hex: "#c45246ff")
+                            viewColour?.backgroundColor = fighting
+                        } else if colorOfType == "poison" {
+                            let poison = UIColor(hex: "#a040a0ff")
+                            viewColour?.backgroundColor = poison
+                        } else if colorOfType == "ground" {
+                            let ground = UIColor(hex: "#e0c068ff")
+                            viewColour?.backgroundColor = ground
+                        } else if colorOfType == "flying" {
+                            let flying = UIColor(hex: "#baa9efff")
+                            viewColour?.backgroundColor = flying
+                        } else if colorOfType == "psychic" {
+                            let psychic = UIColor(hex: "#ff7690ff")
+                            viewColour?.backgroundColor = psychic
+                        } else if colorOfType == "bug" {
+                            let bug = UIColor(hex: "#a8b820ff")
+                            viewColour?.backgroundColor = bug
+                        } else if colorOfType == "rock" {
+                            let rock = UIColor(hex: "#b8a038ff")
+                            viewColour?.backgroundColor = rock
+                        } else if colorOfType == "ghost" {
+                            let ghost = UIColor(hex: "#705898ff")
+                            viewColour?.backgroundColor = ghost
+                        } else if colorOfType == "dark" {
+                            let dark = UIColor(hex: "#30336bff")
+                            viewColour?.backgroundColor = dark
+                        } else if colorOfType == "dragon" {
+                            let dragon = UIColor(hex: "#7c46ffff")
+                            viewColour?.backgroundColor = dragon
+                        } else if colorOfType == "steel" {
+                            let steel = UIColor(hex: "#a6a6d3ff")
+                            viewColour?.backgroundColor = steel
+                        } else if colorOfType == "fairy" {
+                            let fairy = UIColor(hex: "#ee99acff")
+                            viewColour?.backgroundColor = fairy
+                        }
+                    }
+                }
+            }
+            
+            service.get(url: url) { result in
+                switch result {
+                case .success(let data):
+                    if data != nil {
+                        pokemonDetailViewModel = PokemonDetailViewModel(pokemonDetail: (data?.toModel())!)
+                    } else {
+                        self.showAlert(title: "Error", message: "Not return any pokemon")
+                    }
+                case .failure(let error):
+                    self.showAlert(title: "Error", message: "Error - \n\(error)")
+                    print(error.localizedDescription)
+                }
+            }
+            
         } else {
             
             let viewImage = cell.viewWithTag(1000) as? UIImageView
             let viewLabel = cell.viewWithTag(1001) as? UILabel
-//            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
-//            let viewColour = cell.viewWithTag(1003)
+            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
+            let viewColour = cell.viewWithTag(1003)
             
             if let name = pokemonsViewModel.pokemons?.results?[indexPath.item].name {
                 viewLabel?.text = name.capitalizingFirstLetter()
@@ -330,6 +409,85 @@ class PokedexController: UICollectionViewController {
                 let id = String(format: "%03d", Int(url.split(separator: "/").last!)!)
                 let imageUrl = URL(string: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(id).png")!
                 viewImage?.kf.setImage(with: imageUrl)
+                viewLabelTwo?.text = "#\(id)"
+                
+                var pokemonDetailViewModel: PokemonDetailViewModel! {
+                    didSet {
+                        let colorOfType = pokemonDetailViewModel.pokemonDetail.types?.first
+                        if let colorOfType = colorOfType?.type?.name {
+                            if colorOfType == "normal" {
+                                let normal = UIColor(hex: "#a8a878ff")
+                                viewColour?.backgroundColor = normal
+                            } else if colorOfType == "fire" {
+                                let fire = UIColor(hex: "#fd9644ff")
+                                viewColour?.backgroundColor = fire
+                            } else if colorOfType == "water" {
+                                let water = UIColor(hex: "#54a0ffff")
+                                viewColour?.backgroundColor = water
+                            } else if colorOfType == "grass" {
+                                let grass = UIColor(hex: "#20bf6bff")
+                                viewColour?.backgroundColor = grass
+                            } else if colorOfType == "electric" {
+                                let electric = UIColor(hex: "#f3ca3eff")
+                                viewColour?.backgroundColor = electric
+                            } else if colorOfType == "ice" {
+                                let ice = UIColor(hex: "#98d8d8ff")
+                                viewColour?.backgroundColor = ice
+                            } else if colorOfType == "fighting" {
+                                let fighting = UIColor(hex: "#c45246ff")
+                                viewColour?.backgroundColor = fighting
+                            } else if colorOfType == "poison" {
+                                let poison = UIColor(hex: "#a040a0ff")
+                                viewColour?.backgroundColor = poison
+                            } else if colorOfType == "ground" {
+                                let ground = UIColor(hex: "#e0c068ff")
+                                viewColour?.backgroundColor = ground
+                            } else if colorOfType == "flying" {
+                                let flying = UIColor(hex: "#baa9efff")
+                                viewColour?.backgroundColor = flying
+                            } else if colorOfType == "psychic" {
+                                let psychic = UIColor(hex: "#ff7690ff")
+                                viewColour?.backgroundColor = psychic
+                            } else if colorOfType == "bug" {
+                                let bug = UIColor(hex: "#a8b820ff")
+                                viewColour?.backgroundColor = bug
+                            } else if colorOfType == "rock" {
+                                let rock = UIColor(hex: "#b8a038ff")
+                                viewColour?.backgroundColor = rock
+                            } else if colorOfType == "ghost" {
+                                let ghost = UIColor(hex: "#705898ff")
+                                viewColour?.backgroundColor = ghost
+                            } else if colorOfType == "dark" {
+                                let dark = UIColor(hex: "#30336bff")
+                                viewColour?.backgroundColor = dark
+                            } else if colorOfType == "dragon" {
+                                let dragon = UIColor(hex: "#7c46ffff")
+                                viewColour?.backgroundColor = dragon
+                            } else if colorOfType == "steel" {
+                                let steel = UIColor(hex: "#a6a6d3ff")
+                                viewColour?.backgroundColor = steel
+                            } else if colorOfType == "fairy" {
+                                let fairy = UIColor(hex: "#ee99acff")
+                                viewColour?.backgroundColor = fairy
+                            }
+                        }
+                    }
+                }
+                
+                service.get(url: url) { result in
+                    switch result {
+                    case .success(let data):
+                        if data != nil {
+                            pokemonDetailViewModel = PokemonDetailViewModel(pokemonDetail: (data?.toModel())!)
+                        } else {
+                            self.showAlert(title: "Error", message: "Not return any pokemon")
+                        }
+                    case .failure(let error):
+                        self.showAlert(title: "Error", message: "Error - \n\(error)")
+                        print(error.localizedDescription)
+                    }
+                }
+                
             }
         }
         return cell
