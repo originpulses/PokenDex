@@ -311,7 +311,7 @@ class PokedexController: UICollectionViewController {
             let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
             let viewColour = cell.viewWithTag(1003)
             
-            viewLabel?.text = pokemonArrayFiltered[indexPath.item]?.name
+            viewLabel?.text = pokemonArrayFiltered[indexPath.item]?.name?.capitalizingFirstLetter()
             let url = (pokemonArrayFiltered[indexPath.item]?.url)!
             let id = String(format: "%03d", Int(url.split(separator: "/").last!)!)
             let imageUrl = URL(string: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(id).png")!
@@ -649,26 +649,48 @@ extension PokedexController: UISearchBarDelegate {
         collectionView?.reloadData()
     }
 
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        if searchText == "" || searchBar.text == nil {
-            searchActive = false
-            collectionView?.reloadData()
-            view.endEditing(true)
-        } else {
-            self.searchActive = true
-            self.isFinalToLoad = true
-            if let poke = self.pokemonsViewModel.pokemons?.results {
+//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+//        if searchText == "" || searchBar.text == nil {
+//            searchActive = false
+//            collectionView?.reloadData()
+//            view.endEditing(true)
+//        } else {
+//            searchActive = true
+//            if let poke = self.pokemonsViewModel.pokemons?.results {
+//                for item in poke {
+//                    let name = item.name!.lowercased()
+//                    if ((name.contains(searchText.lowercased()))) {
+//                        pokemonArrayFiltered.append(item)
+//                    }
+//                    print(name)
+//                    print(searchBar.text!.lowercased())
+//                }
+//            }
+//            collectionView?.reloadData()
+//        }
+//    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        pokemonArrayFiltered.removeAll()
+        if !searchBar.text!.isEmpty {
+            searchActive = true
+            if let poke = pokemonsViewModel.pokemons?.results {
                 for item in poke {
                     let name = item.name!.lowercased()
                     if ((name.contains(searchBar.text!.lowercased()))) {
-                        self.pokemonArrayFiltered.append(item)
+                        pokemonArrayFiltered.append(item)
                     }
-                    print(name)
-                    print(searchBar.text!.lowercased())
                 }
             }
-            collectionView?.reloadData()
+            if (searchBar.text!.isEmpty) {
+                searchActive = false
+                collectionView?.reloadData()
+            }
+        } else {
+            searchActive = false
+            isFinalToLoad = false
         }
+        self.collectionView?.reloadData()
     }
 }
 

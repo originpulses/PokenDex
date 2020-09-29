@@ -24,7 +24,6 @@ class PokemonViewController: UIViewController {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     var id: Int = 0
-    var pokemonArray: [Int: String] = [:]
     
     let service = PokendexService()
     
