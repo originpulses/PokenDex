@@ -248,10 +248,10 @@
 		6269AEAB24CBD26A00D76DCD /* PokenDex */ = {
 			isa = PBXGroup;
 			children = (
-				621A22D1251C5E76006780D6 /* Controllers */,
 				625C210C24ED10D8002D0792 /* Model */,
 				625C210B24ED10C5002D0792 /* View */,
 				625C210A24ED10B7002D0792 /* ViewModel */,
+				621A22D1251C5E76006780D6 /* Controllers */,
 				623E498B250331E100CAA156 /* Extensions */,
 				62FB9EE9251B68EA00F83835 /* Service */,
 				6269AEAC24CBD26A00D76DCD /* AppDelegate.swift */,
