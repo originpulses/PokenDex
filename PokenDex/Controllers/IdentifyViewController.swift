@@ -15,6 +15,8 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
     let imagePicker = UIImagePickerController()
 
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var pokemonName: UILabel!
+    @IBOutlet weak var percentage: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,6 +24,7 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
+        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -43,14 +46,16 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
     func detect(image: CIImage) {
         
         guard let model = try? VNCoreMLModel(for: PokemonImageClassifier().model) else {
-            
+    
             fatalError("cannot import model")
         }
+        
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             let classification = request.results?.first as? VNClassificationObservation
             
-            self.navigationItem.title = classification?.identifier
+            self.pokemonName.text = classification?.identifier
+            self.percentage.text = String(format: "%.2f", ((classification!.confidence)*100)) + " %"
         }
         
         let handler = VNImageRequestHandler(ciImage: image)
