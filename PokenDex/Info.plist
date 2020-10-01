@@ -63,5 +63,7 @@
 			</dict>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>App needs access to photo library</string>
 </dict>
 </plist>
