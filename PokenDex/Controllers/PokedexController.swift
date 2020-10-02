@@ -550,12 +550,10 @@ class PokedexController: UICollectionViewController {
                     let url = pokemonArrayFiltered[indexPath.item]?.url
                     let id = Int(url!.split(separator: "/").last!)!
                     destination.id = id
-                    print(id)
                 } else {
                     let url = pokemonsViewModel.pokemons?.results?[indexPath.item].url
                     let id = Int(url!.split(separator: "/").last!)!
                     destination.id = id
-                    print(id)
                 }
             }
         }
