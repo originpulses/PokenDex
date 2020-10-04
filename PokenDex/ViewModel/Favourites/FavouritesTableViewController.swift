@@ -69,6 +69,7 @@ class FavouritesTableViewController: UITableViewController {
         if editingStyle == .delete {
             favourites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            self.tableView.reloadData()
         }
     }
     
