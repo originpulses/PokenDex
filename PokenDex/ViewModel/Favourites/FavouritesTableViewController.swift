@@ -8,12 +8,15 @@
 
 import UIKit
 import CoreData
+import Kingfisher
 
 private let reuseIdentifier = "FavCell"
 
 class FavouritesTableViewController: UITableViewController {
     
     var favourites = [Favourites]()
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     // Reloads the tableview to the updated favourites
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +39,6 @@ class FavouritesTableViewController: UITableViewController {
     
     func savePokemon() {
         do {
-            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
             try context.save()
         } catch {
             print("Error saving context \(error)")
@@ -58,7 +60,7 @@ class FavouritesTableViewController: UITableViewController {
             
             let currentPokemon = favourites[indexPath.item]
             pokName.text = currentPokemon.name
-//            pokImage.image = currentPokemon.imageName
+            pokImage.kf.setImage(with: URL(string: currentPokemon.image!))
         }
         
         return cell
@@ -67,8 +69,10 @@ class FavouritesTableViewController: UITableViewController {
     // Sets up the swipe to remove feature
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            context.delete(favourites[indexPath.row])
             favourites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            savePokemon()
             self.tableView.reloadData()
         }
     }
@@ -78,8 +82,7 @@ class FavouritesTableViewController: UITableViewController {
         guard let cell = sender as? UITableViewCell,
             let indexPath = self.tableView?.indexPath(for: cell) else {return}
         if let destination = segue.destination as? PokemonViewController {
-//            let selectedPokemon = getFavourite(byIndex: indexPath.row)
-//            destination.selectedPokemon = selectedPokemon
+            destination.id = Int(favourites[indexPath.item].id)
         }
     }
     
