@@ -13,17 +13,17 @@
 //private let reuseIdentifier = "PokeCell"
 //
 //class PokedexController: UICollectionViewController {
-//    
+//
 //    @IBOutlet var searchBar: UISearchBar!
 //    @IBOutlet weak var searchButton: UIBarButtonItem!
-//    
+//
 //    private let viewModel = PokemonViewModel()
 //    private var filteredPokemon: [Pokemon] = [] // Filtered Array that holds the searched Pokemons
 //    var inSearchMode = false
-//    
+//
 //    // Returns data of filtered Pokemon
 //    func getFilteredPokemon(byIndex index: Int) -> (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, colour: UIColor?) {
-//        
+//
 //        let name = filteredPokemon[index].name
 //        let description = filteredPokemon[index].description
 //        let image = filteredPokemon[index].imageName
@@ -36,24 +36,24 @@
 //        let specialDefense = filteredPokemon[index].specialDefense
 //        let speed = filteredPokemon[index].specialDefense
 //        let colour = filteredPokemon[index].colour
-//        
+//
 //        return (name, description, image, id, type, HP, attack, defense, specialAttack, specialDefense, speed, colour)
 //    }
-//    
+//
 //    override func viewDidLoad() {
 //        super.viewDidLoad()
 //        searchButtonPressed(searchButton)
 //        longPressOnCell()
 //    }
-//    
+//
 //    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 //        return inSearchMode ? filteredPokemon.count : viewModel.count
 //    }
-//    
+//
 //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        
+//
 //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//        
+//
 //        if inSearchMode {
 //            let viewImage = cell.viewWithTag(1000) as? UIImageView
 //            let viewLabel = cell.viewWithTag(1001) as? UILabel
@@ -72,7 +72,7 @@
 //            let pokemonTitle = cell.viewWithTag(1001) as? UILabel
 //            let pokemonID = cell.viewWithTag(1002) as? UILabel
 //            let colourView = cell.viewWithTag(1003)
-//            
+//
 //            if let imageView = imageView, let pokemonTitle = pokemonTitle, let pokemonID = pokemonID {
 //                let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
 //                imageView.image = currentPokemon.image
@@ -83,7 +83,7 @@
 //        }
 //        return cell
 //    }
-//    
+//
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        guard let cell = sender as? UICollectionViewCell,
 //            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
@@ -97,13 +97,13 @@
 //            }
 //        }
 //    }
-//    
-//    
+//
+//
 //    // MARK: - Search Functionality
 //    @objc func showSearchBar() {
 //        configureSearchBar()
 //    }
-//    
+//
 //    func configureSearchBar() {
 //        searchBar = UISearchBar()
 //        searchBar.delegate = self
@@ -113,13 +113,13 @@
 //        navigationItem.rightBarButtonItem = nil
 //        navigationItem.titleView = searchBar
 //    }
-//    
+//
 //    @IBAction func searchButtonPressed(_ sender: Any) {
 //        navigationItem.titleView = nil
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
 //    }
-//    
-//    
+//
+//
 //    // MARK: - Long Press Gesture Setup
 //    private func longPressOnCell() {
 //        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
@@ -128,22 +128,22 @@
 //        longPressedGesture.delaysTouchesBegan = true
 //        collectionView?.addGestureRecognizer(longPressedGesture)
 //    }
-//    
+//
 //    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
 //        if (gestureRecognizer.state != .began) {
 //            return
 //        }
-//        
+//
 //        let p = gestureRecognizer.location(in: collectionView)
-//        
+//
 //        if let indexPath = collectionView?.indexPathForItem(at: p) {
-//            
+//
 //            let blurEffect = UIBlurEffect(style: .light)
 //            let visualEffectView = UIVisualEffectView(effect: blurEffect)
 //            visualEffectView.frame = view.frame
 //            let alert = UIAlertController(title: "Add \(viewModel.getPokemon(byIndex: indexPath.item).name) to Favourites?", message: "", preferredStyle: .alert)
 //            let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
-//                
+//
 //                let name = self.viewModel.getPokemon(byIndex: indexPath.item).name
 //                let description = self.viewModel.getPokemon(byIndex: indexPath.item).description
 //                let image = self.viewModel.getPokemon(byIndex: indexPath.item).image
@@ -156,13 +156,13 @@
 //                let sd = self.viewModel.getPokemon(byIndex: indexPath.item).specialDefense
 //                let speed = self.viewModel.getPokemon(byIndex: indexPath.item).speed
 //                let colour = self.viewModel.getPokemon(byIndex: indexPath.item).colour
-//                
+//
 //                favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, colour: colour))
 //                print(favourites)
-//                
+//
 //                visualEffectView.removeFromSuperview()
 //            }
-//            
+//
 //            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
 //                print("Success!")
 //                visualEffectView.removeFromSuperview()
@@ -178,14 +178,14 @@
 //
 //// MARK: - SearchBar Delegate Methods
 //extension PokedexController: UISearchBarDelegate {
-//    
+//
 //    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
 //        navigationItem.titleView = nil
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
 //        inSearchMode = false
 //        collectionView?.reloadData()
 //    }
-//    
+//
 //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 //        if searchText == "" || searchBar.text == nil {
 //            inSearchMode = false
@@ -201,13 +201,13 @@
 //
 //// MARK: - Collection View 2 Cells Per Row Setup
 //extension PokedexController: UICollectionViewDelegateFlowLayout {
-//    
+//
 //    // Sets up 2 cells per row no matter what the screen size. It calculates the bounds width and sets up the right and left inset accordingly
 //    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
 //        let leftRightInset = (collectionView.bounds.width - 130*2 - 20)/2
 //        return UIEdgeInsets(top: 32, left: leftRightInset, bottom: 20, right: leftRightInset)
 //    }
-//    
+//
 //    // This was done to fix a bug with the collection layout
 //    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
 //        collectionView?.collectionViewLayout.invalidateLayout();
@@ -223,13 +223,14 @@ import Kingfisher
 private let reuseIdentifier = "PokeCell"
 
 class PokedexController: UICollectionViewController {
-
+    
     @IBOutlet var searchBar: UISearchBar!
     @IBOutlet weak var searchButton: UIBarButtonItem!
     
     var searchActive : Bool = false
     var isFinalToLoad : Bool = false
     var pokemonArrayFiltered = [Results?]()
+    var favourites = [Favourites]()
     
     let url = "https://pokeapi.co/api/v2/pokemon"
     
@@ -240,7 +241,7 @@ class PokedexController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         searchButtonPressed(searchButton)
-//        longPressOnCell()
+        longPressOnCell()
         getPokemons(url: url)
     }
     
@@ -252,10 +253,10 @@ class PokedexController: UICollectionViewController {
             }
         }
     }
-
-//    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return inSearchMode ? filteredPokemon.count : viewModel.count
-//    }
+    
+    //    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    //        return inSearchMode ? filteredPokemon.count : viewModel.count
+    //    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if(searchActive) {
@@ -266,40 +267,40 @@ class PokedexController: UICollectionViewController {
             } else { return 0 }
         }
     }
-
-//    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-//
-//        if inSearchMode {
-//            let viewImage = cell.viewWithTag(1000) as? UIImageView
-//            let viewLabel = cell.viewWithTag(1001) as? UILabel
-//            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
-//            let viewColour = cell.viewWithTag(1003)
-//
-//            if let viewImage = viewImage, let viewLabel = viewLabel, let viewLabelTwo = viewLabelTwo {
-//                let currentPokemon = filteredPokemon[indexPath.item]
-//                viewImage.image = currentPokemon.imageName
-//                viewLabel.text = currentPokemon.name
-//                viewLabelTwo.text = currentPokemon.pokedexID
-//                viewColour?.backgroundColor = currentPokemon.colour
-//            }
-//        } else {
-//            let imageView = cell.viewWithTag(1000) as? UIImageView
-//            let pokemonTitle = cell.viewWithTag(1001) as? UILabel
-//            let pokemonID = cell.viewWithTag(1002) as? UILabel
-//            let colourView = cell.viewWithTag(1003)
-//
-//            if let imageView = imageView, let pokemonTitle = pokemonTitle, let pokemonID = pokemonID {
-//                let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
-//                imageView.image = currentPokemon.image
-//                pokemonTitle.text = currentPokemon.name
-//                pokemonID.text = currentPokemon.id
-//                colourView?.backgroundColor = currentPokemon.colour
-//            }
-//        }
-//        return cell
-//    }
+    
+    //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    //
+    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+    //
+    //        if inSearchMode {
+    //            let viewImage = cell.viewWithTag(1000) as? UIImageView
+    //            let viewLabel = cell.viewWithTag(1001) as? UILabel
+    //            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
+    //            let viewColour = cell.viewWithTag(1003)
+    //
+    //            if let viewImage = viewImage, let viewLabel = viewLabel, let viewLabelTwo = viewLabelTwo {
+    //                let currentPokemon = filteredPokemon[indexPath.item]
+    //                viewImage.image = currentPokemon.imageName
+    //                viewLabel.text = currentPokemon.name
+    //                viewLabelTwo.text = currentPokemon.pokedexID
+    //                viewColour?.backgroundColor = currentPokemon.colour
+    //            }
+    //        } else {
+    //            let imageView = cell.viewWithTag(1000) as? UIImageView
+    //            let pokemonTitle = cell.viewWithTag(1001) as? UILabel
+    //            let pokemonID = cell.viewWithTag(1002) as? UILabel
+    //            let colourView = cell.viewWithTag(1003)
+    //
+    //            if let imageView = imageView, let pokemonTitle = pokemonTitle, let pokemonID = pokemonID {
+    //                let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
+    //                imageView.image = currentPokemon.image
+    //                pokemonTitle.text = currentPokemon.name
+    //                pokemonID.text = currentPokemon.id
+    //                colourView?.backgroundColor = currentPokemon.colour
+    //            }
+    //        }
+    //        return cell
+    //    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -509,61 +510,61 @@ class PokedexController: UICollectionViewController {
             }
         }
     }
-
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let cell = sender as? UICollectionViewCell,
-//            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
-//        if let destination = segue.destination as? PokemonViewController {
-//            if searchActive {
-//                let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
-//                let id = Int(url.split(separator: "/").last!)!
-//                destination.id = id
-//            } else {
-//                let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
-//                let id = Int(url!.split(separator: "/").last!)!
-//                destination.id = id
-//            }
-//        }
-//    }
     
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let newViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
-//        
-//        if searchActive {
-//            let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
-//            let id = Int(url.split(separator: "/").last!)!
-//            newViewController.id = id
-//        } else {
-//            let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
-//            let id = Int(url!.split(separator: "/").last!)!
-//            newViewController.id = id
-//        }
-//        
-//        present(newViewController, animated: true, completion: nil)
-//    }
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    //        guard let cell = sender as? UICollectionViewCell,
+    //            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
+    //        if let destination = segue.destination as? PokemonViewController {
+    //            if searchActive {
+    //                let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
+    //                let id = Int(url.split(separator: "/").last!)!
+    //                destination.id = id
+    //            } else {
+    //                let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
+    //                let id = Int(url!.split(separator: "/").last!)!
+    //                destination.id = id
+    //            }
+    //        }
+    //    }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            guard let cell = sender as? UICollectionViewCell,
-                let indexPath = self.collectionView?.indexPath(for: cell) else {return}
-            if let destination = segue.destination as? PokemonViewController {
-                if searchActive {
-                    let url = pokemonArrayFiltered[indexPath.item]?.url
-                    let id = Int(url!.split(separator: "/").last!)!
-                    destination.id = id
-                } else {
-                    let url = pokemonsViewModel.pokemons?.results?[indexPath.item].url
-                    let id = Int(url!.split(separator: "/").last!)!
-                    destination.id = id
-                }
+    //    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    //        let newViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
+    //
+    //        if searchActive {
+    //            let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
+    //            let id = Int(url.split(separator: "/").last!)!
+    //            newViewController.id = id
+    //        } else {
+    //            let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
+    //            let id = Int(url!.split(separator: "/").last!)!
+    //            newViewController.id = id
+    //        }
+    //
+    //        present(newViewController, animated: true, completion: nil)
+    //    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let cell = sender as? UICollectionViewCell,
+            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
+        if let destination = segue.destination as? PokemonViewController {
+            if searchActive {
+                let url = pokemonArrayFiltered[indexPath.item]?.url
+                let id = Int(url!.split(separator: "/").last!)!
+                destination.id = id
+            } else {
+                let url = pokemonsViewModel.pokemons?.results?[indexPath.item].url
+                let id = Int(url!.split(separator: "/").last!)!
+                destination.id = id
             }
         }
-
-
+    }
+    
+    
     // MARK: - Search Functionality
     @objc func showSearchBar() {
         configureSearchBar()
     }
-
+    
     func configureSearchBar() {
         searchBar = UISearchBar()
         searchBar.delegate = self
@@ -573,72 +574,81 @@ class PokedexController: UICollectionViewController {
         navigationItem.rightBarButtonItem = nil
         navigationItem.titleView = searchBar
     }
-
+    
     @IBAction func searchButtonPressed(_ sender: Any) {
         navigationItem.titleView = nil
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(showSearchBar))
     }
-
-
-//    // MARK: - Long Press Gesture Setup
-//    private func longPressOnCell() {
-//        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
-//        longPressedGesture.minimumPressDuration = 0.5
-//        longPressedGesture.delegate = self as? UIGestureRecognizerDelegate
-//        longPressedGesture.delaysTouchesBegan = true
-//        collectionView?.addGestureRecognizer(longPressedGesture)
-//    }
-//
-//    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
-//        if (gestureRecognizer.state != .began) {
-//            return
-//        }
-//
-//        let p = gestureRecognizer.location(in: collectionView)
-//
-//        if let indexPath = collectionView?.indexPathForItem(at: p) {
-//
-//            let blurEffect = UIBlurEffect(style: .light)
-//            let visualEffectView = UIVisualEffectView(effect: blurEffect)
-//            visualEffectView.frame = view.frame
-//            let alert = UIAlertController(title: "Add \(viewModel.getPokemon(byIndex: indexPath.item).name) to Favourites?", message: "", preferredStyle: .alert)
-//            let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
-//
-//                let name = self.viewModel.getPokemon(byIndex: indexPath.item).name
-//                let description = self.viewModel.getPokemon(byIndex: indexPath.item).description
-//                let image = self.viewModel.getPokemon(byIndex: indexPath.item).image
-//                let id = self.viewModel.getPokemon(byIndex: indexPath.item).id
-//                let type = self.viewModel.getPokemon(byIndex: indexPath.item).type
-//                let hp = self.viewModel.getPokemon(byIndex: indexPath.item).HP
-//                let attack = self.viewModel.getPokemon(byIndex: indexPath.item).attack
-//                let defense = self.viewModel.getPokemon(byIndex: indexPath.item).defense
-//                let sa = self.viewModel.getPokemon(byIndex: indexPath.item).specialAttack
-//                let sd = self.viewModel.getPokemon(byIndex: indexPath.item).specialDefense
-//                let speed = self.viewModel.getPokemon(byIndex: indexPath.item).speed
-//                let colour = self.viewModel.getPokemon(byIndex: indexPath.item).colour
-//
-//                favourites.append(Pokemon.init(name: name, description: description, imageName: image, pokedexID: id, type: type, HP: hp, attack: attack, defense: defense, specialAttack: sa, specialDefense: sd, speed: speed, colour: colour))
-//                print(favourites)
-//
-//                visualEffectView.removeFromSuperview()
-//            }
-//
-//            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
-//                print("Success!")
-//                visualEffectView.removeFromSuperview()
-//            }
-//            view.addSubview(visualEffectView)
-//            alert.addAction(action)
-//            alert.addAction(cancel)
-//            present(alert, animated: true, completion: nil)
-//        }
-//    }
+    
+    
+    // MARK: - Long Press Gesture Setup
+    private func longPressOnCell() {
+        let longPressedGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(gestureRecognizer:)))
+        longPressedGesture.minimumPressDuration = 0.5
+        longPressedGesture.delegate = self as? UIGestureRecognizerDelegate
+        longPressedGesture.delaysTouchesBegan = true
+        collectionView?.addGestureRecognizer(longPressedGesture)
+    }
+    
+    @objc func handleLongPress(gestureRecognizer: UILongPressGestureRecognizer) {
+        if (gestureRecognizer.state != .began) {
+            return
+        }
+        
+        let p = gestureRecognizer.location(in: collectionView)
+        
+        if let indexPath = collectionView?.indexPathForItem(at: p) {
+            
+            let blurEffect = UIBlurEffect(style: .light)
+            let visualEffectView = UIVisualEffectView(effect: blurEffect)
+            visualEffectView.frame = view.frame
+            let alert = UIAlertController(title: "Add \(String(describing: pokemonsViewModel.pokemons?.results?[indexPath.item].name)) to Favourites?", message: "", preferredStyle: .alert)
+            let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
+                
+                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                
+                let newFav = Favourites(context: context)
+                if let name = self.pokemonsViewModel.pokemons?.results?[indexPath.item].name {
+                    newFav.name = name.capitalizingFirstLetter()
+                }
+                if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
+                    newFav.pokedexID = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                    let id = Int(url.split(separator: "/").last!)!
+                    newFav.id = Int64(id)
+                    let imageCode = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                    newFav.image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(imageCode).png"
+                    newFav.isFav = false
+                    self.savePokemon() // CRUD Operation - Create
+                }
+                
+                visualEffectView.removeFromSuperview()
+            }
+            
+            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+                visualEffectView.removeFromSuperview()
+            }
+            view.addSubview(visualEffectView)
+            alert.addAction(action)
+            alert.addAction(cancel)
+            present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    func savePokemon() {
+        do {
+            let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+            try context.save()
+        } catch {
+            print("Error saving context \(error)")
+        }
+    }
+    
 }
 
 
 // MARK: - SearchBar Delegate Methods
 extension PokedexController: UISearchBarDelegate {
-
+    
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         pokemonArrayFiltered.removeAll()
         navigationItem.titleView = nil
@@ -646,27 +656,27 @@ extension PokedexController: UISearchBarDelegate {
         searchActive = false
         collectionView?.reloadData()
     }
-
-//    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-//        if searchText == "" || searchBar.text == nil {
-//            searchActive = false
-//            collectionView?.reloadData()
-//            view.endEditing(true)
-//        } else {
-//            searchActive = true
-//            if let poke = self.pokemonsViewModel.pokemons?.results {
-//                for item in poke {
-//                    let name = item.name!.lowercased()
-//                    if ((name.contains(searchText.lowercased()))) {
-//                        pokemonArrayFiltered.append(item)
-//                    }
-//                    print(name)
-//                    print(searchBar.text!.lowercased())
-//                }
-//            }
-//            collectionView?.reloadData()
-//        }
-//    }
+    
+    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    //        if searchText == "" || searchBar.text == nil {
+    //            searchActive = false
+    //            collectionView?.reloadData()
+    //            view.endEditing(true)
+    //        } else {
+    //            searchActive = true
+    //            if let poke = self.pokemonsViewModel.pokemons?.results {
+    //                for item in poke {
+    //                    let name = item.name!.lowercased()
+    //                    if ((name.contains(searchText.lowercased()))) {
+    //                        pokemonArrayFiltered.append(item)
+    //                    }
+    //                    print(name)
+    //                    print(searchBar.text!.lowercased())
+    //                }
+    //            }
+    //            collectionView?.reloadData()
+    //        }
+    //    }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         pokemonArrayFiltered.removeAll()
@@ -694,13 +704,13 @@ extension PokedexController: UISearchBarDelegate {
 
 // MARK: - Collection View 2 Cells Per Row Setup
 extension PokedexController: UICollectionViewDelegateFlowLayout {
-
+    
     // Sets up 2 cells per row no matter what the screen size. It calculates the bounds width and sets up the right and left inset accordingly
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         let leftRightInset = (collectionView.bounds.width - 130*2 - 20)/2
         return UIEdgeInsets(top: 32, left: leftRightInset, bottom: 20, right: leftRightInset)
     }
-
+    
     // This was done to fix a bug with the collection layout
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         collectionView?.collectionViewLayout.invalidateLayout();

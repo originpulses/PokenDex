@@ -19,6 +19,8 @@
 		623E506324EE0691004678DD /* PokedexController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E506224EE0691004678DD /* PokedexController.swift */; };
 		623E5D1A24F6C2DF001C0894 /* DescriptionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */; };
 		623E5D1C24F6C2ED001C0894 /* StatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */; };
+		62420F462529A53E009930B2 /* Favourites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62420F442529A53E009930B2 /* Favourites+CoreDataClass.swift */; };
+		62420F472529A53E009930B2 /* Favourites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62420F452529A53E009930B2 /* Favourites+CoreDataProperties.swift */; };
 		6243089224FBE2220094812F /* Developers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6243089124FBE2220094812F /* Developers.swift */; };
 		6243089424FBE3AB0094812F /* DevelopersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6243089324FBE3AB0094812F /* DevelopersTableViewController.swift */; };
 		6243089624FBE3D70094812F /* DevelopersViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6243089524FBE3D70094812F /* DevelopersViewModel.swift */; };
@@ -85,6 +87,8 @@
 		623E506224EE0691004678DD /* PokedexController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokedexController.swift; sourceTree = "<group>"; };
 		623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DescriptionViewController.swift; sourceTree = "<group>"; };
 		623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsViewController.swift; sourceTree = "<group>"; };
+		62420F442529A53E009930B2 /* Favourites+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourites+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		62420F452529A53E009930B2 /* Favourites+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourites+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		6243089124FBE2220094812F /* Developers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developers.swift; sourceTree = "<group>"; };
 		6243089324FBE3AB0094812F /* DevelopersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersTableViewController.swift; sourceTree = "<group>"; };
 		6243089524FBE3D70094812F /* DevelopersViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopersViewModel.swift; sourceTree = "<group>"; };
@@ -194,6 +198,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		62420F432529A4B5009930B2 /* CoreData Database */ = {
+			isa = PBXGroup;
+			children = (
+				62420F442529A53E009930B2 /* Favourites+CoreDataClass.swift */,
+				62420F452529A53E009930B2 /* Favourites+CoreDataProperties.swift */,
+				6269AEB324CBD26A00D76DCD /* PokenDex.xcdatamodeld */,
+			);
+			path = "CoreData Database";
+			sourceTree = "<group>";
+		};
 		625C210A24ED10B7002D0792 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +276,7 @@
 		6269AEAB24CBD26A00D76DCD /* PokenDex */ = {
 			isa = PBXGroup;
 			children = (
+				62420F432529A4B5009930B2 /* CoreData Database */,
 				625C210C24ED10D8002D0792 /* Model */,
 				625C210B24ED10C5002D0792 /* View */,
 				625C210A24ED10B7002D0792 /* ViewModel */,
@@ -271,7 +286,6 @@
 				6269AEAC24CBD26A00D76DCD /* AppDelegate.swift */,
 				6269AEB624CBD26C00D76DCD /* Assets.xcassets */,
 				6269AEBB24CBD26C00D76DCD /* Info.plist */,
-				6269AEB324CBD26A00D76DCD /* PokenDex.xcdatamodeld */,
 			);
 			path = PokenDex;
 			sourceTree = "<group>";
@@ -558,6 +572,7 @@
 				623E498D2503325000CAA156 /* UIColorExtension.swift in Sources */,
 				62FB9EEB251B691600F83835 /* PokendexService.swift in Sources */,
 				62109791251C45D2003480AC /* TypeDetailViewModel.swift in Sources */,
+				62420F472529A53E009930B2 /* Favourites+CoreDataProperties.swift in Sources */,
 				62FB9EE8251B682D00F83835 /* TypePokemon.swift in Sources */,
 				62FB9ED6251B653200F83835 /* Types.swift in Sources */,
 				626700F22525A8AC00B0868E /* PokemonImageClassifier.mlmodel in Sources */,
@@ -576,6 +591,7 @@
 				62FB9ECB251B640600F83835 /* Results.swift in Sources */,
 				62109795251C4A91003480AC /* DataExtension.swift in Sources */,
 				621A22D5251C8F45006780D6 /* ViewControllerExtensions.swift in Sources */,
+				62420F462529A53E009930B2 /* Favourites+CoreDataClass.swift in Sources */,
 				6266323E24EE946F00DBD30A /* Pokemons.swift in Sources */,
 				623E506324EE0691004678DD /* PokedexController.swift in Sources */,
 				6210978F251C457D003480AC /* SpecieDetailViewModel.swift in Sources */,
