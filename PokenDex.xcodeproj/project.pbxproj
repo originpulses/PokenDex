@@ -52,6 +52,8 @@
 		62FB9EE8251B682D00F83835 /* TypePokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FB9EE7251B682D00F83835 /* TypePokemon.swift */; };
 		62FB9EEB251B691600F83835 /* PokendexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FB9EEA251B691600F83835 /* PokendexService.swift */; };
 		62FB9EED251B693500F83835 /* HttpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62FB9EEC251B693500F83835 /* HttpError.swift */; };
+		700EA1DB25299F3B00218EE9 /* Favourites+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700EA1D925299F3B00218EE9 /* Favourites+CoreDataClass.swift */; };
+		700EA1DC25299F3B00218EE9 /* Favourites+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700EA1DA25299F3B00218EE9 /* Favourites+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -124,6 +126,8 @@
 		62FB9EE7251B682D00F83835 /* TypePokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypePokemon.swift; sourceTree = "<group>"; };
 		62FB9EEA251B691600F83835 /* PokendexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokendexService.swift; sourceTree = "<group>"; };
 		62FB9EEC251B693500F83835 /* HttpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpError.swift; sourceTree = "<group>"; };
+		700EA1D925299F3B00218EE9 /* Favourites+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourites+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		700EA1DA25299F3B00218EE9 /* Favourites+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourites+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		7A08B9E30F5D089CA44DE8FA /* Pods-PokenDex.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PokenDex.release.xcconfig"; path = "Target Support Files/Pods-PokenDex/Pods-PokenDex.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -262,6 +266,7 @@
 		6269AEAB24CBD26A00D76DCD /* PokenDex */ = {
 			isa = PBXGroup;
 			children = (
+				700EA1D825299EB700218EE9 /* CoreData Database */,
 				625C210C24ED10D8002D0792 /* Model */,
 				625C210B24ED10C5002D0792 /* View */,
 				625C210A24ED10B7002D0792 /* ViewModel */,
@@ -271,7 +276,6 @@
 				6269AEAC24CBD26A00D76DCD /* AppDelegate.swift */,
 				6269AEB624CBD26C00D76DCD /* Assets.xcassets */,
 				6269AEBB24CBD26C00D76DCD /* Info.plist */,
-				6269AEB324CBD26A00D76DCD /* PokenDex.xcdatamodeld */,
 			);
 			path = PokenDex;
 			sourceTree = "<group>";
@@ -353,6 +357,16 @@
 				62FB9EEC251B693500F83835 /* HttpError.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		700EA1D825299EB700218EE9 /* CoreData Database */ = {
+			isa = PBXGroup;
+			children = (
+				700EA1D925299F3B00218EE9 /* Favourites+CoreDataClass.swift */,
+				700EA1DA25299F3B00218EE9 /* Favourites+CoreDataProperties.swift */,
+				6269AEB324CBD26A00D76DCD /* PokenDex.xcdatamodeld */,
+			);
+			path = "CoreData Database";
 			sourceTree = "<group>";
 		};
 		7399B0C0B2CADC69038306A2 /* Frameworks */ = {
@@ -558,6 +572,7 @@
 				623E498D2503325000CAA156 /* UIColorExtension.swift in Sources */,
 				62FB9EEB251B691600F83835 /* PokendexService.swift in Sources */,
 				62109791251C45D2003480AC /* TypeDetailViewModel.swift in Sources */,
+				700EA1DC25299F3B00218EE9 /* Favourites+CoreDataProperties.swift in Sources */,
 				62FB9EE8251B682D00F83835 /* TypePokemon.swift in Sources */,
 				62FB9ED6251B653200F83835 /* Types.swift in Sources */,
 				626700F22525A8AC00B0868E /* PokemonImageClassifier.mlmodel in Sources */,
@@ -576,6 +591,7 @@
 				62FB9ECB251B640600F83835 /* Results.swift in Sources */,
 				62109795251C4A91003480AC /* DataExtension.swift in Sources */,
 				621A22D5251C8F45006780D6 /* ViewControllerExtensions.swift in Sources */,
+				700EA1DB25299F3B00218EE9 /* Favourites+CoreDataClass.swift in Sources */,
 				6266323E24EE946F00DBD30A /* Pokemons.swift in Sources */,
 				623E506324EE0691004678DD /* PokedexController.swift in Sources */,
 				6210978F251C457D003480AC /* SpecieDetailViewModel.swift in Sources */,
