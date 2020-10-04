@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 private let reuseIdentifier = "FavCell"
 
@@ -16,11 +17,21 @@ class FavouritesTableViewController: UITableViewController {
     
     // Reloads the tableview to the updated favourites
     override func viewWillAppear(_ animated: Bool) {
+        loadPokemon()
         self.tableView.reloadData()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func loadPokemon() {
+        let request: NSFetchRequest<Favourites> = Favourites.fetchRequest()
+        do {
+            favourites = try context.fetch(request)
+        } catch {
+            print("Error fetching data from context \(error)")
+        }
     }
     
     func savePokemon() {
