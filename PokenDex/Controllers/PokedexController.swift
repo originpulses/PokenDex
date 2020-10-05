@@ -217,6 +217,7 @@
 import Foundation
 import UIKit
 import Kingfisher
+import CoreData
 
 // MARK: - Collection View Setup
 
@@ -602,23 +603,38 @@ class PokedexController: UICollectionViewController {
             let blurEffect = UIBlurEffect(style: .light)
             let visualEffectView = UIVisualEffectView(effect: blurEffect)
             visualEffectView.frame = view.frame
-            let alert = UIAlertController(title: "Add \(String(describing: pokemonsViewModel.pokemons?.results?[indexPath.item].name)) to Favourites?", message: "", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Add \(pokemonsViewModel.pokemons?.results?[indexPath.item].name!.capitalizingFirstLetter() ?? "Pokemon") to Favourites?", message: "", preferredStyle: .alert)
+            alert.view.accessibilityIdentifier = "AddingAlert"
             let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
                 
-                let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                
-                let newFav = Favourites(context: context)
-                if let name = self.pokemonsViewModel.pokemons?.results?[indexPath.item].name {
-                    newFav.name = name.capitalizingFirstLetter()
-                }
-                if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
-                    newFav.pokedexID = String(format: "%03d", Int(url.split(separator: "/").last!)!)
-                    let id = Int(url.split(separator: "/").last!)!
-                    newFav.id = Int64(id)
-                    let imageCode = String(format: "%03d", Int(url.split(separator: "/").last!)!)
-                    newFav.image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(imageCode).png"
-                    newFav.isFav = false
-                    self.savePokemon() // CRUD Operation - Create
+                do {
+                    self.loadPokemon()
+                    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                    let request : NSFetchRequest<Favourites> = Favourites.fetchRequest()
+                    if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
+                        let id = Int(url.split(separator: "/").last!)!
+                        request.predicate = NSPredicate(format: "id == %d", id)
+                    }
+                    let numberOfID = try context.count(for: request)
+                    if numberOfID == 0 {
+                        let newFav = Favourites(context: context)
+                        if let name = self.pokemonsViewModel.pokemons?.results?[indexPath.item].name {
+                            newFav.name = name.capitalizingFirstLetter()
+                        }
+                        if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
+                            newFav.pokedexID = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                            let id = Int(url.split(separator: "/").last!)!
+                            newFav.id = Int64(id)
+                            let imageCode = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                            newFav.image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(imageCode).png"
+                            newFav.isFav = false
+                        }
+                        try context.save()
+                    } else {
+                        self.showAlert(title: "Already Exists", message: "You have already favourited this Pokemon")
+                    }
+                } catch {
+                    print("Error saving context \(error)")
                 }
                 
                 visualEffectView.removeFromSuperview()
@@ -634,12 +650,13 @@ class PokedexController: UICollectionViewController {
         }
     }
     
-    func savePokemon() {
+    func loadPokemon() {
+        let request: NSFetchRequest<Favourites> = Favourites.fetchRequest()
         do {
             let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-            try context.save()
+            favourites = try context.fetch(request)
         } catch {
-            print("Error saving context \(error)")
+            print("Error fetching data from context \(error)")
         }
     }
     
@@ -713,6 +730,6 @@ extension PokedexController: UICollectionViewDelegateFlowLayout {
     
     // This was done to fix a bug with the collection layout
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        collectionView?.collectionViewLayout.invalidateLayout();
+        collectionView?.collectionViewLayout.invalidateLayout()
     }
 }

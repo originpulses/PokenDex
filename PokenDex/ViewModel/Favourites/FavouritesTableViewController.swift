@@ -15,6 +15,7 @@ private let reuseIdentifier = "FavCell"
 class FavouritesTableViewController: UITableViewController {
     
     var favourites = [Favourites]()
+    @IBOutlet var favouritesTable: UITableView!
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
@@ -26,6 +27,7 @@ class FavouritesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        favouritesTable.accessibilityLabel = "favouritesTable"
     }
     
     func loadPokemon() {
@@ -52,12 +54,14 @@ class FavouritesTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath)
+        cell.accessibilityIdentifier = "favCell_\(indexPath.row)"
         
         let pokName = cell.viewWithTag(3001) as? UILabel
         let pokImage = cell.viewWithTag(3002) as? UIImageView
         
         if let pokName = pokName, let pokImage = pokImage {
             
+            pokName.accessibilityIdentifier = "nameLabel"
             let currentPokemon = favourites[indexPath.item]
             pokName.text = currentPokemon.name
             pokImage.kf.setImage(with: URL(string: currentPokemon.image!))
