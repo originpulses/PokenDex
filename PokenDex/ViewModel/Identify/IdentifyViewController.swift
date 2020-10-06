@@ -26,6 +26,7 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
     var pokemonDetails: PokemonDetail?
     var pokemonsViewModel = PokemonsViewModel()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -65,7 +66,7 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let request = VNCoreMLRequest(model: model) { (request, error) in
             let classification = request.results?.first as? VNClassificationObservation
-            
+
             self.pokemonName.text = classification?.identifier
             self.percentage.text = String(format: "%.2f", ((classification!.confidence)*100)) + " %"
             self.identified.append((classification?.identifier.lowercased())!)

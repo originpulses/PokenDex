@@ -59,10 +59,10 @@ class PokemonViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setCornerRadius()
-        
         getPokemon(url: "https://pokeapi.co/api/v2/pokemon/\(id)")
-        
+//        checkFavourites()
     }
+    
     
 //  Setting upper corner radius of the "white coloured detailed view"
     func setCornerRadius() {
@@ -373,7 +373,8 @@ class PokemonViewController: UIViewController {
         }
 
     }
-
+    
+    
 }
 
 //class PokemonViewController: UIViewController {

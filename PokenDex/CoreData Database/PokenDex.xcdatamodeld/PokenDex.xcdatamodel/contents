@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14492.1" systemVersion="19G2021" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Favourites" representedClassName="Favourites" syncable="YES">
+        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="image" attributeType="String" syncable="YES"/>
+        <attribute name="isFav" attributeType="Boolean" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="pokedexID" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Favourites" positionX="-63" positionY="-18" width="128" height="120"/>
+    </elements>
+</model>
