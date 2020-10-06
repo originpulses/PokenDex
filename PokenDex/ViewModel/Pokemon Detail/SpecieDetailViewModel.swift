@@ -16,7 +16,9 @@ class SpecieDetailViewModel {
         self.specieDetail = specieDetail
     }
     
+    // Gets Descripion data from "alpha-sapphire" version of the Pokemon games and removes all the occurrences of \n in the retrieved text
     func getDataDescription() -> String {
+        
         var result: String = ""
         if let flavor_text_entries = specieDetail.flavor_text_entries {
             for flavor in flavor_text_entries {
@@ -26,8 +28,10 @@ class SpecieDetailViewModel {
                     }
                 }
             }
+            
             return result
         }
+        
         return ""
     }
     

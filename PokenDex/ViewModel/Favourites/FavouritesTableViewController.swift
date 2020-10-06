@@ -19,7 +19,7 @@ class FavouritesTableViewController: UITableViewController {
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    // Reloads the tableview to the updated favourites
+    // CRUD Operation - Update
     override func viewWillAppear(_ animated: Bool) {
         loadPokemon()
         self.tableView.reloadData()
@@ -30,6 +30,7 @@ class FavouritesTableViewController: UITableViewController {
         favouritesTable.accessibilityLabel = "favouritesTable"
     }
     
+    // CRUD Operation - Retrieve
     func loadPokemon() {
         let request: NSFetchRequest<Favourites> = Favourites.fetchRequest()
         do {
@@ -73,7 +74,7 @@ class FavouritesTableViewController: UITableViewController {
     // Sets up the swipe to remove feature
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            context.delete(favourites[indexPath.row])
+            context.delete(favourites[indexPath.row]) // CRUD Operation - Delete
             favourites.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             savePokemon()

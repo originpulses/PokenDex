@@ -9,7 +9,12 @@
 import Foundation
 import Alamofire
 
+// Main PokeAPI Service through which all the URLs of PokeAPI are processed
+
+// Note: PokeAPI has URLs nested within URLs so this sort of design was implemented after thorough research on how to parse this kind of API
+
 public class PokendexService {
+    
     func get(url: String, completion: @escaping (Swift.Result<Data?, HttpError>) -> ()) {
         Alamofire.request(url, method: .get).responseJSON { response in
             if let status = response.response?.statusCode {

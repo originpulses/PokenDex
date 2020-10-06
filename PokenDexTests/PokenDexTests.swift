@@ -45,6 +45,7 @@ class PokenDexTests: XCTestCase {
         
     }
     
+    // Testing getPokemon() method from PokemonsViewModel and checking if it functions with API's URL
     func testGetPokemonWithValidURL() {
         
         let url = "https://pokeapi.co/api/v2/pokemon"
@@ -63,6 +64,7 @@ class PokenDexTests: XCTestCase {
         
     }
     
+    // Testing getPokemon() method from PokemonsViewModel with an invalid URL
     func testGetPokemonWithInvalidURL() {
         
         let url = "https://pokeapi.co/api/v2/pokemn"
@@ -81,6 +83,7 @@ class PokenDexTests: XCTestCase {
         
     }
     
+    // Testing to see if the Initial Results count from PokeAPI is 20
     func testingPokemonResults() {
         
         let url = "https://pokeapi.co/api/v2/pokemon"

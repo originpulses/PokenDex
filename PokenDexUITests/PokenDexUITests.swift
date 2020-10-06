@@ -50,6 +50,7 @@ class PokenDexUITests: XCTestCase {
         XCTAssert(pokendexButton.isSelected)
     }
     
+    // Test to check if the Pokemon adds to favourite successfully
     func testForAddingPokemonToFavourites() {
         
         // Pre-Condition: There should be no favourites initially
@@ -72,6 +73,7 @@ class PokenDexUITests: XCTestCase {
         
     }
     
+    // Test to check if it successfully deletes the added Pokemon
     func testForDeletingPokemon() {
         
         // Pre-Condition: Add the favourite through testForFavouritingPokemon() function first
@@ -87,6 +89,7 @@ class PokenDexUITests: XCTestCase {
         
     }
     
+    // Test for viewing Pokemon Details
     func testForPokemonDetailUseCase() {
         
         XCUIApplication().tabBars.buttons["PokenDex"].tap()

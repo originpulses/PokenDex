@@ -15,6 +15,7 @@ class PokemonsViewModel {
     
     init() {}
     
+    // Retrieves all the results from PokeAPI
     func getPokemons(url: String, completion: @escaping (Result<Pokemons?, HttpError>) -> Void) {
         service.get(url: url) { result in
             switch result {

@@ -8,10 +8,10 @@
 
 import Foundation
 
-public struct TypePokemon : Model {
+struct TypePokemon : Model {
     let pokemon : Pokemon?
     
-    public init(pokemon : Pokemon?) {
+    init(pokemon : Pokemon?) {
         self.pokemon = pokemon
     }
     

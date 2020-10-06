@@ -8,11 +8,11 @@
 
 import Foundation
 
-public struct Types : Model {
+struct Types : Model {
     let slot : Int?
     let type : Type?
     
-    public init(slot : Int?, type : Type?) {
+    init(slot : Int?, type : Type?) {
         self.slot = slot
         self.type = type
     }

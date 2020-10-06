@@ -8,9 +8,9 @@
 
 import Foundation
 
-public protocol Model: Encodable, Decodable, Equatable {}
+protocol Model: Encodable, Decodable, Equatable {}
 
-public extension Model {
+extension Model {
     func toData() -> Data? {
         return try? JSONEncoder().encode(self)
     }

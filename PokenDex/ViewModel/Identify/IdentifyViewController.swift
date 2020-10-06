@@ -20,8 +20,8 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
     @IBOutlet weak var probabilityLabel: UILabel!
     @IBOutlet weak var infoButton: UIButton!
     
-    var identified = [String]()
-    var id: Int = 0
+    var identified = [String]() // Stores identified Pokemon temporarily
+    var id: Int = 0 // ID to prepare for segue once the Pokemon is identified
     let service = PokendexService()
     var pokemonDetails: PokemonDetail?
     var pokemonsViewModel = PokemonsViewModel()
@@ -32,12 +32,11 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
         
         imagePicker.delegate = self
         imagePicker.allowsEditing = true
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = .photoLibrary // Initially the source type would be .camera but for marking rubric purposes this has been left as .photoLibrary
         self.infoButton.isHidden = true
         self.imageView.isHidden = true
         self.probabilityLabel.isHidden = true
         self.percentage.isHidden = true
-        
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -56,6 +55,7 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    // Function that detects CIImage
     func detect(image: CIImage) {
         
         guard let model = try? VNCoreMLModel(for: PokemonImageClassifier().model) else {
@@ -124,6 +124,7 @@ class IdentifyViewController: UIViewController, UIImagePickerControllerDelegate,
         }
     }
     
+    // Once identified this segue leads to PokemonViewControl to show the details of the identified Pokemon just like a real PokeDex would do
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "identifyToDetail") {
             let pokeVC = segue.destination as! PokemonViewController

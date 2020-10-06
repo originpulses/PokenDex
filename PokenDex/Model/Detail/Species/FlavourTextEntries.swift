@@ -8,12 +8,12 @@
 
 import Foundation
 
-public struct FlavorTextEntries : Model {
+struct FlavorTextEntries : Model {
     let flavor_text : String?
     let language : Language?
     let version : Version?
     
-    public init(flavor_text : String?, language : Language?, version : Version?)  {
+    init(flavor_text : String?, language : Language?, version : Version?)  {
         self.flavor_text = flavor_text
         self.language = language
         self.version = version

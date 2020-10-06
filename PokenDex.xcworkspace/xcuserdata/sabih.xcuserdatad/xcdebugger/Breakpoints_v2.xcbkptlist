@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "PokenDexUITests/PokenDexUITests.swift"
-            timestampString = "623668036.064922"
+            timestampString = "623673487.675076"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "53"
-            endingLineNumber = "53"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
             landmarkName = "testForAddingPokemonToFavourites()"
             landmarkType = "7">
          </BreakpointContent>

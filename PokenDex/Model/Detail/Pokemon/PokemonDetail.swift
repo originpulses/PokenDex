@@ -8,14 +8,14 @@
 
 import Foundation
 
-public struct PokemonDetail : Model {
+struct PokemonDetail : Model {
     let id : Int?
     let name : String?
     let stats : [Stats]?
     let types : [Types]?
     let species : Species?
     
-    public init(id : Int?, name : String?, stats : [Stats]?, types : [Types]?, species : Species?) {
+    init(id : Int?, name : String?, stats : [Stats]?, types : [Types]?, species : Species?) {
         self.id = id
         self.name = name
         self.stats = stats

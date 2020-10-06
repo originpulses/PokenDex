@@ -1,10 +1,10 @@
-////
-////  PokemonViewController.swift
-////  PokenDex
-////
-////  Created by Sabih on 21/8/20.
-////  Copyright © 2020 RMIT. All rights reserved.
-////
+//
+//  PokemonViewController.swift
+//  PokenDex
+//
+//  Created by Sabih on 21/8/20.
+//  Copyright © 2020 RMIT. All rights reserved.
+//
 //
 import UIKit
 
@@ -27,6 +27,13 @@ class PokemonViewController: UIViewController {
     
     let service = PokendexService()
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setCornerRadius()
+        getPokemon(url: "https://pokeapi.co/api/v2/pokemon/\(id)") // Retrieves Pokemon through passed ID from PokedexController
+    }
+    
+    // Sets All Details of Pokemon
     var pokemonDetailViewModel: PokemonDetailViewModel! {
         didSet {
             setPokemonImage()
@@ -40,14 +47,7 @@ class PokemonViewController: UIViewController {
         }
     }
     
-//    var specieDetailViewModel: SpecieDetailViewModel! {
-//        didSet {
-//            if let dVC = desVC {
-//                dVC.pokemonDescription.text = specieDetailViewModel.getDataDescription()
-//            }
-//        }
-//    }
-    
+    // Sets Pokemon Description
     var specieDetailViewModel: SpecieDetailViewModel! {
         didSet {
             if let dVC = self.desVC {
@@ -56,20 +56,14 @@ class PokemonViewController: UIViewController {
         }
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setCornerRadius()
-        getPokemon(url: "https://pokeapi.co/api/v2/pokemon/\(id)")
-//        checkFavourites()
-    }
     
-    
-//  Setting upper corner radius of the "white coloured detailed view"
+    //  Setting upper corner radius of the "white coloured detailed view"
     func setCornerRadius() {
         detailView.layer.cornerRadius = self.view.bounds.height*4/100
         detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
     }
     
+    // Makes a GET request for details of Pokemon and maps them to PokemonDetailViewModel
     func getPokemon(url: String) {
         service.get(url: url) { result in
             switch result {
@@ -86,6 +80,7 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    // Makes a GET request for Specie (Description) and maps it to SpecieDetailViewModel
     func getSpecie(url: String) {
         service.get(url: url) { result in
             switch result {
@@ -101,12 +96,14 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    // Kingfisher is a 3rd Party Framework that retrieves Pokemon Image and sets it to ImageView with the help of a URL
     private func setPokemonImage() {
         if let url = URL(string: "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(String(format: "%03d", id)).png") {
             pokemonImage.kf.setImage(with: url)
         }
     }
     
+    // Retrieves mapped information from PokemonDetailViewModel and assigns it to the labels
     private func setPokemonData() {
         if let name = pokemonDetailViewModel.pokemonDetail.name {
             pokemonName.text = name.capitalizingFirstLetter()
@@ -166,6 +163,7 @@ class PokemonViewController: UIViewController {
         }
     }
     
+    // Since there is no color information in PokeAPI we have to manually set the colour of each type Pokemon
     private func setPokemonColor() {
         let colorOfType = pokemonDetailViewModel.pokemonDetail.types?.first
         if let colorOfType = colorOfType?.type?.name, let sVC = self.statsVC {
@@ -373,88 +371,5 @@ class PokemonViewController: UIViewController {
         }
 
     }
-    
-    
-}
 
-//class PokemonViewController: UIViewController {
-//
-//    var selectedPokemon: (name: String, description: String, image: UIImage?, id: String, type: String, HP: String, attack: String, defense: String, specialAttack: String, specialDefense: String, speed: String, colour: UIColor?)?
-//    
-//    var desVC: DescriptionViewController?
-//    var statsVC: StatsViewController?
-//    
-//    @IBOutlet weak var pokemonName: UILabel!
-//    @IBOutlet weak var pokemonID: UILabel!
-//    @IBOutlet weak var pokemonType: UILabel!
-//    @IBOutlet weak var pokemonImage: UIImageView!
-//    @IBOutlet weak var descriptionView: UIView!
-//    @IBOutlet weak var statsView: UIView!
-//    @IBOutlet weak var backgroundView: UIView!
-//    @IBOutlet weak var detailView: UIView!
-//    @IBOutlet weak var segmentedControl: UISegmentedControl!
-//    
-//    
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        setCornerRadius()
-//        
-//        // Setup detail view and passing data to 2 container views
-//        if let selectedPokemon = selectedPokemon,
-//            let dVC = desVC,
-//            let sVC = statsVC {
-//            pokemonName.text = selectedPokemon.name
-//            pokemonImage.image = selectedPokemon.image
-//            pokemonType.text = selectedPokemon.type
-//            pokemonID.text = selectedPokemon.id
-//            dVC.pokemonDescription.text = selectedPokemon.description
-//            sVC.pokemonHP.text = selectedPokemon.HP
-//            sVC.pokemonAttack.text = selectedPokemon.attack
-//            sVC.pokemonDefense.text = selectedPokemon.defense
-//            sVC.pokemonSpecialAttack.text = selectedPokemon.specialAttack
-//            sVC.pokemonSpecialDefense.text = selectedPokemon.specialDefense
-//            sVC.pokemonSpeed.text = selectedPokemon.speed
-//            sVC.HPProgress.setProgress((Float(selectedPokemon.HP)!/300), animated: false)
-//            sVC.HPProgress.tintColor = selectedPokemon.colour
-//            sVC.attackProgress.setProgress((Float(selectedPokemon.attack)!/300), animated: false)
-//            sVC.attackProgress.tintColor = selectedPokemon.colour
-//            sVC.defenseProgress.setProgress((Float(selectedPokemon.defense)!/300), animated: false)
-//            sVC.defenseProgress.tintColor = selectedPokemon.colour
-//            sVC.specialAttackProgress.setProgress((Float(selectedPokemon.specialAttack)!/300), animated: false)
-//            sVC.specialAttackProgress.tintColor = selectedPokemon.colour
-//            sVC.specialDefenseProgress.setProgress((Float(selectedPokemon.specialDefense)!/300), animated: false)
-//            sVC.specialDefenseProgress.tintColor = selectedPokemon.colour
-//            sVC.speedProgress.setProgress((Float(selectedPokemon.speed)!/300), animated: false)
-//            sVC.speedProgress.tintColor = selectedPokemon.colour
-//            backgroundView.backgroundColor = selectedPokemon.colour
-//            segmentedControl.tintColor = selectedPokemon.colour
-//        }
-//    }
-//    
-//     Setting upper corner radius of the "white coloured detailed view"
-//    func setCornerRadius() {
-//        self.detailView.layer.cornerRadius = self.view.bounds.height*4/100
-//        self.detailView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-//    }
-//
-//    // To pass data to the container views by referencing them through segues
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? DescriptionViewController {
-//            desVC = vc
-//        }
-//        if let vc = segue.destination as? StatsViewController {
-//            statsVC = vc
-//        }
-//    }
-//    
-//    // Segmented Control Setup
-//    @IBAction func segmentChanged(_ sender: UISegmentedControl) {
-//        if sender.selectedSegmentIndex == 0 {
-//            descriptionView.isHidden = false
-//            statsView.isHidden = true
-//        } else {
-//            descriptionView.isHidden = true
-//            statsView.isHidden = false
-//        }
-//    }
-//}
+}
