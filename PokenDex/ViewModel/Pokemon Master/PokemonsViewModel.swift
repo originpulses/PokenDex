@@ -12,7 +12,6 @@ class PokemonsViewModel {
     
     var pokemons: Pokemons?
     let service = PokendexService()
-    public var pokemonNameToSearch: String = ""
     
     init() {}
     

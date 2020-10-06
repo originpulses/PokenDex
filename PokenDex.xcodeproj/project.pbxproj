@@ -157,34 +157,62 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6210978A251C44B7003480AC /* Master */ = {
+		6210978A251C44B7003480AC /* Pokemon Master */ = {
 			isa = PBXGroup;
 			children = (
+				623E506224EE0691004678DD /* PokedexController.swift */,
 				62109788251C4129003480AC /* PokemonsViewModel.swift */,
 			);
-			path = Master;
+			path = "Pokemon Master";
 			sourceTree = "<group>";
 		};
-		6210978B251C44E4003480AC /* Detail */ = {
+		6210978B251C44E4003480AC /* Pokemon Detail */ = {
 			isa = PBXGroup;
 			children = (
 				6210978C251C4502003480AC /* PokemonDetailViewModel.swift */,
 				6210978E251C457D003480AC /* SpecieDetailViewModel.swift */,
 				62109790251C45D2003480AC /* TypeDetailViewModel.swift */,
+				62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */,
+				623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */,
+				623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */,
+			);
+			path = "Pokemon Detail";
+			sourceTree = "<group>";
+		};
+		6212A807252C60BB00019D26 /* Master */ = {
+			isa = PBXGroup;
+			children = (
+				6266323D24EE946F00DBD30A /* Pokemons.swift */,
+				62FB9ECA251B640600F83835 /* Results.swift */,
+				62FB9EC8251B639B00F83835 /* Model.swift */,
+			);
+			path = Master;
+			sourceTree = "<group>";
+		};
+		6212A808252C60D100019D26 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				62FB9ECC251B644800F83835 /* Pokemon */,
+				62FB9EE4251B680400F83835 /* Type */,
+				62FB9ED9251B65D400F83835 /* Species */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		621A22D1251C5E76006780D6 /* Controllers */ = {
+		6212A809252C611100019D26 /* Developers */ = {
 			isa = PBXGroup;
 			children = (
-				623E506224EE0691004678DD /* PokedexController.swift */,
-				62F4C93C24EF7F2A00000406 /* PokemonViewController.swift */,
-				623E5D1924F6C2DF001C0894 /* DescriptionViewController.swift */,
-				623E5D1B24F6C2ED001C0894 /* StatsViewController.swift */,
+				6243089124FBE2220094812F /* Developers.swift */,
+			);
+			path = Developers;
+			sourceTree = "<group>";
+		};
+		6212A80A252C614D00019D26 /* Identify */ = {
+			isa = PBXGroup;
+			children = (
 				626700EE2525A4F800B0868E /* IdentifyViewController.swift */,
 			);
-			path = Controllers;
+			path = Identify;
 			sourceTree = "<group>";
 		};
 		623E498B250331E100CAA156 /* Extensions */ = {
@@ -211,9 +239,10 @@
 		625C210A24ED10B7002D0792 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				6210978A251C44B7003480AC /* Master */,
-				6210978B251C44E4003480AC /* Detail */,
+				6210978A251C44B7003480AC /* Pokemon Master */,
+				6210978B251C44E4003480AC /* Pokemon Detail */,
 				62BE11462500D64000619DED /* Favourites */,
+				6212A80A252C614D00019D26 /* Identify */,
 				62BE11442500D61200619DED /* Developers */,
 			);
 			path = ViewModel;
@@ -231,14 +260,10 @@
 		625C210C24ED10D8002D0792 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				6212A807252C60BB00019D26 /* Master */,
+				6212A808252C60D100019D26 /* Detail */,
+				6212A809252C611100019D26 /* Developers */,
 				626700F02525A89C00B0868E /* CoreML Model */,
-				62FB9EE4251B680400F83835 /* Type */,
-				62FB9ED9251B65D400F83835 /* Species */,
-				62FB9ECC251B644800F83835 /* Pokemon */,
-				6266323D24EE946F00DBD30A /* Pokemons.swift */,
-				6243089124FBE2220094812F /* Developers.swift */,
-				62FB9EC8251B639B00F83835 /* Model.swift */,
-				62FB9ECA251B640600F83835 /* Results.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -276,13 +301,12 @@
 		6269AEAB24CBD26A00D76DCD /* PokenDex */ = {
 			isa = PBXGroup;
 			children = (
-				62420F432529A4B5009930B2 /* CoreData Database */,
 				625C210C24ED10D8002D0792 /* Model */,
 				625C210B24ED10C5002D0792 /* View */,
 				625C210A24ED10B7002D0792 /* ViewModel */,
-				621A22D1251C5E76006780D6 /* Controllers */,
-				623E498B250331E100CAA156 /* Extensions */,
 				62FB9EE9251B68EA00F83835 /* Service */,
+				623E498B250331E100CAA156 /* Extensions */,
+				62420F432529A4B5009930B2 /* CoreData Database */,
 				6269AEAC24CBD26A00D76DCD /* AppDelegate.swift */,
 				6269AEB624CBD26C00D76DCD /* Assets.xcassets */,
 				6269AEBB24CBD26C00D76DCD /* Info.plist */,
