@@ -25,7 +25,7 @@ class PokedexController: UICollectionViewController {
     var pokemonArrayFiltered = [Results?]()
     var favourites = [Favourites]()
     
-    let url = "https://pokeapi.co/api/v2/pokemon"
+    let url = "https://pokeapi.co/api/v2/pokemon?limit=809"
     
     let service = PokendexService()
     
@@ -37,7 +37,6 @@ class PokedexController: UICollectionViewController {
         longPressOnCell()
         getPokemons(url: url)
     }
-    
     
     func getPokemons(url: String) {
         pokemonsViewModel.getPokemons(url: url) { results in
@@ -52,7 +51,7 @@ class PokedexController: UICollectionViewController {
     //    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(searchActive) {
+        if searchActive {
             return pokemonArrayFiltered.count
         } else {
             if pokemonsViewModel.pokemons != nil {
@@ -287,54 +286,23 @@ class PokedexController: UICollectionViewController {
         return cell
     }
     
-    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        if !searchActive {
-            if !isFinalToLoad {
-                if indexPath.item == (pokemonsViewModel.pokemons?.results!.count)! - 4 &&
-                    (pokemonsViewModel.pokemons?.results!.count)! < (pokemonsViewModel.pokemons?.count)! {
-                    if (!((pokemonsViewModel.pokemons?.next!.elementsEqual("https://pokeapi.co/api/v2/pokemon?offset=780&limit=20"))!)) {
-                        getPokemons(url: (pokemonsViewModel.pokemons?.next!)!)
-                    } else {
-                        
-                        getPokemons(url: "https://pokeapi.co/api/v2/pokemon?offset=780&limit=27")
-                        isFinalToLoad = true
-                    }
-                }
-            }
-        }
-    }
+//    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+//        if !searchActive {
+//            if !isFinalToLoad {
+//                if indexPath.item == (pokemonsViewModel.pokemons?.results!.count)! - 4 &&
+//                    (pokemonsViewModel.pokemons?.results!.count)! < (pokemonsViewModel.pokemons?.count)! {
+//                    if (!((pokemonsViewModel.pokemons?.next!.elementsEqual("https://pokeapi.co/api/v2/pokemon?offset=780&limit=20"))!)) {
+//                        getPokemons(url: (pokemonsViewModel.pokemons?.next!)!)
+//                    } else {
+//
+//                        getPokemons(url: "https://pokeapi.co/api/v2/pokemon?offset=780&limit=27")
+//                        isFinalToLoad = true
+//                    }
+//                }
+//            }
+//        }
+//    }
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        guard let cell = sender as? UICollectionViewCell,
-    //            let indexPath = self.collectionView?.indexPath(for: cell) else {return}
-    //        if let destination = segue.destination as? PokemonViewController {
-    //            if searchActive {
-    //                let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
-    //                let id = Int(url.split(separator: "/").last!)!
-    //                destination.id = id
-    //            } else {
-    //                let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
-    //                let id = Int(url!.split(separator: "/").last!)!
-    //                destination.id = id
-    //            }
-    //        }
-    //    }
-    
-    //    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    //        let newViewController = storyboard?.instantiateViewController(withIdentifier: "PokemonViewController") as! PokemonViewController
-    //
-    //        if searchActive {
-    //            let url = (self.pokemonArrayFiltered[indexPath.item]?.url)!
-    //            let id = Int(url.split(separator: "/").last!)!
-    //            newViewController.id = id
-    //        } else {
-    //            let url = self.pokemonsViewModel.pokemons?.results![indexPath.item].url
-    //            let id = Int(url!.split(separator: "/").last!)!
-    //            newViewController.id = id
-    //        }
-    //
-    //        present(newViewController, animated: true, completion: nil)
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let cell = sender as? UICollectionViewCell,
