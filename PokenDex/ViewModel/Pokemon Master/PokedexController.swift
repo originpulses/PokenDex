@@ -46,10 +46,6 @@ class PokedexController: UICollectionViewController {
         }
     }
     
-    //    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    //        return inSearchMode ? filteredPokemon.count : viewModel.count
-    //    }
-    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if searchActive {
             return pokemonArrayFiltered.count
@@ -59,40 +55,6 @@ class PokedexController: UICollectionViewController {
             } else { return 0 }
         }
     }
-    
-    //    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    //
-    //        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
-    //
-    //        if inSearchMode {
-    //            let viewImage = cell.viewWithTag(1000) as? UIImageView
-    //            let viewLabel = cell.viewWithTag(1001) as? UILabel
-    //            let viewLabelTwo = cell.viewWithTag(1002) as? UILabel
-    //            let viewColour = cell.viewWithTag(1003)
-    //
-    //            if let viewImage = viewImage, let viewLabel = viewLabel, let viewLabelTwo = viewLabelTwo {
-    //                let currentPokemon = filteredPokemon[indexPath.item]
-    //                viewImage.image = currentPokemon.imageName
-    //                viewLabel.text = currentPokemon.name
-    //                viewLabelTwo.text = currentPokemon.pokedexID
-    //                viewColour?.backgroundColor = currentPokemon.colour
-    //            }
-    //        } else {
-    //            let imageView = cell.viewWithTag(1000) as? UIImageView
-    //            let pokemonTitle = cell.viewWithTag(1001) as? UILabel
-    //            let pokemonID = cell.viewWithTag(1002) as? UILabel
-    //            let colourView = cell.viewWithTag(1003)
-    //
-    //            if let imageView = imageView, let pokemonTitle = pokemonTitle, let pokemonID = pokemonID {
-    //                let currentPokemon = viewModel.getPokemon(byIndex: indexPath.item)
-    //                imageView.image = currentPokemon.image
-    //                pokemonTitle.text = currentPokemon.name
-    //                pokemonID.text = currentPokemon.id
-    //                colourView?.backgroundColor = currentPokemon.colour
-    //            }
-    //        }
-    //        return cell
-    //    }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
@@ -286,23 +248,6 @@ class PokedexController: UICollectionViewController {
         return cell
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-//        if !searchActive {
-//            if !isFinalToLoad {
-//                if indexPath.item == (pokemonsViewModel.pokemons?.results!.count)! - 4 &&
-//                    (pokemonsViewModel.pokemons?.results!.count)! < (pokemonsViewModel.pokemons?.count)! {
-//                    if (!((pokemonsViewModel.pokemons?.next!.elementsEqual("https://pokeapi.co/api/v2/pokemon?offset=780&limit=20"))!)) {
-//                        getPokemons(url: (pokemonsViewModel.pokemons?.next!)!)
-//                    } else {
-//
-//                        getPokemons(url: "https://pokeapi.co/api/v2/pokemon?offset=780&limit=27")
-//                        isFinalToLoad = true
-//                    }
-//                }
-//            }
-//        }
-//    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let cell = sender as? UICollectionViewCell,
@@ -358,55 +303,106 @@ class PokedexController: UICollectionViewController {
         
         let p = gestureRecognizer.location(in: collectionView)
         
-        if let indexPath = collectionView?.indexPathForItem(at: p) {
-            
-            let blurEffect = UIBlurEffect(style: .light)
-            let visualEffectView = UIVisualEffectView(effect: blurEffect)
-            visualEffectView.frame = view.frame
-            let alert = UIAlertController(title: "Add \(pokemonsViewModel.pokemons?.results?[indexPath.item].name!.capitalizingFirstLetter() ?? "Pokemon") to Favourites?", message: "", preferredStyle: .alert)
-            alert.view.accessibilityIdentifier = "AddingAlert"
-            let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
-                
-                do {
-                    self.loadPokemon()
-                    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-                    let request : NSFetchRequest<Favourites> = Favourites.fetchRequest()
-                    if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
-                        let id = Int(url.split(separator: "/").last!)!
-                        request.predicate = NSPredicate(format: "id == %d", id)
-                    }
-                    let numberOfID = try context.count(for: request)
-                    if numberOfID == 0 {
-                        let newFav = Favourites(context: context)
-                        if let name = self.pokemonsViewModel.pokemons?.results?[indexPath.item].name {
-                            newFav.name = name.capitalizingFirstLetter()
-                        }
-                        if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
-                            newFav.pokedexID = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+        if searchActive {
+            if let indexPath = collectionView?.indexPathForItem(at: p) {
+                let blurEffect = UIBlurEffect(style: .light)
+                let visualEffectView = UIVisualEffectView(effect: blurEffect)
+                visualEffectView.frame = view.frame
+                let alert = UIAlertController(title: "Add \(pokemonArrayFiltered[indexPath.item]?.name?.capitalizingFirstLetter() ?? "Pokemon") to Favourites?", message: "", preferredStyle: .alert)
+                alert.view.accessibilityIdentifier = "AddingAlert"
+                let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
+                    
+                    do {
+                        self.loadPokemon()
+                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                        let request : NSFetchRequest<Favourites> = Favourites.fetchRequest()
+                        if let url = self.pokemonArrayFiltered[indexPath.item]?.url {
                             let id = Int(url.split(separator: "/").last!)!
-                            newFav.id = Int64(id)
-                            let imageCode = String(format: "%03d", Int(url.split(separator: "/").last!)!)
-                            newFav.image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(imageCode).png"
-                            newFav.isFav = false
+                            request.predicate = NSPredicate(format: "id == %d", id)
                         }
-                        try context.save()
-                    } else {
-                        self.showAlert(title: "Already Exists", message: "You have already favourited this Pokemon")
+                        let numberOfID = try context.count(for: request)
+                        if numberOfID == 0 {
+                            let newFav = Favourites(context: context)
+                            if let name = self.pokemonArrayFiltered[indexPath.item]?.name {
+                                newFav.name = name.capitalizingFirstLetter()
+                            }
+                            if let url = self.pokemonArrayFiltered[indexPath.item]?.url {
+                                newFav.pokedexID = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                                let id = Int(url.split(separator: "/").last!)!
+                                newFav.id = Int64(id)
+                                let imageCode = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                                newFav.image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(imageCode).png"
+                                newFav.isFav = false
+                            }
+                            try context.save()
+                        } else {
+                            self.showAlert(title: "Already Exists", message: "You have already favourited this Pokemon")
+                        }
+                    } catch {
+                        print("Error saving context \(error)")
                     }
-                } catch {
-                    print("Error saving context \(error)")
+                    
+                    visualEffectView.removeFromSuperview()
                 }
                 
-                visualEffectView.removeFromSuperview()
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+                    visualEffectView.removeFromSuperview()
+                }
+                view.addSubview(visualEffectView)
+                alert.addAction(action)
+                alert.addAction(cancel)
+                present(alert, animated: true, completion: nil)
             }
-            
-            let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
-                visualEffectView.removeFromSuperview()
+        } else {
+            if let indexPath = collectionView?.indexPathForItem(at: p) {
+                let blurEffect = UIBlurEffect(style: .light)
+                let visualEffectView = UIVisualEffectView(effect: blurEffect)
+                visualEffectView.frame = view.frame
+                let alert = UIAlertController(title: "Add \(pokemonsViewModel.pokemons?.results?[indexPath.item].name!.capitalizingFirstLetter() ?? "Pokemon") to Favourites?", message: "", preferredStyle: .alert)
+                alert.view.accessibilityIdentifier = "AddingAlert"
+                let action = UIAlertAction(title: "Add Pokemon", style: .default) { (action) in
+                    
+                    do {
+                        self.loadPokemon()
+                        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+                        let request : NSFetchRequest<Favourites> = Favourites.fetchRequest()
+                        if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
+                            let id = Int(url.split(separator: "/").last!)!
+                            request.predicate = NSPredicate(format: "id == %d", id)
+                        }
+                        let numberOfID = try context.count(for: request)
+                        if numberOfID == 0 {
+                            let newFav = Favourites(context: context)
+                            if let name = self.pokemonsViewModel.pokemons?.results?[indexPath.item].name {
+                                newFav.name = name.capitalizingFirstLetter()
+                            }
+                            if let url = self.pokemonsViewModel.pokemons?.results?[indexPath.item].url {
+                                newFav.pokedexID = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                                let id = Int(url.split(separator: "/").last!)!
+                                newFav.id = Int64(id)
+                                let imageCode = String(format: "%03d", Int(url.split(separator: "/").last!)!)
+                                newFav.image = "https://assets.pokemon.com/assets/cms2/img/pokedex/full/\(imageCode).png"
+                                newFav.isFav = false
+                            }
+                            try context.save()
+                        } else {
+                            self.showAlert(title: "Already Exists", message: "You have already favourited this Pokemon")
+                        }
+                    } catch {
+                        print("Error saving context \(error)")
+                    }
+                    
+                    visualEffectView.removeFromSuperview()
+                }
+                
+                let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (cancel) in
+                    visualEffectView.removeFromSuperview()
+                }
+                view.addSubview(visualEffectView)
+                alert.addAction(action)
+                alert.addAction(cancel)
+                present(alert, animated: true, completion: nil)
             }
-            view.addSubview(visualEffectView)
-            alert.addAction(action)
-            alert.addAction(cancel)
-            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -434,30 +430,13 @@ extension PokedexController: UISearchBarDelegate {
         collectionView?.reloadData()
     }
     
-    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-    //        if searchText == "" || searchBar.text == nil {
-    //            searchActive = false
-    //            collectionView?.reloadData()
-    //            view.endEditing(true)
-    //        } else {
-    //            searchActive = true
-    //            if let poke = self.pokemonsViewModel.pokemons?.results {
-    //                for item in poke {
-    //                    let name = item.name!.lowercased()
-    //                    if ((name.contains(searchText.lowercased()))) {
-    //                        pokemonArrayFiltered.append(item)
-    //                    }
-    //                    print(name)
-    //                    print(searchBar.text!.lowercased())
-    //                }
-    //            }
-    //            collectionView?.reloadData()
-    //        }
-    //    }
-    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         pokemonArrayFiltered.removeAll()
-        if !searchBar.text!.isEmpty {
+        if (searchBar.text!.isEmpty) {
+            searchActive = false
+            collectionView?.reloadData()
+            view.endEditing(true)
+        } else {
             searchActive = true
             if let poke = pokemonsViewModel.pokemons?.results {
                 for item in poke {
@@ -467,16 +446,10 @@ extension PokedexController: UISearchBarDelegate {
                     }
                 }
             }
-            if (searchBar.text!.isEmpty) {
-                searchActive = false
-                collectionView?.reloadData()
-            }
-        } else {
-            searchActive = false
-            isFinalToLoad = false
+            collectionView?.reloadData()
         }
-        self.collectionView?.reloadData()
     }
+    
 }
 
 // MARK: - Collection View 2 Cells Per Row Setup
