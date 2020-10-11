@@ -1,19 +1,26 @@
-name: Swift
+name: Pokendex
 
 on:
   push:
     branches: [ master ]
   pull_request:
     branches: [ master ]
-
+    
 jobs:
-  build:
-
-    runs-on: macos-latest
-
+  test:
+    name: Test
+    runs-on: macOS-latest
+    strategy:
+      matrix:
+        destination: ['platform=iOS Simulator,OS=13.1,name=iPhone 8']
     steps:
-    - uses: actions/checkout@v2
-    - name: Build
-      run: swift build -v
-    - name: Run tests
-      run: swift test -v
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Testing
+        run: |
+          cd PokenDex
+          xcodebuild clean test -project PokenDex.xcworkspace -scheme ProjectName -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
+        env: 
+           destination: ${{ matrix.destination }}
+           CODECOV_TOKEN: ${{ secrets.codecov_token }}
