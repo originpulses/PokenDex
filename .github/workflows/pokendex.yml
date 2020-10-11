@@ -18,8 +18,7 @@ jobs:
         uses: actions/checkout@master
       - name: Testing
         run: |
-          cd PokenDex
-          xcodebuild clean test -project PokenDex.xcodeproj -scheme PokenDex -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
+          xcodebuild clean test -project PokenDex.xcworkspace -scheme PokenDex -destination "${destination}" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO ONLY_ACTIVE_ARCH=NO
           bash <(curl -s https://codecov.io/bash) -t "${CODECOV_TOKEN}"
         env: 
            destination: ${{ matrix.destination }}
