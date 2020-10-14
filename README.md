@@ -6,10 +6,16 @@
 
 <br>
 
-## Instructions
-- Please make sure you launch the app through ```workspace``` file not the ```project``` file
-- The app has been made with Swift 4 on Xcode 10.3. So the environment has to be the same for it to work without any errors and warnings
-- The app has been made for just iPhones and not iPads
+## RMIT University - Semester Long Project
+- A semester long project for RMIT University's course ```iPhone Software Engineering```
+- This project will be further developed and will be posted to Apple AppStore with more features
+- Upcoming features will not be added to this repository. This repository is just to highlight on my projects.
+
+## Upcoming Features
+- Adding a further trained model to identify all 800+ Pokemon
+- Adding in more features in Pokemon Details such as evolutions, abilities etc
+- Adding in Mega Evolutions and Dynamax (Gigantamax) Forms (Paid Feature in the app)
+- Overall Improved App UI on all scenes
 
 <br>
 
