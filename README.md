@@ -14,7 +14,7 @@
 ## Upcoming Features
 - Adding a further trained model to identify all 800+ Pokemon
 - Adding in more features in Pokemon Details such as evolutions, abilities etc
-- Adding in Mega Evolutions and Dynamax (Gigantamax) Forms (Paid Feature in the app)
+- Adding in Mega Evolutions and Dynamax (Gigantamax) Forms [Paid Feature in the app]
 - Overall Improved App UI on all scenes
 
 <br>
