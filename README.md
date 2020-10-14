@@ -9,7 +9,7 @@
 ## RMIT University - Semester Long Project
 - A semester long project for RMIT University's course ```iPhone Software Engineering```
 - This project will be further developed and will be posted to Apple AppStore with more features
-- Upcoming features will not be added to this repository. This repository is just to highlight on my projects.
+- Upcoming features will not be added to this repository. This repository is just a highlight to the projects I've made.
 
 ## Upcoming Features
 - Adding a further trained model to identify all 800+ Pokemon
